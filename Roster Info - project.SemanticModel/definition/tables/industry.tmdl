@@ -1,0 +1,25 @@
+table industry
+	lineageTag: 79f8de25-45fd-4686-ab17-fc80a43575ac
+
+	column industry
+		dataType: string
+		lineageTag: 65f30805-ffe2-44de-841a-d6e155c759c8
+		summarizeBy: none
+		sourceColumn: industry
+
+		annotation SummarizationSetBy = Automatic
+
+	partition industry = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WcirIV4rViVZyyc9NLS7JTAZz3NPAlG9iUXZqSWZeOpgXkpqcoRQbCwA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [segmentation = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"segmentation", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"segmentation", "industry"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

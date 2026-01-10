@@ -1,0 +1,158 @@
+table main_accounts
+	lineageTag: f4234d98-83a6-4af4-bcdf-544d5c704e8d
+
+	measure Max_id = MAX(roster_and_nnb[segmentation_id])
+		formatString: 0
+		lineageTag: 2f4707a2-0b6d-4a4e-83ea-80742571e437
+
+	column 'Account Name'
+		dataType: string
+		lineageTag: 7f2ed9f3-4aad-4d24-ad25-b0c555a9d990
+		summarizeBy: none
+		sourceColumn: Account Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column headcount
+		dataType: int64
+		formatString: 0
+		lineageTag: f6c9acfb-119c-4ec7-9691-7955fcb35978
+		summarizeBy: sum
+		sourceColumn: headcount
+
+		annotation SummarizationSetBy = Automatic
+
+	column hubspot_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 50e64d94-10bf-49be-8cd5-89dc564f7ec2
+		summarizeBy: count
+		sourceColumn: hubspot_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Branch
+		dataType: string
+		lineageTag: dbe6863a-da67-429e-b19c-3476169d2369
+		summarizeBy: none
+		sourceColumn: Branch
+
+		annotation SummarizationSetBy = Automatic
+
+	column segmentation_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 3cbf6a3c-d03b-480c-b7c5-8d6edf9f1dde
+		summarizeBy: none
+		sourceColumn: segmentation_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Line'
+		dataType: string
+		lineageTag: a5f85644-651f-4fbd-930e-2ce913ec0628
+		summarizeBy: none
+		sourceColumn: Service Line
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: d4fffe8e-964d-4567-a424-7784e36615f1
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column aniversary_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3d93b544-40d7-4836-9cad-591bcf446c66
+		summarizeBy: none
+		sourceColumn: aniversary_date
+
+		variation Variation
+			isDefault
+			relationship: 9cb16ec3-2743-4f93-a8bd-97627c46f00d
+			defaultHierarchy: LocalDateTable_dbbe3bab-2788-4c71-bd70-ddc7a45f6663.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Enterprise date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: feb623b9-136d-49a5-be45-c8e29ee8d437
+		summarizeBy: none
+		sourceColumn: Enterprise date
+
+		variation Variation
+			isDefault
+			relationship: 42e6dd22-4d26-497e-a597-1d97ab4c5a0b
+			defaultHierarchy: LocalDateTable_90105817-fc68-45b7-b7a9-1eab2eef8125.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column churn_finance
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 54602881-7a60-4029-afaf-d97bcb27d976
+		summarizeBy: none
+		sourceColumn: churn_finance
+
+		variation Variation
+			isDefault
+			relationship: 8832fb9b-c675-4d1e-9e5f-466ad9a849ea
+			defaultHierarchy: LocalDateTable_90bc5733-a595-4466-b908-27aa4e8f37a1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'HC Rank' = CALCULATE(COUNTROWS(roster_and_nnb), ALLEXCEPT(roster_and_nnb,main_accounts[segmentation_id]))
+		formatString: 0
+		lineageTag: d109f1b5-bfb7-47e0-8fb8-a8a4074c677e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Rank' = ```
+			
+			VAR maxId = CALCULATE(MAX(main_accounts[segmentation_id]), REMOVEFILTERS())
+			VAR Tabla1 =
+			    ADDCOLUMNS(
+			        ALLSELECTED(main_accounts),
+			        "_ValorRanking", 
+			        [HC Rank] * maxId + [Max_id]
+			    )
+			VAR ValorActual = 
+			    [HC Rank] * maxId + [Max_id]
+			VAR Resultado =
+			    RANKX(Tabla1, [_ValorRanking], ValorActual, DESC, Dense)
+			RETURN
+			Resultado
+			```
+		formatString: 0
+		lineageTag: 1433cab5-f062-42bc-a299-4ebaa049deb8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition main_accounts = m
+		mode: import
+		queryGroup: Accounts_name
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://perfilesysoluciones.sharepoint.com/sites/PerformanceManagement83/Shared%20Documents/Corporate%20BI/Accounts/Account%20Names%20and%20Finance%20Distribution.xlsx"), null, true),
+				    main_accounts_Table = Source{[Item="main_accounts",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(main_accounts_Table,{{"Account Name", type text}, {"headcount", Int64.Type}, {"hubspot_ID", Int64.Type}, {"Branch", type text}, {"segmentation_ID", Int64.Type}, {"Service Line", type text}, {"Industry", type text}, {"aniversary_date", type date}, {"Enterprise date", type date}, {"churn_finance", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

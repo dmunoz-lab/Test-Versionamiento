@@ -1,0 +1,25 @@
+table service_line
+	lineageTag: 0eb2fc81-30e2-4c24-886b-0c06a6b4254c
+
+	column service_line
+		dataType: string
+		lineageTag: b26068af-7888-4799-8e24-ded8aa1b214d
+		summarizeBy: none
+		sourceColumn: service_line
+
+		annotation SummarizationSetBy = Automatic
+
+	partition service_line = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wcs4vSlVwTE7OL80rUYrViVZyzStJLSooyixOBXODfZ3AtG9iUXZqSWZeOpgXkpqcoRQbCwA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [sub_segmentation = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"sub_segmentation", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"sub_segmentation", "service_line"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

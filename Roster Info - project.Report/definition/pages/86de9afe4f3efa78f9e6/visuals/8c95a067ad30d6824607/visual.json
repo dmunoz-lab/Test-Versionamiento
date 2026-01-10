@@ -1,0 +1,200 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "8c95a067ad30d6824607",
+  "position": {
+    "x": 0,
+    "y": 493.13069908814595,
+    "z": 7000,
+    "height": 226.62613981762919,
+    "width": 714.89361702127667,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "roster_and_nnb"
+                    }
+                  },
+                  "Property": "company"
+                }
+              },
+              "queryRef": "roster_and_nnb.company",
+              "nativeQueryRef": "company"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "roster_and_nnb"
+                    }
+                  },
+                  "Property": "employee"
+                }
+              },
+              "queryRef": "roster_and_nnb.employee",
+              "nativeQueryRef": "employee"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "roster_and_nnb"
+                    }
+                  },
+                  "Property": "identification"
+                }
+              },
+              "queryRef": "roster_and_nnb.identification",
+              "nativeQueryRef": "identification"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "roster_and_nnb"
+                    }
+                  },
+                  "Property": "status"
+                }
+              },
+              "queryRef": "roster_and_nnb.status",
+              "nativeQueryRef": "status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "roster_and_nnb"
+                    }
+                  },
+                  "Property": "service_line"
+                }
+              },
+              "queryRef": "roster_and_nnb.service_line",
+              "nativeQueryRef": "service_line"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "roster_and_nnb"
+                    }
+                  },
+                  "Property": "industry"
+                }
+              },
+              "queryRef": "roster_and_nnb.industry",
+              "nativeQueryRef": "industry"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "roster_and_nnb"
+                  }
+                },
+                "Property": "service_line"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "135.17022302910502D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "roster_and_nnb.company"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "631e97d9cd02d24dd6f0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "roster_and_nnb"
+              }
+            },
+            "Property": "status"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "r",
+              "Entity": "roster_and_nnb",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "r"
+                          }
+                        },
+                        "Property": "status"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Active'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

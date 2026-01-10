@@ -1,0 +1,159 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "e2c7b8c776478278a7b8",
+  "position": {
+    "x": 884.776119402985,
+    "y": 0,
+    "z": 4000,
+    "height": 160.29850746268656,
+    "width": 394.92537313432837,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Substatus"
+                }
+              },
+              "queryRef": "attrition_data.Substatus",
+              "nativeQueryRef": "Substatus",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendar"
+                    }
+                  },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "Dim_Calendar.Month",
+              "nativeQueryRef": "Month",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Employee Name"
+                }
+              },
+              "queryRef": "attrition_data.Employee Name",
+              "nativeQueryRef": "Employee Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Branch"
+                }
+              },
+              "queryRef": "attrition_data.Branch",
+              "nativeQueryRef": "Branch",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Country"
+                }
+              },
+              "queryRef": "attrition_data.Country",
+              "nativeQueryRef": "Country",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Business Unit"
+                }
+              },
+              "queryRef": "attrition_data.Business Unit",
+              "nativeQueryRef": "Business Unit",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Final Date"
+                }
+              },
+              "queryRef": "attrition_data.Final Date",
+              "nativeQueryRef": "Final Date",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "turnover_data"
+                        }
+                      },
+                      "Property": "ID Number"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Min(attrition_data.ID Number)",
+              "nativeQueryRef": "Count of ID Number1"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

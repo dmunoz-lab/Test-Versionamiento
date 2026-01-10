@@ -1,0 +1,568 @@
+relationship e1fe634d-ef01-4bff-bf99-7dfab61152c8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: roster_historical.'Last Status Date'
+	toColumn: LocalDateTable_5559e853-9273-4547-8b50-193b4d3aee64.Date
+
+relationship 2986b99b-61b2-4b0c-bbd7-68789ba44401
+	joinOnDateBehavior: datePartOnly
+	fromColumn: roster_historical.'Active Date'
+	toColumn: LocalDateTable_682f3d16-597e-4376-91ae-072a21e04393.Date
+
+relationship e5f787d6-8287-49d2-8e14-c7139f4c5548
+	joinOnDateBehavior: datePartOnly
+	fromColumn: roster_historical.'Last Status Date2'
+	toColumn: LocalDateTable_4f355f0c-1ba5-4345-b66f-9572010bf464.Date
+
+relationship 4d9f68b7-9378-4a77-8019-113a54e162e0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: roster_historical.Birthday
+	toColumn: LocalDateTable_0c9a195d-4836-49aa-ba55-b188ee7ed289.Date
+
+relationship affbc38e-04c5-472f-ae06-ba57bf16987c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: roster_historical.'Temporal Entry Date'
+	toColumn: LocalDateTable_6b13cf1f-dfb8-4153-8fa2-033e9298a568.Date
+
+relationship f7955a90-579a-4680-b133-c7290af7aa20
+	joinOnDateBehavior: datePartOnly
+	fromColumn: roster_historical.'Entry Date'
+	toColumn: LocalDateTable_ef02becf-1a8a-46a8-8370-cd35e183663e.Date
+
+relationship AutoDetected_3c487dd2-1c60-41ca-aa28-1e4d33f7b55b
+	fromColumn: upsells.roster_ID
+	toColumn: roster_account_name.roster_ID
+
+relationship AutoDetected_fab1ffbb-6150-4c55-a319-b5d51e37f6fd
+	fromColumn: downsells.roster_ID
+	toColumn: roster_account_name.roster_ID
+
+relationship AutoDetected_a552643c-507d-4a38-8e44-50b525503e42
+	fromColumn: upsells.roster_vs_invoice_ID
+	toColumn: customer_segmentation.roster_vs_invoice_ID
+
+relationship AutoDetected_c95aff85-35c5-4d2d-a457-92e5222bee42
+	fromColumn: downsells.roster_vs_invoice_ID
+	toColumn: customer_segmentation.roster_vs_invoice_ID
+
+relationship AutoDetected_f8938b1c-8e5e-4b16-9df6-80c73033f39a
+	fromColumn: upsells.roster_vs_invoice_ID
+	toColumn: finance_accounts_name.roster_vs_invoice_ID
+
+relationship AutoDetected_3961efe9-227c-490b-80ad-581bfa791daa
+	fromColumn: downsells.roster_vs_invoice_ID
+	toColumn: finance_accounts_name.roster_vs_invoice_ID
+
+relationship AutoDetected_b4a77fa3-d752-4621-8505-3e8d22d4b913
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: branch_country.branch
+	toColumn: branch.branch
+
+relationship AutoDetected_16629975-4a62-4bb2-be3d-f243b2d82570
+	fromColumn: branch_country.country
+	toColumn: country.country
+
+relationship AutoDetected_db2b8c99-8752-4a7a-9d03-06c963cc89b6
+	fromColumn: upsells.'Billing Cycle'
+	toColumn: billing_cycle.billing_cycle
+
+relationship AutoDetected_afee4cda-ae49-452c-8e7d-e8fcaf606a55
+	fromColumn: downsells.'Billing Cycle'
+	toColumn: billing_cycle.billing_cycle
+
+relationship b1b6cc09-9c14-af92-dd2c-dd39a2de7892
+	fromColumn: roster_historical.Office
+	toColumn: workplace.workplace
+
+relationship f2d85d13-5d0d-efd2-e58f-0baa03aeac11
+	fromColumn: upsells.Workplace
+	toColumn: workplace.workplace
+
+relationship f369250b-1587-b6e8-f042-26cf9e194869
+	fromColumn: downsells.Workplace
+	toColumn: workplace.workplace
+
+relationship 0336ccd6-9a5c-b486-3398-a533a2dd7592
+	fromColumn: upsells.Branch
+	toColumn: branch_country.branch
+
+relationship 21503a4b-44eb-e634-583b-f6c31f3715aa
+	fromColumn: downsells.Branch
+	toColumn: branch_country.branch
+
+relationship 6661b0e6-246d-37e1-97d0-8e0df1565b95
+	fromColumn: roster_historical.'Business Unit'
+	toColumn: business_unit.business_unit
+
+relationship 549d1ed3-2102-b968-287c-5e69017fac22
+	fromColumn: upsells.'Next Business Unit'
+	toColumn: business_unit.business_unit
+
+relationship b2b1e860-cfac-7c56-cefb-0e70a6801b5f
+	fromColumn: downsells.'Previous Business Unit'
+	toColumn: business_unit.business_unit
+
+relationship 161f5d70-bc71-44ba-9f87-ad3a25789f2d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: support_staff.Date
+	toColumn: LocalDateTable_28c30816-2813-41f1-8a66-9e19c0d31349.Date
+
+relationship afb7a590-7dfb-b4a3-0215-7d08d7c510a6
+	fromColumn: turnover_data.Office
+	toColumn: workplace.workplace
+
+relationship 810e7374-001f-4cc1-86bd-13d00a7b7391
+	joinOnDateBehavior: datePartOnly
+	fromColumn: upsells.'Finance Report'
+	toColumn: LocalDateTable_cf127d9c-7d38-44f0-86d2-05e98de9cf86.Date
+
+relationship 1241a124-3466-468e-8ec2-bee39b1f4003
+	joinOnDateBehavior: datePartOnly
+	fromColumn: downsells.'Finance report'
+	toColumn: LocalDateTable_73d6b424-126d-4e9d-b645-027da59f195e.Date
+
+relationship 6a32abd0-27d3-10ce-1f63-1c6aa6acdd25
+	fromColumn: turnover_data.Branch
+	toColumn: branch_country.branch
+
+relationship 2ffa1cd2-c096-9f25-38ea-b66e06915935
+	fromColumn: turnover_data.'Business Unit'
+	toColumn: business_unit.business_unit
+
+relationship AutoDetected_c84a7dc2-362a-456a-bd5d-6bba625acaf8
+	fromColumn: roster_historical.Industry
+	toColumn: industry.industry
+
+relationship 0dbb48f2-06f0-bf97-a332-657f14066c17
+	fromColumn: roster_historical.'Service Line'
+	toColumn: service_line.service_line
+
+relationship e2a22e7e-0c19-a27a-9338-8b96a8408e81
+	fromColumn: turnover_data.roster_vs_invoice_ID
+	toColumn: finance_accounts_name.roster_vs_invoice_ID
+
+relationship 715f3776-0803-9c07-66f5-e0a54585c16d
+	fromColumn: downsells.Industry
+	toColumn: industry.industry
+
+relationship d7a28641-e7fc-5396-ad24-ce0e4ffd6330
+	fromColumn: upsells.Industry
+	toColumn: industry.industry
+
+relationship 2f85b696-172b-6631-1f79-ab5029418b04
+	fromColumn: roster_historical.roster_vs_invoice_ID
+	toColumn: finance_accounts_name.roster_vs_invoice_ID
+
+relationship 9cb16ec3-2743-4f93-a8bd-97627c46f00d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: main_accounts.aniversary_date
+	toColumn: LocalDateTable_dbbe3bab-2788-4c71-bd70-ddc7a45f6663.Date
+
+relationship 42e6dd22-4d26-497e-a597-1d97ab4c5a0b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: main_accounts.'Enterprise date'
+	toColumn: LocalDateTable_90105817-fc68-45b7-b7a9-1eab2eef8125.Date
+
+relationship 8832fb9b-c675-4d1e-9e5f-466ad9a849ea
+	joinOnDateBehavior: datePartOnly
+	fromColumn: main_accounts.churn_finance
+	toColumn: LocalDateTable_90bc5733-a595-4466-b908-27aa4e8f37a1.Date
+
+relationship 91410c6f-9f30-74b5-65de-ff537f8851b0
+	fromColumn: turnover_data.segmentation_ID
+	toColumn: main_accounts.segmentation_ID
+
+relationship c6ac0b85-51b9-edb8-6492-523a4341c903
+	fromColumn: roster_historical.Segmentation_ID
+	toColumn: main_accounts.segmentation_ID
+
+relationship AutoDetected_b4f9567d-8a13-4710-84b6-bbe12b5b0715
+	fromColumn: service_line_historical.'Service Line'
+	toColumn: service_line.service_line
+
+relationship AutoDetected_7973edfe-878e-44ae-9ee6-e9f357bb8c0d
+	fromColumn: service_line_historical.Segmentation_ID
+	toColumn: main_accounts.segmentation_ID
+
+relationship eeae78c1-1d84-425d-9eb7-cefb4b35268d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: service_line_historical.Date
+	toColumn: LocalDateTable_afbecd38-9c7b-4348-9378-5a4d18ef829b.Date
+
+relationship f5403ec7-652c-68dd-7bf4-47f5e5ad8505
+	fromColumn: Attrition.Segmentation_ID
+	toColumn: main_accounts.segmentation_ID
+
+relationship 8e767a1a-442c-8cf4-206e-1d86cf03548b
+	fromColumn: Attrition.'Business Unit'
+	toColumn: business_unit.business_unit
+
+relationship 775d6622-8777-bd60-2117-4e232c1b6d15
+	fromColumn: Attrition.'Service Line'
+	toColumn: service_line.service_line
+
+relationship 8a6246ac-29f4-a30a-1e2d-3acbdcbccafc
+	fromColumn: Attrition.Industry
+	toColumn: industry.industry
+
+relationship 6370d60f-a0b9-a60f-34b0-1457423c267c
+	fromColumn: Attrition.Branch
+	toColumn: branch_country.branch
+
+relationship eb543ed9-ef75-1b72-482e-0dfa7736ef88
+	fromColumn: roster_historical.Branch
+	toColumn: branch_country.branch
+
+relationship 652166aa-cf90-c4a8-e8c7-94df6a6310a9
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Dim_Calendar.Date
+	toColumn: support_staff.Date
+
+relationship 6d1d3d05-b6ca-ab5d-43e3-c21553c0f36e
+	fromColumn: upsells.'Effective Date'
+	toColumn: Dim_Calendar.Date
+
+relationship c14bc9da-48df-455e-c0e3-3282a2bb2d72
+	fromColumn: downsells.'Effective Date'
+	toColumn: Dim_Calendar.Date
+
+relationship d2504a5a-fd3c-5110-a3f7-a97051bb77c6
+	fromColumn: roster_historical.'Roster date'
+	toColumn: Dim_Calendar.Date
+
+relationship 2c5bc765-b055-3e18-a805-428db6ebb592
+	fromColumn: aging.Date
+	toColumn: Dim_Calendar.Date
+
+relationship 2b0e52a8-995b-32ca-dd0f-7365b2c82a7f
+	fromColumn: turnover_data.'Final Date'
+	toColumn: Dim_Calendar.Date
+
+relationship 9f490973-27bf-71d0-4074-44213a7d4bff
+	fromColumn: Attrition.Date
+	toColumn: Dim_Calendar.Date
+
+relationship 597201dc-155a-db29-9395-3e21dfed5787
+	fromColumn: turnover_data.Industry
+	toColumn: industry.industry
+
+relationship 6f72f94a-c51b-295f-99cc-462375e35cd9
+	fromColumn: turnover_data.'Service Line'
+	toColumn: service_line.service_line
+
+relationship 4383ab0a-00d6-867b-43f0-c0ca1d1e3c5c
+	fromColumn: upsells.segmentation_ID
+	toColumn: main_accounts.segmentation_ID
+
+relationship 5a9074d0-6c4f-736f-439c-da9f26d8c6bb
+	fromColumn: downsells.segmentation_ID
+	toColumn: main_accounts.segmentation_ID
+
+relationship AutoDetected_85440822-c8ab-4219-8b5f-61f5e66208c3
+	fromColumn: zero_revenue.roster_vs_invoice_ID
+	toColumn: finance_accounts_name.roster_vs_invoice_ID
+
+relationship AutoDetected_1eae5ad3-53b0-44a0-a659-667094de20b8
+	fromColumn: zero_revenue.roster_ID
+	toColumn: roster_account_name.roster_ID
+
+relationship AutoDetected_dabb911c-51fd-4717-9c11-618be86c6621
+	fromColumn: zero_revenue.segmentation_ID
+	toColumn: main_accounts.segmentation_ID
+
+relationship AutoDetected_7795a9f5-f3b5-4b35-8ec4-c7746bb9b823
+	fromColumn: zero_revenue.Industry
+	toColumn: industry.industry
+
+relationship b9b0d8c3-c17a-3071-2fe3-b36e488afe95
+	fromColumn: upsells.'Service Line'
+	toColumn: service_line.service_line
+
+relationship 688c2988-47c0-1bb6-7c37-e804df8549c1
+	fromColumn: downsells.'Service Line'
+	toColumn: service_line.service_line
+
+relationship 7f8bb5af-931f-e739-2aae-b27d7b3630a2
+	fromColumn: zero_revenue.Branch
+	toColumn: branch_country.branch
+
+relationship 54e88eaa-be61-53d8-5601-1827a0fec0e5
+	fromColumn: zero_revenue.'Service Line'
+	toColumn: service_line.service_line
+
+relationship ef5e7134-5bc4-0fd5-b492-8cd985f75c42
+	fromColumn: upsells.Division
+	toColumn: divisions.Divisions
+
+relationship 3a06adce-6b69-f0e2-0b1f-125a46a628f9
+	fromColumn: downsells.Division
+	toColumn: divisions.Divisions
+
+relationship 3c0bf500-a74c-5f32-a2f5-65d71410ee7b
+	fromColumn: roster_historical.Division
+	toColumn: divisions.Divisions
+
+relationship 81acf82c-ad9f-414b-5286-56e3a7100232
+	fromColumn: turnover_data.Division
+	toColumn: divisions.Divisions
+
+relationship 33c92f99-dfcf-0bcc-1145-cef623900fbc
+	fromColumn: zero_revenue.Date
+	toColumn: Dim_Calendar.Date
+
+relationship ac0bd8f6-9b14-f2d1-e304-112509bb19f8
+	fromColumn: Attrition.Division
+	toColumn: divisions.Divisions
+
+relationship AutoDetected_2b530fff-cb84-4934-a9cf-306e4e079799
+	fromColumn: SCR_finance.roster_vs_invoice_ID
+	toColumn: finance_accounts_name.roster_vs_invoice_ID
+
+relationship AutoDetected_c68d8561-c837-4d47-bd0e-83a251c858d7
+	fromColumn: SCR_finance.'Business Unit'
+	toColumn: business_unit.business_unit
+
+relationship AutoDetected_6c9a0d6b-4586-437b-8275-13d6d84309bb
+	fromColumn: SCR_finance.segmentation_ID
+	toColumn: main_accounts.segmentation_ID
+
+relationship 57ade8dc-4a26-d54c-eb49-92fe7dec6f05
+	fromColumn: SCR_finance.Division
+	toColumn: divisions.Divisions
+
+relationship bd343bff-cc6c-1fcb-9cc9-e7c2d8c4d27e
+	fromColumn: SCR_finance.Industry
+	toColumn: industry.industry
+
+relationship 086cbc1f-08e7-fccd-22a4-1583d5926d45
+	fromColumn: SCR_finance.'Service Line'
+	toColumn: service_line.service_line
+
+relationship 9adcf5ed-8b6e-e692-0f62-d9652311e0f3
+	fromColumn: zero_revenue.Division
+	toColumn: divisions.Divisions
+
+relationship 11862f20-93fc-c5f5-5fbc-20c6c24d6df7
+	fromColumn: SCR_finance.Date
+	toColumn: Dim_Calendar.Date
+
+relationship 9eadcd02-9a29-2a73-cbdc-2f60e723fdc6
+	fromColumn: SCR_finance.Branch
+	toColumn: branch_country.branch
+
+relationship e5ad186f-f461-2e3d-1d24-5901b3c09d47
+	fromColumn: SCR_finance_branch_summary.'Billing Cycle'
+	toColumn: billing_cycle.billing_cycle
+
+relationship 8b810bf1-97a1-3b91-4150-e03483e81166
+	fromColumn: SCR_finance_branch_summary.Industry
+	toColumn: industry.industry
+
+relationship f30f883e-20f1-5c46-baa6-7329f1dd1414
+	fromColumn: SCR_finance_branch_summary.'Finance Report'
+	toColumn: Dim_Calendar.Date
+
+relationship 030c1db9-0a40-c488-c9d9-c8f8bc708774
+	fromColumn: SCR_finance_branch_summary.Branch
+	toColumn: branch_country.branch
+
+relationship 09ac4200-2202-d36d-df5d-f5417a96469d
+	fromColumn: SCR_finance_branch_summary.Segmentation_ID
+	toColumn: main_accounts.segmentation_ID
+
+relationship 1d2b0610-0625-55e8-3dd5-674252558842
+	fromColumn: SCR_finance_branch_summary.roster_vs_invoice_ID
+	toColumn: finance_accounts_name.roster_vs_invoice_ID
+
+relationship 21aa26f5-9123-48a4-9631-8fce02daee29
+	fromColumn: SCR_finance_branch_summary.'Service Line'
+	toColumn: service_line.service_line
+
+relationship AutoDetected_579985a7-d873-4bbc-9446-4f092c4f5457
+	fromColumn: roster_historical.Status
+	toColumn: status.Status
+
+relationship AutoDetected_0032ffc0-1b27-44f7-af9b-32e44491001a
+	fromColumn: zero_revenue.Status
+	toColumn: status.Status
+
+relationship 574ea334-c06e-358c-4acb-dc9679a6e9c7
+	isActive: false
+	fromColumn: customer_segmentation.segmentation_ID
+	toColumn: main_accounts.segmentation_ID
+
+relationship AutoDetected_29ac0992-b84c-4bbb-87b0-5862b8503d38
+	fromColumn: turnover_data.'Status 259'
+	toColumn: status.Status
+
+relationship cb9cf25b-d0ff-4fe9-9a49-8818bb0ab983
+	joinOnDateBehavior: datePartOnly
+	fromColumn: LIVE_ROSTER.ACTIVE_DATE
+	toColumn: LocalDateTable_3f0bb075-07f0-46c3-95f2-55b138cacb8a.Date
+
+relationship b6f4ad8e-7d81-4a9d-a5b4-ffd335c69a84
+	joinOnDateBehavior: datePartOnly
+	fromColumn: LIVE_ROSTER.ASSIGNED_DATE
+	toColumn: LocalDateTable_564cbb58-93c7-4749-a818-e9daeed96c00.Date
+
+relationship 3b109881-7c89-4e12-826b-88512aadbddb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: LIVE_ROSTER.DEACTIVATED_DATE
+	toColumn: LocalDateTable_4f90e251-1df0-4c73-80ce-3a0fb71e9e88.Date
+
+relationship 330aa7bf-962b-49f1-a283-7ba4c881dc78
+	joinOnDateBehavior: datePartOnly
+	fromColumn: LIVE_ROSTER.END_OF_6_MONTH
+	toColumn: LocalDateTable_e59c536b-20a6-4320-8ccd-9bc205ee3bbf.Date
+
+relationship f1086640-96b1-4c0a-ac11-c30d19d958d9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: LIVE_ROSTER.END_OF_1_YEAR
+	toColumn: LocalDateTable_14fd51b6-49ab-4eb8-9d0f-0732657faca9.Date
+
+relationship AutoDetected_26b9bd99-dbbd-42af-8b6a-3bc63a5fc9ba
+	fromColumn: LIVE_ROSTER.status
+	toColumn: status.Status
+
+relationship AutoDetected_82b1ad34-3502-40b4-ab38-9078263ba7cd
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: NNB.identification
+	toColumn: LIVE_ROSTER.identification
+
+relationship a2d1242e-a083-4bcb-b7c0-8e819704e105
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ROSTER_AND_NNB2.active_date
+	toColumn: LocalDateTable_eb8ceaf9-5c1f-484e-af60-46d5379c22c6.Date
+
+relationship cb2867c6-c0b2-4e07-9e82-9166caec9136
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ROSTER_AND_NNB2.assigned_date
+	toColumn: LocalDateTable_8b4dd6f7-7a71-4734-bcb9-6506cec1049d.Date
+
+relationship 6118ee8e-4595-423f-8e1d-0c3c9e5d5b89
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ROSTER_AND_NNB2.deactived_date
+	toColumn: LocalDateTable_2a66144b-2183-48a3-b460-f3fb5be2b9aa.Date
+
+relationship 6c874bcd-270b-4bb4-8f59-e6fdc40cb5e8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ROSTER_AND_NNB2.end_of_6_month
+	toColumn: LocalDateTable_9ced2312-6ae6-40f1-9696-5aacd55cc24c.Date
+
+relationship 418a7680-010a-434c-a276-914b10bf929a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ROSTER_AND_NNB2.end_of_1_year
+	toColumn: LocalDateTable_e2c55158-97b0-4fbe-8e70-3753d5f7ba9e.Date
+
+relationship AutoDetected_f97c34c2-f2f6-40c8-a6ab-0cc2d6015943
+	fromColumn: ROSTER_AND_NNB2.roster_vs_invoice_ID
+	toColumn: customer_segmentation.roster_vs_invoice_ID
+
+relationship AutoDetected_6c860b94-453f-490b-82dc-c635028f200d
+	fromColumn: LIVE_ROSTER.business_unit
+	toColumn: business_unit.business_unit
+
+relationship AutoDetected_f99c3b32-d4e2-4fd6-b040-3fb2d7c80bc6
+	fromColumn: ROSTER_AND_NNB2.business_unit
+	toColumn: business_unit.business_unit
+
+relationship AutoDetected_4131f857-7937-468c-acf4-fc7a151d895d
+	fromColumn: LIVE_ROSTER.business_unit
+	toColumn: finance_accounts_name.business_unit
+
+relationship AutoDetected_f21805c4-a5f9-4799-897f-1a747a8aae67
+	fromColumn: NNB.status
+	toColumn: status.Status
+
+relationship AutoDetected_b8847211-5a01-4c14-a479-852c362c4143
+	fromColumn: ROSTER_AND_NNB2.status
+	toColumn: status.Status
+
+relationship AutoDetected_ca9d87b0-9219-4e74-b44a-c8712e24c853
+	fromColumn: ROSTER_AND_NNB2.industry
+	toColumn: industry.industry
+
+relationship AutoDetected_cac28125-445e-4838-bf3c-7c88c50f13f3
+	isActive: false
+	fromColumn: ROSTER_AND_NNB2.personal_email
+	toColumn: LIVE_ROSTER.PERSONAL_EMAIL
+
+relationship 37676fbb-613b-b9b7-46f2-c84fc6cec9da
+	fromColumn: ROSTER_AND_NNB2.service_line
+	toColumn: service_line.service_line
+
+relationship 7485d8cf-28e1-2fe5-dcfc-9647aa77df35
+	fromColumn: ROSTER_AND_NNB2.Division
+	toColumn: divisions.Divisions
+
+relationship 69ccf04a-6940-85ce-89c8-5fb49cb87460
+	fromColumn: ROSTER_AND_NNB2.Branch
+	toColumn: branch_country.branch
+
+relationship 64490e11-7d50-bd7f-09ef-c7ecd0e8b5ea
+	fromColumn: ROSTER_AND_NNB2.segmentation_id
+	toColumn: main_accounts.segmentation_ID
+
+relationship 3c326b52-4017-4121-baa8-2064b6c58508
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Historical_and_Turnover.'Roster date'
+	toColumn: LocalDateTable_806f30dd-b2f0-4934-9b8c-a1a8b0eadd5b.Date
+
+relationship 19bcbfa1-3e3e-44eb-9d53-77a3d242d391
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Historical_and_Turnover.'Last Status Date2'
+	toColumn: LocalDateTable_ef7a0403-c8f9-4f7b-baa1-b365bbbd739b.Date
+
+relationship ccdb4f1d-d039-4c33-b4f8-867d4fcc3952
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Historical_and_Turnover.Birthday
+	toColumn: LocalDateTable_051971ff-f2b1-4dc2-89a7-4397b24d8a47.Date
+
+relationship f07a2824-2055-4b72-a8c2-dfdd9f918bda
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Historical_and_Turnover.'Temporal Entry Date'
+	toColumn: LocalDateTable_4c28aed4-f755-4a45-a123-b39d17777196.Date
+
+relationship b620ac9a-65af-4ad7-ba6a-25fd66d031b7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Historical_and_Turnover.'Entry Date'
+	toColumn: LocalDateTable_2695f737-8498-47d9-8cad-abc1cc976462.Date
+
+relationship 821b6b05-376c-4f08-8aaf-3efb3b31f562
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Historical_and_Turnover.'Final Date'
+	toColumn: LocalDateTable_856d2beb-fdfb-4279-842c-9483f92bb662.Date
+
+relationship AutoDetected_daff7065-7371-4062-b9e4-07f0c1be0820
+	fromColumn: Historical_and_Turnover.Branch
+	toColumn: branch.branch
+
+relationship AutoDetected_4f228f81-23f6-4b1d-a7cb-8753c72399c6
+	fromColumn: Historical_and_Turnover.roster_vs_invoice_ID
+	toColumn: customer_segmentation.roster_vs_invoice_ID
+
+relationship AutoDetected_622339f5-e019-4e44-825e-8fa3e11e6908
+	fromColumn: Historical_and_Turnover.roster_ID
+	toColumn: roster_account_name.roster_ID
+
+relationship AutoDetected_1bf07cbc-b4f0-49c6-985b-272c0dbe6f72
+	fromColumn: Historical_and_Turnover.Status
+	toColumn: status.Status
+
+relationship AutoDetected_107c42b8-5de2-472a-81db-8b08fb1e857d
+	isActive: false
+	fromColumn: Historical_and_Turnover.Country
+	toColumn: country.country
+
+relationship AutoDetected_4c728fad-d391-4d8e-bfe0-29e09bc75433
+	fromColumn: Historical_and_Turnover.Segmentation_ID
+	toColumn: main_accounts.segmentation_ID
+
+relationship AutoDetected_d5c9bfd8-fa63-435f-a0f8-d7dea6f33695
+	isActive: false
+	fromColumn: Historical_and_Turnover.'Employee Name'
+	toColumn: ROSTER_AND_NNB2.employee
+

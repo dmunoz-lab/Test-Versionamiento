@@ -1,0 +1,94 @@
+table calculations_turnover
+	lineageTag: 39066860-6ec8-47c2-b4e5-237919213739
+
+	measure 'Total Turnover' = ```
+			
+			    COALESCE(
+			        COUNTROWS(turnover_data),0
+			    )
+			```
+		formatString: 0
+		lineageTag: abb87f9d-6e0a-46d2-a93b-6e8ae4a2b291
+
+	measure 'Previous Month Turnover' = ```
+			
+			    COALESCE(
+			        CALCULATE(
+			        COUNTROWS(turnover_data),
+			        PREVIOUSMONTH(Dim_Calendar[Date])
+			    ),0)
+			```
+		formatString: 0
+		lineageTag: f3846a36-7c7b-4c89-8e4c-6d16d7344094
+
+	measure 'Variance (turnover)' = ```
+			
+			    IF([Total Turnover]  = 0 && [Previous Month Turnover]  = 0,BLANK(),
+			        IF([Total Turnover] = 0, -1,
+			            ([Total Turnover] - [Previous Month Turnover] ) / [Total Turnover]
+			                )
+			            )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 51074874-b9bf-4581-a21c-33eca084805c
+
+	measure '% Turnover' = ```
+			
+			    COALESCE([Total Turnover] / [Total Active (mnr)],0)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 08f8c499-aa06-4403-8c6b-4041ab3bbc91
+
+	measure 'Previous Month % Turnover' = ```
+			
+			VAR PrevTo = 
+			    CALCULATE(
+			    COUNTROWS(turnover_data),
+			    PREVIOUSMONTH(Dim_Calendar[Date])
+			    )
+			VAR PrevHc =
+			    CALCULATE(
+			    COUNT(roster_historical[ID Number]), roster_historical[status] = "Active",
+			    roster_historical[Cycle] = "30th",
+			    PREVIOUSMONTH(Dim_Calendar[Date])
+			    )
+			
+			RETURN
+			
+			 COALESCE(PrevTo / PrevHc,0)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 0b3c0363-0ae8-4952-80f6-0762e37d3d43
+
+	measure 'Variance (% turnover)' = ```
+			
+			    IF([% Turnover]  = 0 && [Previous Month % Turnover]  = 0,BLANK(),
+			        IF([% Turnover] = 0, -1,
+			            ([% Turnover]  - [Previous Month % Turnover]) / [% Turnover] 
+			                )
+			            )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: bc798448-be56-4ca9-828b-867e88d8568d
+
+	column Column1
+		dataType: string
+		lineageTag: 6e55b646-6598-40b6-a94b-6bb76b4971bd
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calculations_turnover = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

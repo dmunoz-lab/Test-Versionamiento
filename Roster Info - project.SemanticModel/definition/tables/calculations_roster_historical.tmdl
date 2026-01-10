@@ -1,0 +1,69 @@
+table calculations_roster_historical
+	lineageTag: 9cbd0a90-95d7-4928-83e2-05fe4d3afb8a
+
+	measure 'Total Unplaceable' = CALCULATE(COUNT(roster_historical[ID Number]),OR(roster_historical[status] = "Not available",roster_historical[status]  = "Free Floater"))
+		formatString: 0
+		lineageTag: 8f61e0de-c57a-4f7f-aa6a-246ab0232c63
+
+	measure 'Total Placeable' = ```
+			
+			    CALCULATE(DISTINCTCOUNT(roster_historical[ID Number]),OR(OR(OR(roster_historical[status] = "Available",roster_historical[status] = "Profiled"),roster_historical[status] = "Trainee"),roster_historical[status] = "Assigned"))
+			 
+			```
+		formatString: 0
+		lineageTag: 0acd491a-1553-4c6e-9306-d84c10571bd3
+
+	measure 'Current Headcount' = ```
+			
+			    COALESCE(COUNTROWS(roster_historical),
+			            0)
+			```
+		formatString: 0
+		lineageTag: 23d713d1-9589-4d80-bf38-20410c268c5d
+
+	measure 'Previous Month Headcount' = ```
+			
+			        COALESCE(
+			            CALCULATE(
+			            COUNTROWS(roster_historical),
+			            roster_historical[Cycle] = "30th",
+			            PREVIOUSMONTH(Dim_Calendar[Date]))
+			            ,0)
+			```
+		formatString: 0
+		lineageTag: c5603d17-3a07-49e7-abb9-e2ab4a9055b1
+
+	measure 'Variance (historical)' = ```
+			
+			    IF([Current Headcount] = 0 && [Previous Month Headcount] = 0,BLANK(),
+			        IF([Current Headcount] = 0, -1,
+			        ([Current Headcount] - [Previous Month Headcount]) / [Current Headcount]
+			            )
+			        )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: c59434d6-585e-452b-bc2e-86378a93e0be
+
+	measure 'Filter check' = IF(AND([Previous Month Headcount],[Current Headcount])=0,0,1)
+		formatString: 0
+		lineageTag: 28f4e263-33ee-4478-a7d4-7100e5ea7f44
+
+	column Column1
+		dataType: string
+		lineageTag: 258544f8-d1b9-4742-9fe3-92dfff85f711
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calculations_roster_historical = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

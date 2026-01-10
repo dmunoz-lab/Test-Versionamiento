@@ -1,0 +1,85 @@
+table calculations_zrh
+	lineageTag: 50e3fdd3-4e6e-4bac-ae74-2fa2b8ae43f2
+
+	measure 'Total ZRH' = ```
+			
+			    COALESCE(COUNTROWS(zero_revenue),
+			        0)
+			```
+		formatString: 0
+		lineageTag: bb6f8637-a291-418b-8d72-f70e4457e5f2
+
+	measure 'Previous Month ZRH' = ```
+			
+			    COALESCE(
+			        CALCULATE(
+			            COUNTROWS(zero_revenue),
+			            PREVIOUSMONTH(Dim_Calendar[Date])),
+			            0)
+			```
+		formatString: 0
+		lineageTag: 7b0fbe9f-9a04-4684-9169-db7cbf9f70ad
+
+	measure 'Variance (ZRH)' = ```
+			
+			    IF([Total ZRH] = 0 && [Previous Month ZRH] = 0,BLANK(),
+			        IF([Total ZRH] = 0, -1,
+			            ([Total ZRH] - [Previous Month ZRH]) / [Total ZRH]
+			                )
+			            )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 92069eba-124b-40ac-b774-09b3db8141a6
+
+	measure '% ZRH' = ```
+			
+			    COALESCE(
+			        [Total ZRH] / SUM(SCR_finance[Current Net Seats]),
+			        0)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 5deb7850-3417-43f3-81d5-16046dd2a736
+
+	measure 'Previou Month % ZRH' = ```
+			
+			    VAR PrevZrh = 
+			    CALCULATE(
+			    COUNTROWS(zero_revenue),
+			    PREVIOUSMONTH(Dim_Calendar[Date])
+			    )
+			    VAR PrevHC =
+			    CALCULATE(
+			    SUM(SCR_finance[Current Net Seats]),
+			    PREVIOUSMONTH(Dim_Calendar[Date])
+			    )
+			
+			RETURN
+			
+			 COALESCE(PrevZrh / PrevHC,
+			    0)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: a9704887-0789-4928-973f-6a4040c7d351
+
+	column Column1
+		dataType: string
+		lineageTag: f85517e5-6a0d-4f53-86dd-9e4a4a7b09a3
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calculations_zrh = m
+		mode: import
+		queryGroup: ZRH
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

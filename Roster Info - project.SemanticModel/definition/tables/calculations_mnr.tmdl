@@ -1,0 +1,183 @@
+table calculations_mnr
+	lineageTag: 1cfa8027-9baf-403b-aabe-00de3a603112
+
+	measure '2. % Terminated vs. Active (mnr)' = [Total Turnover]  / CALCULATE(COUNT(roster_historical[ID Number]), roster_historical[status] = "Active")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: ed1254c5-0ee9-4f8e-aa15-6fe8d3bccbc3
+
+	measure '2. % Terminated vs. Total (mnr)' = [Total Turnover] / [0. Total HC (mnr)]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 6c8dc483-f5a4-465a-81a5-034d5321d56d
+
+	measure '2. % Bench vs Active (mnr)' = [0. Total Bench (mnr)] / CALCULATE(COUNT(roster_historical[ID Number]), roster_historical[status] = "Active")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: ec179267-713c-4743-9de8-acf886259efc
+
+	measure '0. Total Unplaceable (mnr)' = ```
+			
+			    CALCULATE(COUNT(roster_historical[ID Number]),OR(roster_historical[status] = "Free FLoater",roster_historical[status] = "Not Available"))
+			```
+		formatString: 0
+		lineageTag: 2eaa3c70-d3a2-47c9-b673-4eed92cc5ed7
+
+	measure '2. % Unplaceable vs. Total (mnr)' = [0. Total Unplaceable (mnr)] / [0. Total HC (mnr)]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 265f4851-a88b-4f43-bfba-70b5f1e3513a
+
+	measure '0. Total Number of clients (mnr)' = DISTINCTCOUNTNOBLANK(roster_historical[segmentation_ID])
+		formatString: 0
+		lineageTag: 4b68b239-009f-4aa5-8283-62a85b829475
+
+	measure '0. Total Headcount + terminated (mnr)' = [0. Total Headcount] + COUNT(turnover_data[ID Number])
+		formatString: 0
+		lineageTag: 0eda7234-c6b7-46f6-8992-b7b2cd54fdcd
+
+	measure '2. % Zero Revenue vs. Total (mnr)' = [0. Total Zero Revenue (mnr)] / [0. Total HC (mnr)]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 82088195-2325-4d2e-b196-514137e0a7e7
+
+	measure '0. Total HC (mnr)' = COUNT(roster_historical[ID Number])
+		formatString: 0
+		lineageTag: 537bc9b0-8d8b-4504-a3f9-9d9664624d7d
+
+	measure '0. Total NNB (mnr)' = [0. Total AF (mnr)] +CALCULATE(COUNT(roster_historical[ID Number]), roster_historical[status] = "Offboarding")+ [0. Total Unplaceable (mnr)] + [0. Total Bench (mnr)]
+		formatString: 0
+		lineageTag: fc0e2120-f7d8-4560-ac85-709328965f16
+
+	measure '0. Total Zero Revenue + terminated (mnr)' = [0. Total Zero Revenue (mnr)] +  [Total Turnover]
+		formatString: 0
+		lineageTag: 2ec873e1-b01b-4d68-afca-7eef904ce958
+
+	measure '0. Total Bench (mnr)' = CALCULATE(COUNT(roster_historical[ID Number]),OR(OR(OR(roster_historical[status] = "Assigned",roster_historical[status] = "Available"),roster_historical[status] = "Trainee"),roster_historical[status] = "Profiled"))
+		formatString: 0
+		lineageTag: c9b14a28-2060-4d5e-9282-429c3c6df2d2
+
+	measure '0. Total Zero Revenue (mnr)' = CALCULATE(COUNT(roster_historical[ID Number]),NOT(roster_historical[status] = "Active")) - CALCULATE(COUNT(roster_historical[ID Number]),roster_historical[status] = "Active Floater")
+		formatString: 0
+		lineageTag: a8da795d-d308-45eb-8d27-b593a19313e3
+
+	measure '2. % Zero Revenue vs. Active (mnr) BORRAR' = [0. Total Zero Revenue (mnr)] / CALCULATE(COUNT(roster_historical[ID Number]), roster_historical[status] = "Active")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 4adcd645-d989-49cc-95d7-e0e38df23ab3
+
+	measure '2. % Zero Revenue vs. Active + terminated (mnr)' = [0. Total Zero Revenue + terminated (mnr)] / CALCULATE(COUNT(roster_historical[ID Number]), roster_historical[status] = "Active")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: c152da39-e909-42ba-bff1-696f6bd486de
+
+	measure '2. % Zero Revenue vs. Total + terminated (mnr)' = [0. Total Zero Revenue + terminated (mnr)] / [0. Total HC (mnr)]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3fd9cfe3-c374-4e01-b78c-2f5f69c748ad
+
+	measure '2. % Bench vs Total (mnr)' = [0. Total Bench (mnr)] / [0. Total HC (mnr)]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f49ca807-301a-4ec1-abe6-698b6755cd64
+
+	measure '2. % Unplaceable vs. Active (mnr)' = [0. Total Unplaceable (mnr)] / CALCULATE(COUNT(roster_historical[ID Number]), roster_historical[status] = "Active")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 394036f3-a65d-4375-a3c5-c25bf0293ecb
+
+	measure '2. % NNB vs Total (mnr)' = [0. Total NNB (mnr)] / [0. Total HC (mnr)]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 1aaef85a-d3d0-489f-8b96-038a0a863abd
+
+	measure '2. % NNB vs Active (mnr)' = [0. Total NNB (mnr)] / CALCULATE(COUNT(roster_historical[ID Number]), roster_historical[status] = "Active")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: aad011ae-01fc-4175-af23-b7b058d2ff62
+
+	measure 'Total Active (mnr)' = CALCULATE(COUNT(roster_historical[Status]),roster_historical[Status]="Active")
+		formatString: 0
+		lineageTag: e8abd114-0d28-4859-b94d-f6e7b10f3487
+
+	measure 'Active last year (mnr)' =
+			
+			CALCULATE(
+			    COUNTROWS(roster_historical),
+			    roster_historical[status] = "Active",
+			    roster_historical[cycle] = "30th",
+			    SAMEPERIODLASTYEAR(roster_historical[Roster date])
+			)
+		formatString: 0
+		lineageTag: 2db07526-b1a6-4ee9-af95-f94c44280ef0
+
+	measure '% growth (live vs mnr)' =
+			
+			VAR CurrentActive = [0. Total Active (live)]
+			VAR LastYearActive = [Active last year (mnr)]
+			RETURN
+			IF(
+			    NOT(ISBLANK(LastYearActive)) && LastYearActive <> 0,
+			    DIVIDE(CurrentActive - LastYearActive, LastYearActive, 0),
+			    BLANK()
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 55300873-b27c-49db-879e-e7915b13bcc5
+
+	measure 'Latest total FTEs (mnr)' =
+			
+			CALCULATE(
+			    COUNTROWS(roster_historical),
+			    roster_historical[status] = "Active",
+			    roster_historical[cycle] = "30th",
+			    FILTER(
+			        ALL(Dim_Calendar),
+			        Dim_Calendar[Date] >= EOMONTH(MAX(Dim_Calendar[Date]), -1) + 1 &&
+			        Dim_Calendar[Date] <= EOMONTH(MAX(Dim_Calendar[Date]), 0)
+			    )
+			)
+		formatString: 0
+		lineageTag: 0c503d13-360c-470c-a171-0bc8e57cfea4
+
+	measure 'First Month Selected FTE''s' =
+			
+			CALCULATE(
+			    COUNTROWS(roster_historical),
+			    roster_historical[status] = "Active",
+			    roster_historical[cycle] = "30th",
+			    FILTER(
+			        ALL(Dim_Calendar),
+			        Dim_Calendar[Date] >= EOMONTH(MIN(Dim_Calendar[Date]), -1) + 1 &&
+			        Dim_Calendar[Date] <= EOMONTH(MIN(Dim_Calendar[Date]), 0)
+			    )
+			)
+		formatString: 0
+		lineageTag: 17f140b9-0126-499d-bb6a-246f45466b69
+
+	measure '% growth (mnr)' =
+			
+			([First Month Selected FTE's] -[Latest total FTEs (mnr)] ) /[First Month Selected FTE's]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9da3be52-8084-4355-9dc0-2d58186eb9b8
+
+	measure '2. % Billable (mnr)' = ([0. Total Active (mnr)] + [0. Total AF (mnr)]) / [0. Total Headcount]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e60bd857-ea95-4ab3-b79f-f389290a55fb
+
+	measure '0. Total Active (mnr)' = CALCULATE(COUNT(roster_historical[ID Number]), roster_historical[status] = "Active")
+		formatString: 0
+		lineageTag: fe88d257-b500-4cc7-9966-e3a0ff603637
+
+	measure '0. Total AF (mnr)' = CALCULATE(COUNT(roster_historical[ID Number]), roster_historical[status] = "Active Floater")
+		formatString: 0
+		lineageTag: 5e9a4348-63b2-4d5b-8c4b-653810a610ed
+
+	column measures
+		dataType: string
+		lineageTag: 55f4b5d8-94fe-45e5-83e2-2b3479f1d713
+		summarizeBy: none
+		sourceColumn: measures
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calculations_mnr = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [measures = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"measures", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

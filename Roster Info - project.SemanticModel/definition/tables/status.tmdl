@@ -1,0 +1,25 @@
+table status
+	lineageTag: 90e20c4c-473c-4478-b65a-59ed0ba5e2ce
+
+	column Status
+		dataType: string
+		lineageTag: 60f62476-edf7-4722-97c9-2ff4d643df8a
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition status = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WckwuySxLVYrVgTEV3HLyE0tSiyBCxcWZ6XmpKRBOWWJmTmJSDkS1X36JAqqIf1paUn5iUUpmXjqYH1CUn5aZA9UcUpSZmJcKUehWlIpkTSwA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Status = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Status", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","Trianee","Trainee",Replacer.ReplaceText,{"Status"})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

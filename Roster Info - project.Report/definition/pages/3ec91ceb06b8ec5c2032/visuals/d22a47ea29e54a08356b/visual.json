@@ -1,0 +1,139 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "d22a47ea29e54a08356b",
+  "position": {
+    "x": 671.4421553090333,
+    "y": 309.3502377179081,
+    "z": 3000,
+    "height": 366.148969889065,
+    "width": 608.5578446909667,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Employee Name"
+                }
+              },
+              "queryRef": "attrition_data.Employee Name",
+              "nativeQueryRef": "Employee Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "ID Number"
+                }
+              },
+              "queryRef": "attrition_data.ID Number",
+              "nativeQueryRef": "ID Number"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Substatus"
+                }
+              },
+              "queryRef": "attrition_data.Substatus",
+              "nativeQueryRef": "Substatus"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Branch"
+                }
+              },
+              "queryRef": "attrition_data.Branch",
+              "nativeQueryRef": "Branch"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Country"
+                }
+              },
+              "queryRef": "attrition_data.Country",
+              "nativeQueryRef": "Country"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Business Unit"
+                }
+              },
+              "queryRef": "attrition_data.Business Unit",
+              "nativeQueryRef": "Business Unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "turnover_data"
+                    }
+                  },
+                  "Property": "Final Date"
+                }
+              },
+              "queryRef": "attrition_data.Final Date",
+              "nativeQueryRef": "Final Date"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "turnover_data"
+                  }
+                },
+                "Property": "ID Number"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

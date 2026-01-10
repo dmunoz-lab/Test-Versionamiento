@@ -1,0 +1,322 @@
+table NNB
+	lineageTag: ac1a99d6-22e9-418f-9eba-faafdfb64e7d
+
+	column EMPLOYEE_ID
+		dataType: double
+		lineageTag: 4eb07b68-667f-41ed-adfe-8d22afcf589d
+		summarizeBy: count
+		sourceColumn: EMPLOYEE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column employee
+		dataType: string
+		lineageTag: c03d3a02-316f-4283-9cab-bc6ae74d4834
+		summarizeBy: none
+		sourceColumn: employee
+
+		annotation SummarizationSetBy = Automatic
+
+	column identification
+		dataType: string
+		lineageTag: d66d0124-1482-4d55-bfce-7f3b56b4e7e0
+		summarizeBy: none
+		sourceColumn: identification
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_unit
+		dataType: string
+		lineageTag: 025f5e23-dbe6-4494-a614-d9abb2130ffe
+		summarizeBy: none
+		sourceColumn: business_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_line
+		dataType: string
+		lineageTag: 2b00f243-1a08-4fd2-9c10-51536056e96c
+		summarizeBy: none
+		sourceColumn: service_line
+
+		annotation SummarizationSetBy = Automatic
+
+	column branch
+		dataType: string
+		lineageTag: 6642278a-07f0-410f-8b6b-7b0f41ddcd73
+		summarizeBy: none
+		sourceColumn: branch
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGING
+		dataType: int64
+		lineageTag: c2081c50-e81e-4204-9aa8-e8b1ee57a80a
+		summarizeBy: sum
+		sourceColumn: AGING
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column status
+		dataType: string
+		lineageTag: 5df96a96-fda6-4c94-a9ac-301a3399a3c4
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column company
+		dataType: string
+		lineageTag: 60cf3a29-8cd8-43d3-a66c-b6ef959d6f90
+		summarizeBy: none
+		sourceColumn: company
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 9df4faeb-9480-4a1a-ae4f-53a326459f3c
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition NNB = m
+		mode: import
+		queryGroup: Roster
+		source = ```
+				let
+				    Source = Snowflake.Databases("ZYYIMVN-TSB73457","S_LSG_PROD_WH",[Implementation="2.0"]),
+				    RDA_Database = Source{[Name="RDA",Kind="Database"]}[Data],
+				    PORTAL_Schema = RDA_Database{[Name="PORTAL",Kind="Schema"]}[Data],
+				    NNB_Table = PORTAL_Schema{[Name="NNB",Kind="Table"]}[Data], 
+				    changed_type =
+				        Table.TransformColumnTypes(
+				            NNB_Table,
+				            {
+				                {"PROFILING_DATE", type date},
+				                {"ASIGNED_DATE", type date},
+				                {"EFFECTIVE_DATE", type date},
+				                {"EFFECTIVE_DATE_SUBQUERY", type date}
+				            }
+				        ),
+				 
+				    removed_duplicates =
+				        Table.Distinct(
+				            changed_type,
+				            {"IDENTIFICATION"}
+				        ),
+				 
+				    renamed_status =
+				        Table.RenameColumns(
+				            removed_duplicates,
+				            {{"STATUS", "status1"}}
+				        ),
+				 
+				    added_status =
+				        Table.AddColumn(
+				            renamed_status,
+				            "status",
+				            each if [SUB_STATUS] is null then [status1] else [SUB_STATUS],
+				            type text
+				        ),
+				 
+				    removed_status_columns =
+				        Table.RemoveColumns(
+				            added_status,
+				            {"status1", "SUB_STATUS"}
+				        ),
+				 
+				    changed_type_aging =
+				        Table.TransformColumnTypes(
+				            removed_status_columns,
+				            {{"AGING", type text}}
+				        ),
+				 
+				    aging_extracted =
+				        Table.TransformColumns(
+				            changed_type_aging,
+				            {{"AGING", each Text.BeforeDelimiter(_, " "), type text}}
+				        ),
+				 
+				    aging_replaced =
+				        Table.ReplaceValue(
+				            aging_extracted,
+				            "00:00:00",
+				            "0",
+				            Replacer.ReplaceText,
+				            {"AGING"}
+				        ),
+				 
+				    changed_type_numbers =
+				        Table.TransformColumnTypes(
+				            aging_replaced,
+				            {
+				                {"IS_IMPLEMENTATION", Int64.Type},
+				                {"AGING", Int64.Type}
+				            }
+				        ),
+				 
+				    capitalized_text =
+				        Table.TransformColumns(
+				            changed_type_numbers,
+				            {
+				                {"status", Text.Proper, type text},
+				                {"BRANCH", Text.Proper, type text},
+				                {"SERVICE_LINE", Text.Proper, type text},
+				                {"BUSINESS_UNITS", Text.Proper, type text}
+				            }
+				        ),
+				 
+				    renamed_business =
+				        Table.RenameColumns(
+				            capitalized_text,
+				            {
+				                {"PROFILING_TO_ACCOUNT", "company"},
+				                {"BUSINESS_UNITS", "BUSINESS_UNIT"}
+				            }
+				        ),
+				 
+				    removed_unused_columns =
+				        Table.RemoveColumns(
+				            renamed_business,
+				            {
+				                "VAILABILITY",
+				                "REASON",
+				                "COMMEN",
+				                "VISA",
+				                "NEXT_STATUS",
+				                "TENTATIVE_DATE",
+				                "PROFILING_BUSINESS_UNIT",
+				                "PROFILING_SERVICE_LINE",
+				                "PROFILING_BRANCH",
+				                "company",
+				                "PROFILING_TO_SUB_ACCOUNT",
+				                "PROFILING_POSITION",
+				                "PROFILING_DATE",
+				                "ASIGNED_DATE",
+				                "EFFECTIVE_DATE",
+				                "EFFECTIVE_DATE_SUBQUERY"
+				            }
+				        ),
+				 
+				    changed_type_implementation =
+				        Table.TransformColumnTypes(
+				            removed_unused_columns,
+				            {{"IS_IMPLEMENTATION", type text}}
+				        ),
+				 
+				    implementation_no =
+				        Table.ReplaceValue(
+				            changed_type_implementation,
+				            "0",
+				            "No",
+				            Replacer.ReplaceText,
+				            {"IS_IMPLEMENTATION"}
+				        ),
+				 
+				    implementation_yes =
+				        Table.ReplaceValue(
+				            implementation_no,
+				            "1",
+				            "Yes",
+				            Replacer.ReplaceText,
+				            {"IS_IMPLEMENTATION"}
+				        ),
+				 
+				    renamed_schedule =
+				        Table.RenameColumns(
+				            implementation_yes,
+				            {{"NAME", "SCHEDULE_AVAILABILITY"}}
+				        ),
+				 
+				    business_unit_fixed =
+				        Table.ReplaceValue(
+				            renamed_schedule,
+				            "Lean Bpo",
+				            "Lean Operations",
+				            Replacer.ReplaceText,
+				            {"BUSINESS_UNIT"}
+				        ),
+				 
+				    added_company =
+				        Table.AddColumn(
+				            business_unit_fixed,
+				            "company",
+				            each if [CURRENT_ACCOUNT] = null then [CURRENT_PROFILING_ACCOUNT] else [CURRENT_ACCOUNT],
+				            type text
+				        ),
+				 
+				    company_proper =
+				        Table.TransformColumns(
+				            added_company,
+				            {{"company", Text.Proper, type text}}
+				        ),
+				 
+				    removed_company_sources =
+				        Table.RemoveColumns(
+				            company_proper,
+				            {"CURRENT_ACCOUNT", "CURRENT_PROFILING_ACCOUNT"}
+				        ),
+				 
+				    duplicated_date_status =
+				        Table.DuplicateColumn(
+				            removed_company_sources,
+				            "DATE_STATUS",
+				            "date_status_copy"
+				        ),
+				 
+				    removed_final_columns =
+				        Table.RemoveColumns(
+				            duplicated_date_status,
+				            {
+				                "IS_IMPLEMENTATION",
+				                "SCHEDULE_AVAILABILITY",
+				                "COMMENTS",
+				                "DATE_STATUS",
+				                "PROFILING_COUNT",
+				                "date_status_copy"
+				            }
+				        ),
+				 
+				    merged_roster =
+				        Table.NestedJoin(
+				            removed_final_columns,
+				            {"company"},
+				            roster_account_name,
+				            {"account_roster_name"},
+				            "roster_account_name",
+				            JoinKind.LeftOuter
+				        ),
+				 
+				    expanded_roster =
+				        Table.ExpandTableColumn(
+				            merged_roster,
+				            "roster_account_name",
+				            {"portal_ID"},
+				            {"customer_id"}
+				        ),
+				 
+				    final_renamed =
+				        Table.RenameColumns(
+				            expanded_roster,
+				            {
+				                {"SERVICE_LINE", "service_line"},
+				                {"EMPLOYEE", "employee"},
+				                {"IDENTIFICATION", "identification"},
+				                {"BUSINESS_UNIT", "business_unit"},
+				                {"BRANCH", "branch"}
+				            }
+				        )
+				in
+				    final_renamed
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,108 @@
+table Dim_Calendar
+	lineageTag: 5328717a-26fe-4b85-a913-5ee5a84fa9da
+
+	column Date
+		formatString: General Date
+		lineageTag: 15120bdb-8b31-4f64-8c8c-ac214b8fc8a3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column #Year
+		formatString: 0
+		lineageTag: 06aaefdf-9fd0-45ee-b614-28a249ef283e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [#Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column #Month
+		formatString: 0
+		lineageTag: b3a2e3f7-0744-4fdf-94d6-a189fa06215c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [#Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column #Day
+		formatString: 0
+		lineageTag: dde0bb08-a460-4854-ba18-ef33a6bdf629
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [#Day]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: 8821a1db-fd18-4dbf-8bc3-7aa82d432f8c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+		sortByColumn: #Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShortMonth
+		lineageTag: 1ac91189-a6dd-4204-8fdd-fafefee6aeda
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ShortMonth]
+		sortByColumn: #Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column #DayOfTheWeek
+		formatString: 0
+		lineageTag: 276def8c-8609-463c-bb66-c96f6ae60876
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [#DayOfTheWeek]
+
+		annotation SummarizationSetBy = Automatic
+
+	column #WeekOfThYear
+		formatString: 0
+		lineageTag: bd98f74b-26ff-4cb8-95a8-bac5b3864266
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [#WeekOfThYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		lineageTag: 4bad5ed1-0992-4549-974e-8573540fec90
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Day]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShortDay
+		lineageTag: cda8f16c-5529-459b-b85f-a5c630389052
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ShortDay]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Calendar = calculated
+		mode: import
+		source =
+				ADDCOLUMNS (
+				CALENDAR ( MIN (downsells[Finance report]), TODAY()),
+				"#Year", YEAR ( [Date] ),
+				"#Month", MONTH ( [Date] ),
+				"#Day", DAY ( [Date] ),
+				"Month", FORMAT ( [Date], "MMMM" ),
+				"ShortMonth", FORMAT ( [Date], "MMM" ),
+				"#DayOfTheWeek", WEEKDAY ( [Date],2 ),
+				"#WeekOfThYear", WEEKNUM ( [Date],2 ),
+				"Day", FORMAT ( [Date], "DDDD" ),
+				"ShortDay", FORMAT ( [Date], "DDD" ))
+
+	annotation PBI_Id = 1c944857e17442da952387939bcf9467
+

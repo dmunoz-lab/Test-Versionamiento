@@ -1,0 +1,173 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "1625462c12d7d291a40e",
+  "position": {
+    "x": 8.1818181818181817,
+    "y": 100.90909090909091,
+    "z": 7500,
+    "height": 239.99999999999997,
+    "width": 620.90909090909088,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "roster_and_nnb"
+                    }
+                  },
+                  "Property": "roster_vs_invoice_ID"
+                }
+              },
+              "queryRef": "roster_and_nnb.roster_vs_invoice_ID",
+              "nativeQueryRef": "roster_vs_invoice_ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "roster_and_nnb"
+                    }
+                  },
+                  "Property": "customer_id"
+                }
+              },
+              "queryRef": "Sum(roster_and_nnb.customer_id)",
+              "nativeQueryRef": "potal id",
+              "displayName": "potal id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "roster_and_nnb"
+                    }
+                  },
+                  "Property": "company"
+                }
+              },
+              "queryRef": "roster_and_nnb.company",
+              "nativeQueryRef": "company"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "roster_and_nnb"
+                  }
+                },
+                "Property": "company"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100.5454611660045D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(roster_and_nnb.customer_id)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "180.72726587027648D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "roster_and_nnb.roster_vs_invoice_ID"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7972e76a945babeb1278",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "roster_and_nnb"
+              }
+            },
+            "Property": "roster_vs_invoice_ID"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "r",
+              "Entity": "roster_and_nnb",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "r"
+                          }
+                        },
+                        "Property": "roster_vs_invoice_ID"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

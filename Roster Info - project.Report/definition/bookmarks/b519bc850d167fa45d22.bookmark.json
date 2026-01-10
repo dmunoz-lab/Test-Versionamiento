@@ -1,0 +1,2252 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "Clients Distribution",
+  "name": "b519bc850d167fa45d22",
+  "options": {
+    "targetVisualNames": [],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "3bcc7f1863e92f3204de",
+    "sections": {
+      "3bcc7f1863e92f3204de": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "754df76d1151569e7f0d",
+              "type": "RelativeDate",
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "Dim_Calendar",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "Date"
+                          }
+                        },
+                        "Right": {
+                          "DateSpan": {
+                            "Expression": {
+                              "Now": {}
+                            },
+                            "TimeUnit": 2
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendar"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "howCreated": 1
+            }
+          ]
+        },
+        "visualContainers": {
+          "a648d7330956b35f9f07": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filter163626b1451f28d28fe8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "turnover_data"
+                            }
+                          },
+                          "Property": "ID Number"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "405ab07bf09894b7afcc",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "c",
+                        "Entity": "calculations_turnover",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "c"
+                                      }
+                                    },
+                                    "Property": "Variance (turnover)"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "null"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_turnover"
+                        }
+                      },
+                      "Property": "Variance (turnover)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e864cb2a2e718034b494",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "turnover_data"
+                        }
+                      },
+                      "Property": "Substatus"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d937b4643abbf6d4636c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_turnover"
+                        }
+                      },
+                      "Property": "Total Turnover"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "552e007e43fc6f367aa6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_turnover"
+                        }
+                      },
+                      "Property": "Previous Month Turnover"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "turnover_data"
+                        }
+                      },
+                      "Property": "Substatus"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "b389b5e18524ea8c096b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "787e110e545cfa0efaa8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "0. Total HC (live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "21dfc4ebea478c56b8bb",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "status",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "s"
+                                    }
+                                  },
+                                  "Property": "Status"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Offboarding'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "status"
+                        }
+                      },
+                      "Property": "Status"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3f60cf5803c24adca0ad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_turnover"
+                        }
+                      },
+                      "Property": "Variance (turnover)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "4555df2accd3cbe30e3c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_roster_historical"
+                        }
+                      },
+                      "Property": "Previous Month Headcount"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7eab2c7da3200003d2de",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "Variance HC"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "status"
+                        }
+                      },
+                      "Property": "Status"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "87954bd2ada1c97c45a7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "21dfc4ebea478c56b8bb",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "status",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "s"
+                                    }
+                                  },
+                                  "Property": "Status"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Active'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "status"
+                        }
+                      },
+                      "Property": "Status"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "3f60cf5803c24adca0ad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_turnover"
+                        }
+                      },
+                      "Property": "Variance (turnover)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "3d9f220ea240064c67c6",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "c",
+                        "Entity": "calculations_live_roster",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "c"
+                                      }
+                                    },
+                                    "Property": "Variance HC"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "null"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "Variance HC"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3945dc43e0956d9237a1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "0. Total HC (live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c972eb69ceb861b7d361",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_roster_historical"
+                        }
+                      },
+                      "Property": "Previous Month Headcount"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a1a5c40191dde64171db",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "branch_country"
+                        }
+                      },
+                      "Property": "country"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "47369a8f46bc27619ed8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "service_line"
+                        }
+                      },
+                      "Property": "service_line"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "branch_country"
+                        }
+                      },
+                      "Property": "country"
+                    }
+                  }
+                },
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "service_line"
+                        }
+                      },
+                      "Property": "service_line"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "branch_country"
+                        }
+                      },
+                      "Property": "country"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "service_line"
+                        }
+                      },
+                      "Property": "service_line"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Rows"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "branch_country.country"
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "service_line.service_line"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null
+                  }
+                }
+              ]
+            }
+          },
+          "884e6463f7d580f89a91": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "aab6576bb1bf1bb4c647": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "25b04eb421ce0770a66b": {
+            "singleVisual": {
+              "visualType": "pageNavigator",
+              "objects": {}
+            }
+          },
+          "cd50ef02abe349e409f8": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "e61da48ff8f9efbac551": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f6fea93bbe80ecd08eee",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "country"
+                        }
+                      },
+                      "Property": "country"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "132c5fe05b26c5ba8a30",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "b",
+                        "Entity": "branch",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "b"
+                                        }
+                                      },
+                                      "Property": "branch"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "branch"
+                        }
+                      },
+                      "Property": "branch"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "e1b8f92613e46e4c6c9c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "branch_country"
+                        }
+                      },
+                      "Property": "country"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2f20b76e063129c54bcd",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "branch_country"
+                        }
+                      },
+                      "Property": "branch"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "branch_country"
+                        }
+                      },
+                      "Property": "country"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "branch_country.country"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "branch_country"
+                              }
+                            },
+                            "Property": "country"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "branch_country.branch"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null
+                  }
+                }
+              ]
+            }
+          },
+          "162609eb93a5a603a802": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b59b4944de11f4c1243a",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "service_line",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "s"
+                                        }
+                                      },
+                                      "Property": "service_line"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "service_line"
+                        }
+                      },
+                      "Property": "service_line"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "service_line"
+                        }
+                      },
+                      "Property": "service_line"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "b674f9be0f694514aeb2": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4124114f3af3856fd3b1",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "i",
+                        "Entity": "industry",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "i"
+                                    }
+                                  },
+                                  "Property": "industry"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Bpo'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Domestic'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Gf'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "industry"
+                        }
+                      },
+                      "Property": "industry"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "industry"
+                        }
+                      },
+                      "Property": "industry"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "2ecfa71e9f423b42b205": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "00022f09bb462bd946ca",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "1. Avg aging / FF (live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8110c24fa406ce2c9121",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "1. Avg aging / Not Avail. (live)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "1. Avg aging / FF (live)"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "df9e2e22582a745c58fa": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "5313502dadb6a7e14633",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "1. Avg aging (live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5038dfb86eedc8088b0d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "0. Total NNB (live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "742bf40fa7b2dc6a0624",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % NNB vs Active (live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "774afe4e500c3e106d06",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "0. Total Number of Clients (Live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7be029ec687b049b54b9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "downsells"
+                        }
+                      },
+                      "Property": "0. Net New Seats"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "fb29e60de8c6991e4280",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "0. Total HC (live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6262b01e37336689b151",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "0. Total Active (live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9d36deda063a51d5680d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Billable (live)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "0. Total HC (live)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "dd07c96992a2cd0562a2": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2ea81b0819b396be067d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "49c9b169a664a4124291",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Bench vs Total (live)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Bench vs Total (live)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "07edbe7cb9747dc5d935": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "b1ffd5acf2f486201f26": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "804b4f09347700bb1a06",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Bench vs. Active (live)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Bench vs. Active (live)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "ff9c912a511bb0b2d739": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "982e2881f5b6d1c6900d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e826a2de3782dbccca20",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "1. Avg aging / Bench (live)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "1. Avg aging / Bench (live)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "5d5f6ff715d81fddaa67": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "3ccbbd32cf35720ce5cc": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "904608864358735b3303": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "787e110e545cfa0efaa8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "0. Total HC (live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "21dfc4ebea478c56b8bb",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "status",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "s"
+                                    }
+                                  },
+                                  "Property": "Status"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Assigned'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Available'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Profiled'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Trianee'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "status"
+                        }
+                      },
+                      "Property": "Status"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3f60cf5803c24adca0ad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_turnover"
+                        }
+                      },
+                      "Property": "Variance (turnover)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "4555df2accd3cbe30e3c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_roster_historical"
+                        }
+                      },
+                      "Property": "Previous Month Headcount"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b012d8a81864146d24ea",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "Variance HC"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "status"
+                        }
+                      },
+                      "Property": "Status"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "78d880a99cb204fb9bd4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7048c2d132062526e2a0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Unpla vs. Total (live)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Unpla vs. Total (live)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "fe540bf8267584639d1e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "aafcf9ed48c0ce1dd2c0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Unpla vs. Active (live)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Unpla vs. Active (live)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "78d49439d3833011fb3c": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "bd99aca47503d9a609de": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "f1c83070eb297eeaab1b": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "1221dc8243bb7c7ca9cc": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "787e110e545cfa0efaa8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "0. Total HC (live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "21dfc4ebea478c56b8bb",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "status",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "s"
+                                    }
+                                  },
+                                  "Property": "Status"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Not Available'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Free Floater'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "status"
+                        }
+                      },
+                      "Property": "Status"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3f60cf5803c24adca0ad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_turnover"
+                        }
+                      },
+                      "Property": "Variance (turnover)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "4555df2accd3cbe30e3c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_roster_historical"
+                        }
+                      },
+                      "Property": "Previous Month Headcount"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0e599905e1d89555400a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "Variance HC"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "0. Total HC (live)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "cfabc3fd29cecf20ac0c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0eebb3e6b015e2190282",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Offboarding vs Total (live)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Offboarding vs Total (live)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "e8e3643565c471e8d4a7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "aa8ddd60582373e7680c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Offboarding vs Actives (live)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "2. % Offboarding vs Actives (live)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "e05cd7a560a4a556bd8a": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "9c2f22841df90c28bfac": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "c7dbf35d65e405747593": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "9428d21bdf105df27e9b": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "ac34a458a67441972e83": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "81b4b06b71acd617ba16": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "c30895c352645406ece3": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "fd2dd44b16db13ad3213": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "cce9b1ad86a381a7fcfe": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "08bf3a90a1583d4b6504": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filter6543ac99b86faa803944",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "roster_and_nnb"
+                            }
+                          },
+                          "Property": "identification"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filter7e5c72048c68ea6a098f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "roster_and_nnb"
+                        }
+                      },
+                      "Property": "industry"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b05035bef0794f658d26",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "roster_and_nnb"
+                        }
+                      },
+                      "Property": "service_line"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "27249e2ada0ab4c83db9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_live_roster"
+                        }
+                      },
+                      "Property": "0. Total Number of Clients (Live)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "25402a1a5610a057d075",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "branch_country"
+                        }
+                      },
+                      "Property": "country"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "047e0271a9ced9112ad4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "country"
+                        }
+                      },
+                      "Property": "country"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "country"
+                        }
+                      },
+                      "Property": "country"
+                    }
+                  }
+                },
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "roster_and_nnb"
+                        }
+                      },
+                      "Property": "service_line"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "country"
+                        }
+                      },
+                      "Property": "country"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "roster_and_nnb"
+                        }
+                      },
+                      "Property": "service_line"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "roster_and_nnb"
+                        }
+                      },
+                      "Property": "industry"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Rows"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "country.country"
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "roster_and_nnb.service_line"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "roster_and_nnb"
+                              }
+                            },
+                            "Property": "service_line"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null
+                  }
+                }
+              ]
+            }
+          },
+          "5f83d075beb4e5b2a21e": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "40161eb7aaacf1b324ce": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "07aa2efc847f5ce77e3e": {
+            "singleVisual": {
+              "visualType": "bookmarkNavigator",
+              "objects": {}
+            }
+          },
+          "b33c21bd7c77054d09ad": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "4c3cda5dcf0078ab3976": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "c2c3f95b8b0c525133a2": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "4977d6e73808ae7983ed": {
+            "isHidden": true
+          },
+          "2896321e6b20e92bd403": {
+            "isHidden": true
+          },
+          "c914fa1059e3ea195e74": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

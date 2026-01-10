@@ -1,0 +1,227 @@
+table Attrition
+	lineageTag: 6eb79ef8-12d7-4c6d-8e49-9c30c041d408
+
+	measure '% Attrition' = DIVIDE(SUM(Attrition[Attrition]), SUM(Attrition[Total HC]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d0029678-a368-4a65-8889-154e9979e548
+
+	column Segmentation_ID
+		formatString: 0
+		lineageTag: 42dbcf06-10d6-493d-b557-8346b9b82655
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Segmentation_ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Unit'
+		lineageTag: 417f25e2-a8c7-4ea8-b628-406f691db47f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Business Unit]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Branch
+		lineageTag: 2d38cd02-a7d8-4f45-b1ec-0d482ec5f00e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Branch]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		lineageTag: 3562625e-9e40-4fce-b135-455d09bf41f6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Country]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Line'
+		lineageTag: 482be5d3-ad37-4b97-b90f-b5aee5a9364f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Service Line]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		lineageTag: c32ee052-3549-4f62-b791-b62d6c7f2a42
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Industry]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		formatString: General Date
+		lineageTag: 9704cdf9-fef7-4fed-b019-dc66c8f14852
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Attrition
+		formatString: 0
+		lineageTag: 54fa6ec5-71bd-42ea-aef3-84b97f04740f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Attrition]
+
+		annotation SummarizationSetBy = Automatic
+
+	column HC
+		formatString: 0
+		lineageTag: 8ac6b6b2-35a2-427b-85df-7cbbf53803db
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [HC]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total HC'
+		formatString: 0
+		lineageTag: d5c337a5-3998-4974-910c-f667af09a3a7
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Total HC]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Name' = LOOKUPVALUE(main_accounts[Account Name],main_accounts[segmentation_ID],Attrition[Segmentation_ID])
+		lineageTag: fd836c6e-d391-46b0-82ce-e04219c6675c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division = ```
+			
+			    IF(Attrition[Service Line] = "Enterprise","Enterprise",
+			    IF(Attrition[Service Line] = "SMB","SMB",
+			    IF(Attrition[Service Line] = "Marketing","Marketing",
+			    IF(Attrition[Service Line] = "Tech","Tech",
+			    IF(Attrition[Industry] = "Gf","Gf",
+			    IF(Attrition[Industry] = "Bpo","Bpo",
+			    IF(Attrition[Industry] = "Domestic","Domestic", "NA"
+			    )))))))
+			```
+		lineageTag: 87e25d98-2f2f-4773-8a70-fca531201ddb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Attrition = calculated
+		mode: import
+		source = ```
+				
+				SUMMARIZE(
+				    UNION(
+				        SELECTCOLUMNS(
+				            FILTER(
+				                roster_historical,
+				                (roster_historical[Status] = "Active") &&
+				                roster_historical[cycle] = "30th"
+				            ),
+				            "Segmentation_ID", roster_historical[Segmentation_ID],
+				            "Branch", roster_historical[Branch],
+				            "Country", roster_historical[Country],
+				            "Service Line", roster_historical[Service Line],
+				            "Industry", roster_historical[Industry],
+				            "Business Unit", roster_historical[Business Unit],
+				            "Date", EOMONTH(roster_historical[Roster Date], -1) + 1, // Primer día del mes
+				            "Type", "roster"
+				        ),
+				        SELECTCOLUMNS(
+				            downsells,
+				            "Segmentation_ID", downsells[Segmentation_ID],
+				            "Branch", downsells[Branch],
+				            "Country", downsells[Country],
+				            "Service Line", downsells[Service Line],
+				            "Industry", downsells[Industry],
+				            "Business Unit", downsells[Previous Business Unit],
+				            "Date", EOMONTH(downsells[Effective Date], -1) + 1, // Primer día del mes
+				            "Type", "removal"
+				        )
+				    ),
+				    [Segmentation_ID],
+				    [Business Unit],
+				    [Branch],
+				    [Country],
+				    [Service Line],
+				    [Industry],
+				    [Date],
+				    "Attrition",
+				    COALESCE(
+				        CALCULATE(
+				            COUNTROWS(downsells),
+				            FILTER(
+				                downsells,
+				                downsells[Previous Business Unit] = EARLIER([Business Unit]) &&
+				                downsells[Segmentation_ID] = EARLIER([Segmentation_ID]) &&
+				                downsells[Branch] = EARLIER([Branch]) &&
+				                downsells[Country] = EARLIER([Country]) &&
+				                downsells[Service Line] = EARLIER([Service Line]) &&
+				                downsells[Industry] = EARLIER([Industry]) &&
+				                EOMONTH(downsells[Effective Date], -1) + 1 = EARLIER([Date])
+				            )
+				        ),
+				    0),
+				    "HC",
+				    COALESCE(
+				        CALCULATE(
+				            COUNTROWS(roster_historical),
+				            FILTER(
+				                roster_historical,
+				                roster_historical[Business Unit] = EARLIER([Business Unit]) &&
+				                roster_historical[Segmentation_ID] = EARLIER([Segmentation_ID]) &&
+				                roster_historical[Country] = EARLIER([Country]) &&
+				                roster_historical[Branch] = EARLIER([Branch]) &&
+				                roster_historical[Service Line] = EARLIER([Service Line]) &&
+				                roster_historical[Industry] = EARLIER([Industry]) &&
+				                EOMONTH(roster_historical[Roster Date], -1) + 1 = EARLIER([Date]) &&
+				                (roster_historical[Status] = "Active") &&
+				                roster_historical[cycle] = "30th"
+				            )
+				        ),
+				    0),
+				    "Total HC", 
+				      CALCULATE(
+				            COUNTROWS(roster_historical),
+				            FILTER(
+				                roster_historical,
+				                roster_historical[Business Unit] = EARLIER([Business Unit]) &&
+				                roster_historical[Segmentation_ID] = EARLIER([Segmentation_ID]) &&
+				                roster_historical[Country] = EARLIER([Country]) &&
+				                roster_historical[Branch] = EARLIER([Branch]) &&
+				                roster_historical[Service Line] = EARLIER([Service Line]) &&
+				                roster_historical[Industry] = EARLIER([Industry]) &&
+				                EOMONTH(roster_historical[Roster Date], -1) + 1 = EARLIER([Date]) &&
+				                (roster_historical[Status] = "Active") &&
+				                roster_historical[cycle] = "30th"
+				            )
+				        )+
+				        COALESCE(
+				        CALCULATE(
+				            COUNTROWS(downsells),
+				            FILTER(
+				                downsells,
+				                downsells[Previous Business Unit] = EARLIER([Business Unit]) &&
+				                downsells[Segmentation_ID] = EARLIER([Segmentation_ID]) &&
+				                downsells[Branch] = EARLIER([Branch]) &&
+				                downsells[Country] = EARLIER([Country]) &&
+				                downsells[Service Line] = EARLIER([Service Line]) &&
+				                downsells[Industry] = EARLIER([Industry]) &&
+				                EOMONTH(downsells[Effective Date], -1) + 1 = EARLIER([Date])
+				            )
+				        ),
+				    0)
+				
+				)
+				
+				
+				```
+
+	annotation PBI_Id = de664e38ed7d457b833475d03fbb5a6e
+

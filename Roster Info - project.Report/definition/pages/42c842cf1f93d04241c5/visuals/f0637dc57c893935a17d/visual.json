@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "f0637dc57c893935a17d",
+  "position": {
+    "x": 0,
+    "y": 49.253731343283583,
+    "z": 2000,
+    "height": 215.82089552238804,
+    "width": 541.79104477611941,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "main_accounts"
+                    }
+                  },
+                  "Property": "Account Name"
+                }
+              },
+              "queryRef": "main_accounts.Account Name",
+              "nativeQueryRef": "Account Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "service_line_historical"
+                    }
+                  },
+                  "Property": "Segmentation_ID"
+                }
+              },
+              "queryRef": "service_line_historical.Segmentation_ID",
+              "nativeQueryRef": "Segmentation_ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "service_line_historical"
+                    }
+                  },
+                  "Property": "Service Line"
+                }
+              },
+              "queryRef": "service_line_historical.Service Line",
+              "nativeQueryRef": "Service Line"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

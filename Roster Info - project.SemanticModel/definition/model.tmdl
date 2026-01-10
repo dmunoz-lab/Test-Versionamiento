@@ -1,0 +1,108 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Roster
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Downsell vs Upsells'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup Attrition
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup Accounts_name
+
+	annotation PBI_QueryGroupOrder = 3
+
+queryGroup ZRH
+
+	annotation PBI_QueryGroupOrder = 4
+
+queryGroup SCR
+
+	annotation PBI_QueryGroupOrder = 5
+
+annotation PBI_QueryOrder = ["business_unit","country","branch","branch_country","industry","service_line","calculations_turnover","calculations_mnr","calculations_live_roster","turnover_data","downsells","upsells","roster_historical","roster_account_name","customer_segmentation","finance_accounts_name","aging","billing_cycle","workplace","support_staff","removals2025","activations2025","roster_historical2025","LIVE_ROSTER","NNB","concepts","turnover_data2025","main_accounts","service_line_historical","zero_revenue","calculations_zrh","divisions","calculations_roster_historical","calculations_attrition","PHL_invoice","COL_invoice","GUA_invoice","MEX_invoice","PHL_invoice2025","MEX_invoice2025","GUA_invoice2025","COL_invoice2025","SCR_finance","status","ROSTER_AND_NNB2","Historical_and_Turnover"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_cb83172e-3d57-41bc-8e44-576ba43ab754
+ref table branch
+ref table turnover_data
+ref table upsells
+ref table downsells
+ref table roster_historical
+ref table LocalDateTable_5559e853-9273-4547-8b50-193b4d3aee64
+ref table LocalDateTable_682f3d16-597e-4376-91ae-072a21e04393
+ref table LocalDateTable_4f355f0c-1ba5-4345-b66f-9572010bf464
+ref table LocalDateTable_0c9a195d-4836-49aa-ba55-b188ee7ed289
+ref table LocalDateTable_6b13cf1f-dfb8-4153-8fa2-033e9298a568
+ref table LocalDateTable_ef02becf-1a8a-46a8-8370-cd35e183663e
+ref table Dim_Calendar
+ref table roster_account_name
+ref table customer_segmentation
+ref table finance_accounts_name
+ref table calculations_mnr
+ref table aging
+ref table business_unit
+ref table country
+ref table branch_country
+ref table industry
+ref table service_line
+ref table billing_cycle
+ref table workplace
+ref table calculations_live_roster
+ref table support_staff
+ref table LocalDateTable_28c30816-2813-41f1-8a66-9e19c0d31349
+ref table LocalDateTable_cf127d9c-7d38-44f0-86d2-05e98de9cf86
+ref table LocalDateTable_73d6b424-126d-4e9d-b645-027da59f195e
+ref table calculations_turnover
+ref table concepts
+ref table main_accounts
+ref table LocalDateTable_dbbe3bab-2788-4c71-bd70-ddc7a45f6663
+ref table LocalDateTable_90105817-fc68-45b7-b7a9-1eab2eef8125
+ref table LocalDateTable_90bc5733-a595-4466-b908-27aa4e8f37a1
+ref table Attrition
+ref table service_line_historical
+ref table LocalDateTable_afbecd38-9c7b-4348-9378-5a4d18ef829b
+ref table zero_revenue
+ref table calculations_zrh
+ref table divisions
+ref table calculations_roster_historical
+ref table calculations_attrition
+ref table SCR_finance
+ref table SCR_finance_branch_summary
+ref table status
+ref table LIVE_ROSTER
+ref table LocalDateTable_3f0bb075-07f0-46c3-95f2-55b138cacb8a
+ref table LocalDateTable_564cbb58-93c7-4749-a818-e9daeed96c00
+ref table LocalDateTable_4f90e251-1df0-4c73-80ce-3a0fb71e9e88
+ref table LocalDateTable_e59c536b-20a6-4320-8ccd-9bc205ee3bbf
+ref table LocalDateTable_14fd51b6-49ab-4eb8-9d0f-0732657faca9
+ref table NNB
+ref table ROSTER_AND_NNB2
+ref table LocalDateTable_eb8ceaf9-5c1f-484e-af60-46d5379c22c6
+ref table LocalDateTable_8b4dd6f7-7a71-4734-bcb9-6506cec1049d
+ref table LocalDateTable_2a66144b-2183-48a3-b460-f3fb5be2b9aa
+ref table LocalDateTable_9ced2312-6ae6-40f1-9696-5aacd55cc24c
+ref table LocalDateTable_e2c55158-97b0-4fbe-8e70-3753d5f7ba9e
+ref table Historical_and_Turnover
+ref table LocalDateTable_806f30dd-b2f0-4934-9b8c-a1a8b0eadd5b
+ref table LocalDateTable_ef7a0403-c8f9-4f7b-baa1-b365bbbd739b
+ref table LocalDateTable_051971ff-f2b1-4dc2-89a7-4397b24d8a47
+ref table LocalDateTable_4c28aed4-f755-4a45-a123-b39d17777196
+ref table LocalDateTable_2695f737-8498-47d9-8cad-abc1cc976462
+ref table LocalDateTable_856d2beb-fdfb-4279-842c-9483f92bb662
+
+ref cultureInfo en-US
+

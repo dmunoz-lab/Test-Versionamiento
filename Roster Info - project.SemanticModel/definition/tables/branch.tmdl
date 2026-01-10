@@ -1,0 +1,24 @@
+table branch
+	lineageTag: 3b9dee1e-79fb-4c32-800d-4f862b64c7d4
+
+	column branch
+		dataType: string
+		lineageTag: 49d91379-c7de-4e0c-a1b5-78d1590a6053
+		summarizeBy: none
+		sourceColumn: branch
+
+		annotation SummarizationSetBy = Automatic
+
+	partition branch = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("Xco7CsAgEIThq4h1TpEUqXICsRh0kYV1JaKQ4+ehVbr5fsY5u6JW6NlZBNYvTyiptDl7QEWGpuENtSGRTnGPiCaS2TsaZci/H3RxKF88KJII6wCU37O/AQ==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [branch = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"branch", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

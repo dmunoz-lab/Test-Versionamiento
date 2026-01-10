@@ -1,0 +1,349 @@
+table calculations_live_roster
+	lineageTag: c4c2af70-5e60-4e53-8662-5a69002ad9f8
+
+	measure '0. Total Bench (live)' =
+			CALCULATE(
+			    COUNT(ROSTER_AND_NNB2[employee]),
+			    ROSTER_AND_NNB2[status] IN {
+			        "Assigned",
+			        "Available",
+			        "Trainee",
+			        "Profiled"
+			    }
+			)
+			
+			//CALCULATE(COUNT(roster_and_nnb[employee]),OR(OR(OR(roster_and_nnb[status] = "Assigned",roster_and_nnb[status] = "Available"),roster_and_nnb[status] = "Trainee"),roster_and_nnb[status] = "Profiled"))
+		formatString: 0
+		lineageTag: 57e9be39-65de-42fd-9ae8-d2a573afda9c
+
+	measure '0. Total HC (live)' =
+			COALESCE(COUNT(ROSTER_AND_NNB2[employee]),
+			    0)
+			    /*COALESCE(COUNT(roster_and_nnb[employee]),
+			    0)*/
+		formatString: 0
+		lineageTag: 011e2c29-7b96-45b2-8056-65cbaf55a955
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '0. Total Unplaceable (live)' =
+			CALCULATE(
+			    COUNT(ROSTER_AND_NNB2[employee]),
+			    ROSTER_AND_NNB2[status] IN {
+			        "Not available",
+			        "Free Floater"
+			    }
+			)
+			/*CALCULATE(COUNT(roster_and_nnb[employee]),OR(roster_and_nnb[status] = "Not available",roster_and_nnb[status] = "Free Floater"))*/
+		formatString: 0
+		lineageTag: a706c5d4-d57f-4390-a402-c56d5214018c
+
+	measure '1. Avg aging / Bench (live)' =
+			
+			IF(
+			    AVERAGE(ROSTER_AND_NNB2[aging]) = 0,
+			    "-",
+			    CALCULATE(
+			        AVERAGE(ROSTER_AND_NNB2[aging]),
+			        ROSTER_AND_NNB2[status] IN {
+			            "Assigned",
+			            "Available",
+			            "Trainee",
+			            "Profiled"
+			        }
+			    )
+			)
+			    /*IF(AVERAGE(roster_and_nnb[aging])=0,"-",
+			        CALCULATE(AVERAGE(roster_and_nnb[aging]), OR(OR(OR(roster_and_nnb[status] = "Assigned",roster_and_nnb[status] = "Available"),roster_and_nnb[status] = "Trainee"),roster_and_nnb[status] = "Profiled")))*/
+		formatString: 0
+		lineageTag: f7a589c1-9584-427a-a8d4-ab0d695dfe46
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '1. Avg aging / FF (live)' =
+			
+			IF(AVERAGE(ROSTER_AND_NNB2[aging])=0,"-",
+			        CALCULATE(AVERAGE(ROSTER_AND_NNB2[aging]), ROSTER_AND_NNB2[status] = "Free Floater"))
+			    /*IF(AVERAGE(roster_and_nnb[aging])=0,"-",
+			        CALCULATE(AVERAGE(roster_and_nnb[aging]), roster_and_nnb[status] = "Free Floater"))*/
+		lineageTag: c347934e-465f-4c84-acc4-0f11f387d0df
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '1. Avg aging / Not Avail. (live)' =
+			
+			IF(AVERAGE(ROSTER_AND_NNB2[aging])=0,"-",
+			        CALCULATE(AVERAGE(ROSTER_AND_NNB2[aging]), ROSTER_AND_NNB2[status] = "Not Available"))
+			    /*IF(AVERAGE(roster_and_nnb[aging])=0,"-",
+			        CALCULATE(AVERAGE(roster_and_nnb[aging]), roster_and_nnb[status] = "Not Available"))*/
+		formatString: 0
+		lineageTag: 775be069-59d3-426e-974f-a3c6e722fe8f
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '2. % Bench vs Total (live)' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        COUNT(ROSTER_AND_NNB2[employee]),
+			        ROSTER_AND_NNB2[status] IN {
+			            "Assigned",
+			            "Available",
+			            "Trainee",
+			            "Profiled"
+			        }
+			    ),
+			    [1. Total employee]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 79d2ac1b-f046-4982-a207-312a6fd68f87
+
+	measure '2. % Bench vs. Active (live)' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        COUNT(ROSTER_AND_NNB2[employee]),
+			        ROSTER_AND_NNB2[status] IN {
+			            "Assigned",
+			            "Available",
+			            "Trainee",
+			            "Profiled"
+			        }
+			    ),
+			    CALCULATE(
+			        COUNT(ROSTER_AND_NNB2[employee]),
+			        ROSTER_AND_NNB2[status] = "Active"
+			    )
+			)
+			
+			/*CALCULATE(COUNT(roster_and_nnb[employee]),OR(OR(OR(roster_and_nnb[status] = "Assigned",roster_and_nnb[status] = "Available"),roster_and_nnb[status] = "Trainee"),roster_and_nnb[status] = "Profiled")) / CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Active")*/
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 25ce62e4-1a5d-44a2-ad42-9da85c6fd39e
+
+	measure '2. % Unpla vs. Active (live)' =
+			DIVIDE(
+			    CALCULATE(
+			        COUNT(ROSTER_AND_NNB2[employee]),
+			        ROSTER_AND_NNB2[status] IN {
+			            "Not available",
+			            "Free Floater"
+			        }
+			    ),
+			    CALCULATE(
+			        COUNT(ROSTER_AND_NNB2[employee]),
+			        ROSTER_AND_NNB2[status] = "Active"
+			    )
+			)
+			
+			//CALCULATE(COUNT(roster_and_nnb[employee]),OR(roster_and_nnb[status] = "Not available",roster_and_nnb[status] = "Free Floater")) / CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Active")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e3b6a803-2c93-40bd-9f54-2fa67e335a66
+
+	measure '2. % Unpla vs. Total (live)' =
+			
+			CALCULATE (
+			    COUNT ( ROSTER_AND_NNB2[employee] ),
+			    OR (
+			        ROSTER_AND_NNB2[status] = "Not available",
+			        ROSTER_AND_NNB2[status] = "Free Floater"
+			    )
+			) / [0. Total HC (live)]
+			
+			//CALCULATE(COUNT(roster_and_nnb[employee]),OR(roster_and_nnb[status] = "Not available",roster_and_nnb[status] = "Free Floater")) / [0. Total HC (live)]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b87b7b67-050b-4764-98e3-cfa28dc9cf8b
+
+	measure '0. Total Zero Revenue (live)' =
+			CALCULATE(
+			    COUNT(ROSTER_AND_NNB2[employee]),
+			    NOT ROSTER_AND_NNB2[status] IN {
+			        "Active",
+			        "Active Floater"
+			    }
+			)
+			//CALCULATE(COUNT(roster_and_nnb[employee]),NOT(roster_and_nnb[status] = "Active")) - CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Active Floater")
+		formatString: 0
+		lineageTag: e4e42280-49e4-417f-9437-2162990793f2
+
+	measure '2. % Zero Revenue vs Active (live)' =
+			[0. Total Zero Revenue (live)] / CALCULATE(COUNT(ROSTER_AND_NNB2[employee]),ROSTER_AND_NNB2[status] = "Active")
+			//[0. Total Zero Revenue (live)] / CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Active")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 8bfea376-68ce-498f-a046-c1b16a76d805
+
+	measure '2. % Zero Revenue vs Total (live)' = [0. Total Zero Revenue (live)] / [0. Total HC (live)]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 6182df1f-0430-46af-8d25-94a67d1e0191
+
+	measure '1. Avg aging (live)' =
+			
+			IF (
+			    AVERAGE ( ROSTER_AND_NNB2[aging] ) = 0,
+			    "-",
+			    AVERAGE ( ROSTER_AND_NNB2[aging] )
+			)
+			//IF(AVERAGE(roster_and_nnb[aging])=0,"-",AVERAGE(roster_and_nnb[aging]))
+		formatString: 0
+		lineageTag: 4af2ad83-71ea-4d4f-b998-f13b39e0e20d
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '0. Total Number of Clients (Live)' =
+			
+			CALCULATE(
+			    DISTINCTCOUNTNOBLANK(ROSTER_AND_NNB2[segmentation_id]),
+			    ROSTER_AND_NNB2[Status] = "Active"
+			)
+		formatString: 0
+		lineageTag: 7dafa438-5645-4058-b4d1-ef3ddce3defc
+
+	measure 'Total Positions' = COUNT(ROSTER_AND_NNB2[position])
+		formatString: 0
+		lineageTag: 26a419dc-db71-4fed-8543-657f5bf6daa0
+
+	measure '0. Total NNB (live)' =
+			[0. Total Unplaceable (live)]
+			+ [0. Total Bench (live)]
+			+ CALCULATE(
+			    COUNT(ROSTER_AND_NNB2[identification]),
+			    ROSTER_AND_NNB2[status] IN {
+			        "Active Floater",
+			        "Offboarding"
+			    }
+			)
+			
+			/*[0. Total Unplaceable (live)] + [0. Total Bench (live)] + CALCULATE(COUNT(roster_and_nnb[identification]), roster_and_nnb[status] = "Active Floater") + CALCULATE(COUNT(roster_and_nnb[identification]), roster_and_nnb[status] = "Offboarding")*/
+		formatString: 0
+		lineageTag: dc98231a-6bc4-4812-b980-999ebfacfceb
+
+	measure '2. % NNB vs Active (live)' =
+			[0. Total NNB (live)] / CALCULATE(COUNT(ROSTER_AND_NNB2[employee]),ROSTER_AND_NNB2[status] = "Active")
+			//[0. Total NNB (live)] / CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Active")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 7ff5faef-1f45-48a0-a7e5-d095518b8da1
+
+	measure '2. % NNB vs Total (live)' = [0. Total NNB (live)] / [0. Total HC (live)]
+		lineageTag: 0d9c9ddb-3fa2-492c-b497-3512be7c7106
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '0. Total Active (live)' =
+			CALCULATE (
+			    COUNT ( ROSTER_AND_NNB2[employee] ),
+			    ROSTER_AND_NNB2[status] = "Active"
+			)
+			//CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Active")
+		formatString: 0
+		lineageTag: 32b12e9f-9d9d-4c34-b1d3-e6d528de9c14
+
+	measure '2. % Billable (live)' = ```
+			
+			DIVIDE(
+			    CALCULATE(
+			        COUNT(ROSTER_AND_NNB2[employee]),
+			        ROSTER_AND_NNB2[status] IN {
+			            "Active",
+			            "Active Floaters"
+			        }
+			    ),
+			    [0. Total HC (live)]
+			)
+			// Total Billable
+			    /*(CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Active") +  CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Active Floaters")) 
+			    /
+			    [0. Total HC (live)] */
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 53889783-0cce-4e66-9674-9aafa0e542cd
+
+	measure '0. Total Billable  (live)' =
+			CALCULATE(
+			    COUNT(ROSTER_AND_NNB2[employee]),
+			    ROSTER_AND_NNB2[status] IN {
+			        "Active",
+			        "Active Floaters"
+			    }
+			)
+			    //(CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Active") +  CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Active Floaters")) )
+		formatString: 0
+		lineageTag: 4a5bc271-e505-409e-ad8d-51dd306cc5e0
+
+	measure 'Variance HC' = ```
+			
+			    IF([0. Total HC (live)] = 0 && [Previous Month Headcount] = 0,BLANK(),
+			        IF([0. Total HC (live)] = 0, -1,
+			        ([0. Total HC (live)] - [Previous Month Headcount]) / [0. Total HC (live)]
+			            )
+			        )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 34c1cce8-f38e-4c03-bc57-6db08716a370
+
+	measure 'Debug Status' = ```
+			
+			CONCATENATEX(
+			    VALUES(ROSTER_AND_NNB2[status]),
+			    ROSTER_AND_NNB2[status],
+			    ", "
+			)
+			/*CONCATENATEX(
+			    VALUES(roster_and_nnb[status]),
+			    roster_and_nnb[status],
+			    ", "
+			)*/
+			
+			```
+		lineageTag: 51c87bcc-ae65-4aa8-b84c-e5e4864ff30c
+
+	measure '2. % Offboarding vs Total (live)' =
+			CALCULATE(COUNT(ROSTER_AND_NNB2[employee]),ROSTER_AND_NNB2[status] = "Offboarding") / [1. Total employee]
+			//CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Offboarding") / [1. Total employee]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e0c974b9-74c2-4c37-bef0-db71d027446f
+
+	measure '2. % Offboarding vs Actives (live)' =
+			DIVIDE(
+			    CALCULATE(
+			        COUNT(ROSTER_AND_NNB2[employee]),
+			        ROSTER_AND_NNB2[status] = "Offboarding"
+			    ),
+			    CALCULATE(
+			        COUNT(ROSTER_AND_NNB2[employee]),
+			        ROSTER_AND_NNB2[status] = "Active"
+			    )
+			)
+			//CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Offboarding") / CALCULATE(COUNT(roster_and_nnb[employee]),roster_and_nnb[status] = "Active")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 50e64c67-c9f9-4db6-8ed3-c64b67efe3e1
+
+	measure '2. % Turnover vs. Total (live)' = COUNTROWS(turnover_data) / [0. Total HC (live)]
+		lineageTag: 68a4d30e-0c6b-4550-bc61-84f7cca6db0c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '1. Total employee' = IF(COUNT(ROSTER_AND_NNB2[employee])=BLANK(),"-",COUNT(ROSTER_AND_NNB2[employee]))
+		lineageTag: 6d690dec-80e5-4797-9a54-58aba2ac05a8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column measures1
+		dataType: string
+		lineageTag: c8154107-b68f-4684-aca8-18cf61c8d674
+		summarizeBy: none
+		sourceColumn: measures1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calculations_live_roster = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [measures1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"measures1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,150 @@
+table customer_segmentation
+	lineageTag: 588c1b83-a9a0-4760-9ece-6ed7bda898d6
+
+	column roster_vs_invoice_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: dd918f94-75df-499c-9cf2-2bb7fff5a126
+		summarizeBy: none
+		sourceColumn: roster_vs_invoice_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Name'
+		dataType: string
+		lineageTag: ebe161d2-4e14-47a0-b0c3-4837d0ada350
+		summarizeBy: none
+		sourceColumn: Account Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column headcount
+		dataType: int64
+		formatString: 0
+		lineageTag: 609fd1c5-178b-4943-a483-1de23d9bdf8b
+		summarizeBy: sum
+		sourceColumn: headcount
+
+		annotation SummarizationSetBy = Automatic
+
+	column segmentation_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ebfe321-1540-4bbe-8021-12ed3ca18e21
+		summarizeBy: none
+		sourceColumn: segmentation_ID
+
+		annotation SummarizationSetBy = User
+
+	column aniversary_date
+		dataType: string
+		lineageTag: 6ee72577-b63a-4084-99a9-6645194df570
+		summarizeBy: none
+		sourceColumn: aniversary_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_finance
+		dataType: string
+		lineageTag: 54a277be-8593-491f-9197-24647e73e8ee
+		summarizeBy: none
+		sourceColumn: churn_finance
+
+		annotation SummarizationSetBy = Automatic
+
+	column Branch
+		dataType: string
+		lineageTag: ed58aca8-fe0c-4db0-95c8-dbda7166977e
+		summarizeBy: none
+		sourceColumn: Branch
+
+		annotation SummarizationSetBy = Automatic
+
+	column hubspot_ID
+		dataType: string
+		lineageTag: 4af406c4-9521-49e7-8148-92a0e2eb85a0
+		summarizeBy: none
+		sourceColumn: hubspot_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Line'
+		dataType: string
+		lineageTag: d3f6b1c2-2dc8-4245-9130-6aefe8a15e37
+		summarizeBy: none
+		sourceColumn: Service Line
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: 00b2507b-79a7-45d4-8c9d-e7c517d77924
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Enterprise date'
+		dataType: string
+		lineageTag: 9de439ad-f1ef-4f3b-b63b-ecb030c549a6
+		summarizeBy: none
+		sourceColumn: Enterprise date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transition_ops
+		dataType: string
+		lineageTag: 984d9e88-7a22-4d79-990e-bed453c96109
+		summarizeBy: none
+		sourceColumn: Transition_ops
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_segmentation
+		dataType: string
+		lineageTag: d3516d8d-2655-4da9-9f88-7e30870d9f96
+		summarizeBy: none
+		sourceColumn: customer_segmentation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'deal closing date'
+		dataType: string
+		lineageTag: 66ee627e-a0fa-4ee7-9b47-d8ef063cfbca
+		summarizeBy: none
+		sourceColumn: deal closing date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cycle
+		dataType: string
+		lineageTag: f37f7c82-436b-452b-86ed-574771943c4e
+		summarizeBy: none
+		sourceColumn: Cycle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Implementation
+		dataType: string
+		lineageTag: 4698c83d-dd7a-4cce-9c24-8d8962182e2d
+		summarizeBy: none
+		sourceColumn: Implementation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition customer_segmentation = m
+		mode: import
+		queryGroup: Accounts_name
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://perfilesysoluciones.sharepoint.com/sites/PerformanceManagement83/Shared%20Documents/Corporate%20BI/Accounts/Account%20Names%20and%20Finance%20Distribution.xlsx"), null, true),
+				    customer_segmentation_Table = Source{[Item="customer_segmentation",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(customer_segmentation_Table,{{"roster_vs_invoice_ID", Int64.Type}, {"Account Name", type text}, {"headcount", Int64.Type}, {"segmentation_ID", Int64.Type}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Changed Type", {"roster_vs_invoice_ID"})
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

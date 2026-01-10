@@ -1,0 +1,312 @@
+table SCR_finance_branch_summary
+	lineageTag: cf4bac3a-af65-4d31-b400-bde4ba298835
+
+	column roster_vs_invoice_ID
+		lineageTag: fdb3f108-afe8-4bae-950e-b58b5b3087c8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [roster_vs_invoice_ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Branch
+		lineageTag: c15b5d3d-97fc-4a76-91bd-7e58d9f1726f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Branch]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Finance Report'
+		lineageTag: 70f993fc-2af0-4e6e-b6a4-20243d49dfda
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Finance Report]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Cycle'
+		lineageTag: bdc8ae8a-a07c-4db2-8b8e-309484698cee
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Billing Cycle]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		lineageTag: 43597a5d-4fab-4ec2-9f51-df0e27e799c3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Country]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		lineageTag: e4589d3e-edfe-4c5e-ba76-315c213edf53
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Industry]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Unit'
+		lineageTag: 86d14bb1-4f19-411f-bf8e-6ed7a2c6c509
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Business Unit]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Additions'
+		lineageTag: c018b5ad-92aa-4dbe-92bb-1c2b23c463cc
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Total Additions]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Removals'
+		lineageTag: df2279e7-9e7c-452c-a729-c363b4e36471
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Total Removals]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Backfill
+		lineageTag: 060f1c12-13d6-4bf0-b623-a25d3347787b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Backfill]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'No Backfill'
+		lineageTag: 1bf3fabd-a70e-4af1-9ac0-c264050e36e1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [No Backfill]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Name' = LOOKUPVALUE(finance_accounts_name[account_name],finance_accounts_name[roster_vs_invoice_ID],SCR_finance_branch_summary[roster_vs_invoice_ID])
+		lineageTag: 1b7c97d1-0a2d-4ccc-8966-0ab6f6873ccf
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Difference = SCR_finance_branch_summary[Total Additions] - SCR_finance_branch_summary[Total Removals]
+		formatString: 0
+		lineageTag: aab50e8b-f980-4e6d-b47f-411eef36a220
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category = IF([Difference]>0,"Upsell",IF([Difference]=0,"Equal","Downsell"))
+		lineageTag: 5e13cffd-29d1-447b-8460-02d18d7cd122
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segmentation_ID = LOOKUPVALUE(customer_segmentation[segmentation_ID],customer_segmentation[roster_vs_invoice_ID],SCR_finance_branch_summary[roster_vs_invoice_ID])
+		formatString: 0
+		lineageTag: 1095bc3c-cec0-41fc-a80e-fda65e26c10b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Category' = ```
+			
+			VAR PrevTotal = 
+			    CALCULATE(
+			        SUM(SCR_finance[Previous Net Seats]),
+			        ALLEXCEPT(SCR_finance, SCR_finance[roster_vs_invoice_ID], SCR_finance[Date],SCR_finance[Country])
+			    )
+			
+			VAR CurrTotal = 
+			    CALCULATE(
+			        SUM(SCR_finance[Current Net Seats]),
+			        ALLEXCEPT(SCR_finance, SCR_finance[roster_vs_invoice_ID], SCR_finance[Date],SCR_finance[Country])
+			    )
+			
+			RETURN
+			    IF(AND(PrevTotal = BLANK() || PrevTotal = 0, CurrTotal = 0), "NA",
+			    IF(PrevTotal = CurrTotal, "Equal",
+			    IF(AND(PrevTotal > 0, CurrTotal = 0), "Churn",
+			    IF(AND(PrevTotal = 0, CurrTotal > 0), "New Seat",
+			    IF(PrevTotal > CurrTotal, "Downsell",
+			    IF(CurrTotal > PrevTotal, "Upsell",
+			    "Unknown"))))))
+			```
+		lineageTag: 0953f3f7-7727-4930-b8ba-143095a5094f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Category Matched' =
+			
+			VAR MatchedSubCategory =
+			    CALCULATE(
+			        MAX(SCR_finance[Sub Category]),
+			        FILTER(
+			            SCR_finance,
+			            SCR_finance[Country] = SCR_finance_branch_summary[Country] &&
+			            SCR_finance[roster_vs_invoice_ID] = SCR_finance_branch_summary[roster_vs_invoice_ID] &&
+			            YEAR(SCR_finance[Date]) = YEAR(SCR_finance_branch_summary[Finance Report]) &&
+			            MONTH(SCR_finance[Date]) = MONTH(SCR_finance_branch_summary[Finance Report])
+			        )
+			    )
+			
+			RETURN
+			    IF(
+			        MatchedSubCategory IN {"New Seat", "Churn"},
+			        MatchedSubCategory,
+			        SCR_finance_branch_summary[Category]
+			    )
+		lineageTag: 24534d13-683a-4550-962d-d94e2610654e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Line' = ```
+			
+			VAR CurrentSegmentation = SCR_finance_branch_summary[Segmentation_ID]
+			VAR CurrentDate = SCR_finance_branch_summary[Finance Report]
+			VAR BusinessUnit = SCR_finance_branch_summary[Business Unit]
+			
+			-- Condición para asignar valores fijos según Business Unit
+			VAR BusinessUnitServiceLine = 
+			    SWITCH(
+			        TRUE(), 
+			        BusinessUnit = "Lean Tech", "Tech",
+			        BusinessUnit = "Lean Marketing", "Marketing",
+			        BLANK()
+			    )
+			
+			-- Buscar la fecha más reciente sin sobrepasar en service_line_historical
+			VAR ClosestDate = 
+			    MAXX(
+			        FILTER(
+			            service_line_historical, 
+			            service_line_historical[Segmentation_ID] = CurrentSegmentation &&
+			            service_line_historical[Date] <= CurrentDate
+			        ), 
+			        service_line_historical[Date]
+			    )
+			
+			-- Obtener el Service Line correspondiente a la fecha más cercana
+			VAR HistoricalServiceLine = 
+			    LOOKUPVALUE(
+			        service_line_historical[Service Line], 
+			        service_line_historical[Segmentation_ID], CurrentSegmentation, 
+			        service_line_historical[Date], ClosestDate
+			    )
+			
+			-- Retornar el resultado final con prioridad en BusinessUnit
+			RETURN 
+			    IF(
+			        NOT(ISBLANK(BusinessUnitServiceLine)), 
+			        BusinessUnitServiceLine, 
+			        HistoricalServiceLine
+			    )
+			```
+		lineageTag: 20155cdd-45d3-449f-b108-af90dfab6087
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SCR_finance_branch_summary = calculated
+		mode: import
+		source = ```
+				
+				SUMMARIZE(
+				    UNION(
+				        SELECTCOLUMNS(
+				            upsells, 
+				            "roster_vs_invoice_ID", upsells[roster_vs_invoice_ID],
+				            "Branch", upsells[Branch],
+				            "Finance Report", upsells[Finance Report],
+				            "Billing Cycle", upsells[Billing Cycle],
+				            "Country", upsells[Country],
+				            "Industry", upsells[Industry],
+				            "Business Unit", upsells[Next Business Unit],
+				            "Type", "activation"
+				        ),
+				        SELECTCOLUMNS(
+				            downsells, 
+				            "roster_vs_invoice_ID", downsells[roster_vs_invoice_ID],
+				            "Branch", downsells[Branch],
+				            "Finance Report", downsells[Finance Report],
+				            "Billing Cycle", downsells[Billing Cycle],
+				            "Country", downsells[Country],
+				            "Service Line", downsells[Industry],
+				            "Business Unit", downsells[Previous Business Unit],
+				            "Type", "removal"
+				        )
+				    ),
+				    [roster_vs_invoice_ID],
+				    [Branch],
+				    [Finance Report],
+				    [Billing Cycle],
+				    [Country],
+				    [Industry],
+				    [Business Unit],
+				    "Total Additions",
+				        CALCULATE(
+				            COALESCE(
+				            COUNTROWS(upsells),
+				            0),
+				            FILTER(upsells, 
+				                upsells[roster_vs_invoice_ID] = EARLIER([roster_vs_invoice_ID]) &&
+				                upsells[Branch] = EARLIER([Branch]) &&
+				                upsells[Finance Report] = EARLIER([Finance Report]) &&
+				                upsells[Industry] = EARLIER([Industry]) &&
+				                upsells[Next Business Unit] = EARLIER([Business Unit]) &&
+				                upsells[Country] = EARLIER([Country])
+				            )
+				        ),
+				    "Total Removals",
+				        CALCULATE(
+				            COALESCE(
+				            COUNTROWS(downsells),
+				            0),
+				            FILTER(downsells, 
+				                downsells[roster_vs_invoice_ID] = EARLIER([roster_vs_invoice_ID]) &&
+				                downsells[Branch] = EARLIER([Branch]) &&
+				                downsells[Finance Report] = EARLIER([Finance Report]) &&
+				                downsells[Industry] = EARLIER([Industry]) &&
+				                downsells[Previous Business Unit] = EARLIER([Business Unit]) &&
+				                downsells[Country] = EARLIER([Country])
+				            )
+				        ),
+				    "Backfill",
+				        CALCULATE(
+				            COUNTROWS(downsells),
+				            FILTER(downsells,
+				                downsells[roster_vs_invoice_ID] = EARLIER([roster_vs_invoice_ID]) &&
+				                downsells[Branch] = EARLIER([Branch]) &&
+				                downsells[Finance Report] = EARLIER([Finance Report]) &&
+				                downsells[Industry] = EARLIER([Industry]) &&
+				                downsells[Previous Business Unit] = EARLIER([Business Unit]) &&
+				                downsells[Country] = EARLIER([Country]) &&
+				                downsells[Lost vs Replacement] = "Backfill"
+				            )
+				        ),
+				    "No Backfill",
+				        CALCULATE(
+				            COUNTROWS(downsells),
+				            FILTER(downsells,
+				                downsells[roster_vs_invoice_ID] = EARLIER([roster_vs_invoice_ID]) &&
+				                downsells[Branch] = EARLIER([Branch]) &&
+				                downsells[Finance Report] = EARLIER([Finance Report]) &&
+				                downsells[Industry] = EARLIER([Industry]) &&
+				                downsells[Previous Business Unit] = EARLIER([Business Unit]) &&
+				                downsells[Country] = EARLIER([Country]) &&
+				                downsells[Lost vs Replacement] = "No Backfill"
+				            )
+				        )
+				)
+				```
+
+	annotation PBI_Id = 95a0797dd281498d9a5b4dc1f1b2db18
+

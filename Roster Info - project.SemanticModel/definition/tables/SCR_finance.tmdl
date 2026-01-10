@@ -1,0 +1,223 @@
+table SCR_finance
+	lineageTag: f2469608-0467-4224-afcc-e8cd60d62dfc
+
+	column roster_vs_invoice_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 4038e755-5f2c-41a3-966f-8b6a5cc7e919
+		summarizeBy: none
+		sourceColumn: roster_vs_invoice_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Account
+		dataType: string
+		lineageTag: a148c705-bf78-4919-860c-2afc76acbe74
+		summarizeBy: none
+		sourceColumn: Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Unit'
+		dataType: string
+		lineageTag: 6922b3da-4f74-465c-8cfc-cb1d5559b6a2
+		summarizeBy: none
+		sourceColumn: Business Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: 4ef8e1f8-3081-4b85-9cc1-fa07ec61108f
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 1b4e2ff2-b791-4ce8-a40b-dabeb5932b91
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b201c715-5c04-4aa1-a530-d10b320934de
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Current Net Seats'
+		dataType: int64
+		formatString: 0
+		lineageTag: c2e923bf-7d4e-4da7-8ebf-0b55858f6234
+		summarizeBy: sum
+		sourceColumn: Current Net Seats
+
+		annotation SummarizationSetBy = Automatic
+
+	column segmentation_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 27b66325-b710-48c1-a74e-d1f80f58fa32
+		summarizeBy: none
+		sourceColumn: segmentation_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division = ```
+			
+			    IF(SCR_finance[Service Line] = "Enterprise","Enterprise",
+			    IF(SCR_finance[Service Line] = "SMB","SMB",
+			    IF(SCR_finance[Service Line] = "Marketing","Marketing",
+			    IF(SCR_finance[Service Line] = "Tech","Tech",
+			    IF(SCR_finance[Industry] = "Gf","Gf",
+			    IF(SCR_finance[Industry] = "Bpo","Bpo",
+			    IF(SCR_finance[Industry] = "Domestic","Domestic", "NA"
+			    )))))))
+			```
+		lineageTag: f25a203a-ccf2-4328-9523-ef9716e0c8f1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Line' = ```
+			
+			VAR CurrentSegmentation = SCR_finance[segmentation_ID]
+			VAR CurrentDate = SCR_finance[Date]
+			VAR BusinessUnit = SCR_finance[Business Unit]
+			
+			-- Condición para asignar valores fijos según Business Unit
+			VAR BusinessUnitServiceLine = 
+			    SWITCH(
+			        TRUE(), 
+			        BusinessUnit = "Lean Tech", "Tech",
+			        BusinessUnit = "Lean Marketing", "Marketing",
+			        BLANK()
+			    )
+			
+			-- Buscar la fecha más reciente sin sobrepasar en service_line_historical
+			VAR ClosestDate = 
+			    MAXX(
+			        FILTER(
+			            service_line_historical, 
+			            service_line_historical[Segmentation_ID] = CurrentSegmentation &&
+			            service_line_historical[Date] <= CurrentDate
+			        ), 
+			        service_line_historical[Date]
+			    )
+			
+			-- Obtener el Service Line correspondiente a la fecha más cercana
+			VAR HistoricalServiceLine = 
+			    LOOKUPVALUE(
+			        service_line_historical[Service Line], 
+			        service_line_historical[Segmentation_ID], CurrentSegmentation, 
+			        service_line_historical[Date], ClosestDate
+			    )
+			
+			-- Retornar el resultado final con prioridad en BusinessUnit
+			RETURN 
+			    IF(
+			        NOT(ISBLANK(BusinessUnitServiceLine)), 
+			        BusinessUnitServiceLine, 
+			        HistoricalServiceLine
+			    )
+			```
+		lineageTag: 501d2ca9-bad3-4597-9a94-975ee68ce636
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Branch =
+			IF(SCR_finance[Country] = "Philippines", "Manila",
+			            IF(SCR_finance[Country] = "Guatemala", "Ciudad De Guatemala",
+			                IF(SCR_finance[Country] = "Mexico", "Ciudad De Mexico",
+			LOOKUPVALUE(customer_segmentation[Branch],customer_segmentation[roster_vs_invoice_ID],SCR_finance[roster_vs_invoice_ID]))))
+		lineageTag: 96eca0d0-8272-4bbd-a055-7100844c1af5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Net New Seats' = SCR_finance[Current Net Seats] - SCR_finance[Previous Net Seats]
+		lineageTag: dc7c4e9d-c28f-4f78-a724-e23afd968d47
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previous Net Seats' =
+			
+			var _t1 = SCR_finance[Account]
+			var _t2 = SCR_finance[Country]
+			var _t3 = SCR_finance[Business Unit]
+			var _t4 = SCR_finance[Industry]
+			var _date = SCR_finance[Date]
+			RETURN MAXX(
+			    FILTER(SCR_finance, SCR_finance[Account] = _t1 && SCR_finance[Country] = _t2 && SCR_finance[Business Unit] = _t3 && SCR_finance[Industry] = _t4 && SCR_finance[Date] = EDATE(_date,-1)),SCR_finance[Current Net Seats])
+		formatString: 0
+		lineageTag: ba446a39-342c-44b0-87e9-8e068cd5b540
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Category' = ```
+			
+			VAR PrevTotal = 
+			    CALCULATE(
+			        SUM(SCR_finance[Previous Net Seats]),
+			        ALLEXCEPT(SCR_finance, SCR_finance[roster_vs_invoice_ID], SCR_finance[Date],SCR_finance[Country])
+			    )
+			
+			VAR CurrTotal = 
+			    CALCULATE(
+			        SUM(SCR_finance[Current Net Seats]),
+			        ALLEXCEPT(SCR_finance, SCR_finance[roster_vs_invoice_ID], SCR_finance[Date],SCR_finance[Country])
+			    )
+			
+			RETURN
+			    IF(AND(PrevTotal = BLANK() || PrevTotal = 0, CurrTotal = 0), "NA",
+			    IF(PrevTotal = CurrTotal, "Equal",
+			    IF(AND(PrevTotal > 0, CurrTotal = 0), "Churn",
+			    IF(AND(PrevTotal = 0, CurrTotal > 0), "New Seat",
+			    IF(PrevTotal > CurrTotal, "Downsell",
+			    IF(CurrTotal > PrevTotal, "Upsell",
+			    "Unknown"))))))
+			```
+		lineageTag: ebd22346-5e2c-4ee8-9d7b-e7aab7d0b4aa
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Cycle' = LOOKUPVALUE(finance_accounts_name[Bill Cycle],finance_accounts_name[roster_vs_invoice_ID],SCR_finance[roster_vs_invoice_ID])
+		lineageTag: 9e442ed1-818e-4dec-ba61-0d8f95540858
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SCR_finance = m
+		mode: import
+		queryGroup: SCR
+		source =
+				let
+				    Source = Table.Combine({PHL_invoice, COL_invoice, GUA_invoice, MEX_invoice, PHL_invoice2025, MEX_invoice2025, GUA_invoice2025, COL_invoice2025}),
+				    #"Unpivoted Columns" = Table.UnpivotOtherColumns(Source, {"roster_vs_invoice_ID", "Account", "Country","Industry", "Business Unit"}, "Attribute", "Value"),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Unpivoted Columns",{{"Value", Int64.Type}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type1", each true),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"Attribute", type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Attribute", "Date"}, {"Value", "Current Net Seats"}}),
+				    #"Merged Queries" = Table.NestedJoin(#"Renamed Columns", {"roster_vs_invoice_ID"}, customer_segmentation, {"roster_vs_invoice_ID"}, "customer_segmentation", JoinKind.LeftOuter),
+				    #"Expanded customer_segmentation" = Table.ExpandTableColumn(#"Merged Queries", "customer_segmentation", {"segmentation_ID"}, {"customer_segmentation.segmentation_ID"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Expanded customer_segmentation",{{"customer_segmentation.segmentation_ID", "segmentation_ID"}}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Renamed Columns1", each ([Business Unit] <> "lean tech"))
+				in
+				    #"Filtered Rows1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

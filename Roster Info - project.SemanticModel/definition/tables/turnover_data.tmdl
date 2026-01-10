@@ -1,0 +1,394 @@
+table turnover_data
+	lineageTag: 6bae16fa-cead-4640-9475-14fecb2c015b
+
+	column downsell_id
+		dataType: string
+		lineageTag: 0f5dc306-76b6-4146-a18a-2e5f327da324
+		summarizeBy: none
+		sourceColumn: downsell_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Employee Name'
+		dataType: string
+		lineageTag: 42b2c1df-5017-432d-9e18-8a1daadae552
+		summarizeBy: none
+		sourceColumn: Employee Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Number'
+		dataType: string
+		lineageTag: f1cec337-a969-46bc-94a7-36ad8265cf97
+		summarizeBy: none
+		sourceColumn: ID Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Branch
+		dataType: string
+		lineageTag: 92b52026-374e-4a14-a9f5-5a5b1dc5fb5a
+		summarizeBy: none
+		sourceColumn: Branch
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer
+		dataType: string
+		lineageTag: 4d279d63-cccf-4c1b-aa45-6e110ef9e41e
+		summarizeBy: none
+		sourceColumn: Customer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reason
+		dataType: string
+		lineageTag: 579b45b7-9c87-4be3-a993-ee740f220524
+		summarizeBy: none
+		sourceColumn: Reason
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Downsell
+		dataType: string
+		lineageTag: ff2160c8-724d-43ec-a670-7c5d8992e634
+		summarizeBy: none
+		sourceColumn: Downsell
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Final Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 137cc466-4999-4e38-bdcc-442531b4efdd
+		summarizeBy: none
+		sourceColumn: Final Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Type of termination'
+		dataType: string
+		lineageTag: eedc5b78-5585-4665-a983-e72a7ac942c0
+		summarizeBy: none
+		sourceColumn: Type of termination
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column roster_vs_invoice_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: e95a41b5-b000-4328-b02a-7c1cb03198c6
+		summarizeBy: none
+		sourceColumn: roster_vs_invoice_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column roster_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: a6c42fe3-981a-4cf8-b34b-07208291b330
+		summarizeBy: count
+		sourceColumn: roster_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Temporal Entry Date'
+		dataType: string
+		lineageTag: ebf1d11b-7906-4988-8a21-e86856bf05f5
+		summarizeBy: none
+		sourceColumn: Temporal Entry Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Date'
+		dataType: string
+		lineageTag: 373c6740-2b81-4cac-b88f-3f2611cd8a12
+		summarizeBy: none
+		sourceColumn: Entry Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Worked days'
+		dataType: string
+		lineageTag: dc5067c3-7e7d-4fba-9b44-648a30aa3918
+		summarizeBy: none
+		sourceColumn: Worked days
+
+		annotation SummarizationSetBy = Automatic
+
+	column Office
+		dataType: string
+		lineageTag: 4de0c8cd-f388-4fec-8e63-349cae906393
+		summarizeBy: none
+		sourceColumn: Office
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Line'
+		dataType: string
+		lineageTag: 9f336a77-408c-4fed-b624-f7bb840432be
+		summarizeBy: none
+		sourceColumn: Service Line
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Unit'
+		dataType: string
+		lineageTag: ebd1a343-4001-4798-8280-225e43485c49
+		summarizeBy: none
+		sourceColumn: Business Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Type'
+		dataType: string
+		lineageTag: 7f08db87-66f5-4ad8-bfb2-06bcf423003d
+		summarizeBy: none
+		sourceColumn: ID Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 9e05f309-34b2-464d-8169-400afb24bbce
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Substatus
+		dataType: string
+		lineageTag: 837c5e5c-cbc0-4df1-82ff-e208c1530b54
+		summarizeBy: none
+		sourceColumn: Substatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Status Date'
+		dataType: string
+		lineageTag: 0ac75f9e-3f4e-4a6a-8d10-77d1a021eab6
+		summarizeBy: none
+		sourceColumn: Last Status Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Availability
+		dataType: string
+		lineageTag: 472e0668-2777-43f5-81d0-b3ccaad1b74c
+		summarizeBy: none
+		sourceColumn: Availability
+
+		annotation SummarizationSetBy = Automatic
+
+	column Direct
+		dataType: string
+		lineageTag: ab0ff789-2be6-40a7-a589-bc205312f3c0
+		summarizeBy: none
+		sourceColumn: Direct
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Main reason for withdrawal'
+		dataType: string
+		lineageTag: 4a5f428f-c339-410c-9439-c3228f7181de
+		summarizeBy: none
+		sourceColumn: Main reason for withdrawal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 2b0b2597-d479-46a4-b461-6367b2b144dc
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column segmentation_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: a3d6a35b-8513-4a4f-86a4-42117a89222b
+		summarizeBy: none
+		sourceColumn: segmentation_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: string
+		lineageTag: c81055c1-52bc-44ab-a409-2c53c4488838
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Salary Cost'
+		dataType: string
+		lineageTag: 0d2a7552-7825-4531-abf8-a52952fd4de4
+		summarizeBy: none
+		sourceColumn: Salary Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Position'
+		dataType: string
+		lineageTag: e733b9a9-199d-4392-b6ba-dd313bcbff63
+		summarizeBy: none
+		sourceColumn: Last Position
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age in the bench'
+		dataType: int64
+		formatString: 0
+		lineageTag: 704fd586-a120-4929-8d56-f336f78a1cf1
+		summarizeBy: sum
+		sourceColumn: Age in the bench
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'revisar last status'
+		dataType: string
+		lineageTag: b577c23c-7ee3-482e-a0de-68960ec9c539
+		summarizeBy: none
+		sourceColumn: revisar last status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: f4d465cc-cdae-4d29-aec6-0d76d18641d8
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bench
+		dataType: string
+		lineageTag: 68f22cd4-d529-4038-91c0-418cc84fe65b
+		summarizeBy: none
+		sourceColumn: Bench
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bench Processing?'
+		dataType: string
+		lineageTag: 38653b55-11d5-47d0-8810-aed58c120d14
+		summarizeBy: none
+		sourceColumn: Bench Processing?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Main Account Name'
+		dataType: string
+		lineageTag: 2e980206-50a6-4b54-8bdb-5ec5a8a2b9c5
+		summarizeBy: none
+		sourceColumn: Main Account Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Billrate
+		dataType: string
+		lineageTag: 890747d4-e1c9-441c-bb67-a6b52e83e8fb
+		summarizeBy: none
+		sourceColumn: Billrate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Text date'
+		dataType: string
+		lineageTag: 7bde62eb-47f0-4846-bbba-3cd9907dd45c
+		summarizeBy: none
+		sourceColumn: Text date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Line2'
+		dataType: string
+		lineageTag: 74888291-8345-4aa9-b1f3-5ae42dc200c3
+		summarizeBy: none
+		sourceColumn: Service Line2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Text Date 2'
+		dataType: string
+		lineageTag: 279d0ea3-776f-43d0-b110-7537d8f0e8b7
+		summarizeBy: none
+		sourceColumn: Text Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: string
+		lineageTag: 5edd91bd-2b4a-4f78-9050-76233bb4d245
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status 259'
+		dataType: string
+		lineageTag: 563615e6-7187-4e27-829a-b6289b6e0480
+		summarizeBy: none
+		sourceColumn: Status 259
+
+		annotation SummarizationSetBy = Automatic
+
+	partition turnover_data = m
+		mode: import
+		queryGroup: Attrition
+		source = ```
+				let
+				    Source = Excel.Workbook(Web.Contents("https://perfilesysoluciones.sharepoint.com/sites/CROSSFUNCTIONALREPORTINGTEAM/Shared%20Documents/Seat%20Count%20Report/Activations%20vs%20Removals/Downsell%20vs%20Upsell%202024.xlsx"), null, true),
+				    attrition_data_Table = Source{[Item="turnover_data",Kind="Table"]}[Data],
+				    #"Appended Query" = Table.Combine({attrition_data_Table, turnover_data2025}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Appended Query",{{"downsell_id", type text}, {"Employee Name", type text}, {"ID Number", type any}, {"Office", type text}, {"Branch", type text}, {"Business Unit", type text}, {"Service Line", type text}, {"Customer", type text}, {"Account Position", type text}, {"Reason", type text}, {"Downsell", type text}, {"Substatus", type text}, {"Final Date", type date}, {"Type of termination", type any}, {"roster_vs_invoice_ID", Int64.Type}, {"roster_ID", Int64.Type}, {"Requisition", type any}, {"segmentation_ID", Int64.Type}, {"Age in the bench", Int64.Type}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "Real Entry Date", each if [Entry Date] = null then [Temporal Entry Date] else [Entry Date]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Conditional Column",{{"Real Entry Date", type date}, {"ID Number", type text}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type1", "Worked days", each if Duration.Days([Final Date] - [Real Entry Date]) < 30 
+				then "Less than 30 days"
+				else
+				if Duration.Days([Final Date] - [Real Entry Date]) >= 30 and Duration.Days([Final Date] - [Real Entry Date]) < 60
+				then "Less than 60 days"
+				else 
+				if Duration.Days([Final Date] - [Real Entry Date]) >= 60 and Duration.Days([Final Date] - [Real Entry Date]) < 90
+				then "Less than 90 days"
+				else "More than 90 days"),
+				    #"Capitalized Each Word" = Table.TransformColumns(#"Added Custom",{{"Industry", Text.Proper, type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Capitalized Each Word","Lean Bpo","Lean Operations",Replacer.ReplaceText,{"Business Unit"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","Carrier Sales","Domestic",Replacer.ReplaceText,{"Industry"}),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Replaced Value1", "Country", each if [Branch] = "Bogota" then "Colombia" else if [Branch] = "Medellin" then "Colombia" else if [Branch] = "Bucaramanga" then "Colombia" else if [Branch] = "Cartagena" then "Colombia" else if [Branch] = "Barranquilla" then "Colombia" else if [Branch] = "Cali" then "Colombia" else if [Branch] = "Manila" then "Philippines" else if [Branch] = "Ciudad De Guatemala" then "Guatemala" else if [Branch] = "Ciudad De Mexico" then "Mexico" else null),
+				    #"Removed Columns" = Table.RemoveColumns(#"Added Conditional Column1",{"Residence", "company_id", "Account", "company_legal_name", "Sub Account", "Cost Center", "Active Date", "Senior managers", "OPS managers", "Account Position", "Internal Position", "Department", "Area", "assigned_date", "Birthday", "Requisition", "Real Entry Date"}),
+				    #"Added Conditional Column2" = Table.AddColumn(#"Removed Columns", "Division", each if [Service Line] = "SMB" then "SMB" else if [Service Line] = "Enterprise" then "Enterprise" else if [Service Line] = "Marketing" then "Marketing" else if [Service Line] = "Bench" then "Bench" else if [Industry] = "Gf" then "Gf" else if [Industry] = "Domestic" then "Domestic" else if [Industry] = "Bpo" then "Bpo" else "NA")
+				in
+				    #"Added Conditional Column2"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

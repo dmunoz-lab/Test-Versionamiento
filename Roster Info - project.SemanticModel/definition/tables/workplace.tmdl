@@ -1,0 +1,25 @@
+table workplace
+	lineageTag: 57bb7962-e884-49a5-b155-5e68e6a5c196
+
+	column workplace
+		dataType: string
+		lineageTag: 70ec792e-283c-40dd-9dfe-cd538ce9ad5e
+		summarizeBy: none
+		sourceColumn: workplace
+
+		annotation SummarizationSetBy = Automatic
+
+	partition workplace = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("Xco7CsAgEIThq4h1TpEUqXICsRh0kYV1JaKQ4+ehVbr5fsY5u6JW6NlZBNYvTyiptDl7QEWGpuENtSGRTnGPiCaS2TsaZci/H3RxKF88KJII6wCU37O/AQ==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [branch = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"branch", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"branch", "workplace"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

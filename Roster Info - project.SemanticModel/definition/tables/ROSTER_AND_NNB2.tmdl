@@ -1,0 +1,501 @@
+table ROSTER_AND_NNB2
+	lineageTag: 70c6394b-7c92-4dd8-a1a6-9e2de309f8c7
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 676cdd85-d875-4d7b-8885-f36cd1e5c3c2
+		summarizeBy: sum
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company
+		dataType: string
+		lineageTag: 8481b1cc-2fef-45f2-a9a2-729e9280b49b
+		summarizeBy: none
+		sourceColumn: company
+
+		annotation SummarizationSetBy = Automatic
+
+	column position
+		dataType: string
+		lineageTag: 05342127-e739-437b-94cc-1b558904d37a
+		summarizeBy: none
+		sourceColumn: position
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee
+		dataType: string
+		lineageTag: cbabef46-f811-410b-9a33-be5eb4cbc48b
+		summarizeBy: none
+		sourceColumn: employee
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: b9f9a62b-ea98-44d7-8d3e-75dae8f2e348
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column mobile_phone
+		dataType: string
+		lineageTag: 743738cb-c8c7-4793-b183-6cf2a20919bc
+		summarizeBy: none
+		sourceColumn: mobile_phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column personal_email
+		dataType: string
+		lineageTag: fc0c885a-c321-406e-a5ae-73709a409ba7
+		summarizeBy: none
+		sourceColumn: personal_email
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: bfcba86d-59a4-475e-84fa-ba9266216291
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column identification
+		dataType: string
+		lineageTag: 3b76eb95-8b80-4273-9316-be974833392b
+		summarizeBy: none
+		sourceColumn: identification
+
+		annotation SummarizationSetBy = Automatic
+
+	column direct
+		dataType: string
+		lineageTag: 3dbb35d9-00ad-4981-9232-3b78b9fe7e8f
+		summarizeBy: none
+		sourceColumn: direct
+
+		annotation SummarizationSetBy = Automatic
+
+	column temporal_agency
+		dataType: string
+		lineageTag: e9016197-93b1-475e-8425-f2638912f94b
+		summarizeBy: none
+		sourceColumn: temporal_agency
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b5e3abe1-b5fa-4ff3-9204-fcb8f65ea149
+		summarizeBy: none
+		sourceColumn: active_date
+
+		variation Variation
+			isDefault
+			relationship: a2d1242e-a083-4bcb-b7c0-8e819704e105
+			defaultHierarchy: LocalDateTable_eb8ceaf9-5c1f-484e-af60-46d5379c22c6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column assigned_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f64382d2-b517-48a0-a500-c4e3f9a451a4
+		summarizeBy: none
+		sourceColumn: assigned_date
+
+		variation Variation
+			isDefault
+			relationship: cb2867c6-c0b2-4e07-9e82-9166caec9136
+			defaultHierarchy: LocalDateTable_8b4dd6f7-7a71-4734-bcb9-6506cec1049d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column deactived_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 61657c8f-83e1-459e-9fc1-9e9c39294cc9
+		summarizeBy: none
+		sourceColumn: deactived_date
+
+		variation Variation
+			isDefault
+			relationship: 6118ee8e-4595-423f-8e1d-0c3c9e5d5b89
+			defaultHierarchy: LocalDateTable_2a66144b-2183-48a3-b460-f3fb5be2b9aa.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column birthday
+		dataType: string
+		lineageTag: 8c42cb7c-0b76-4b9d-a5cf-6b0e116d3b06
+		summarizeBy: none
+		sourceColumn: birthday
+
+		annotation SummarizationSetBy = Automatic
+
+	column contract_date
+		dataType: string
+		lineageTag: 589f3f36-b319-4a91-b828-338cbe3294e1
+		summarizeBy: none
+		sourceColumn: contract_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_of_6_month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7c9b6d89-0c25-409b-b784-35796bb99fe3
+		summarizeBy: none
+		sourceColumn: end_of_6_month
+
+		variation Variation
+			isDefault
+			relationship: 6c874bcd-270b-4bb4-8f59-e6fdc40cb5e8
+			defaultHierarchy: LocalDateTable_9ced2312-6ae6-40f1-9696-5aacd55cc24c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column end_of_1_year
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 38a21d40-51fe-4b28-bf63-a6ca862a5dad
+		summarizeBy: none
+		sourceColumn: end_of_1_year
+
+		variation Variation
+			isDefault
+			relationship: 418a7680-010a-434c-a276-914b10bf929a
+			defaultHierarchy: LocalDateTable_e2c55158-97b0-4fbe-8e70-3753d5f7ba9e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column address
+		dataType: string
+		lineageTag: c7492602-d070-4995-97d5-1db3394c10cd
+		summarizeBy: none
+		sourceColumn: address
+
+		annotation SummarizationSetBy = Automatic
+
+	column neighborhood
+		dataType: string
+		lineageTag: 9e350c86-5125-4b1c-bd4b-0c7a76722a47
+		summarizeBy: none
+		sourceColumn: neighborhood
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales
+		dataType: string
+		lineageTag: 78c91688-b7e2-43b7-bd1e-a998d6540b3a
+		summarizeBy: none
+		sourceColumn: sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column OPS_MANAGER_ASSISTANT
+		dataType: string
+		lineageTag: 76fe159b-a37b-4db7-bbf6-925bbc9001e4
+		summarizeBy: none
+		sourceColumn: OPS_MANAGER_ASSISTANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column SENIOR_OPS
+		dataType: string
+		lineageTag: ea5194e8-fc43-47d0-b634-c5d8a9e52c49
+		summarizeBy: none
+		sourceColumn: SENIOR_OPS
+
+		annotation SummarizationSetBy = Automatic
+
+	column rate
+		dataType: double
+		lineageTag: 18018f22-d4e0-4fd5-92b7-6f6424cbfd65
+		summarizeBy: sum
+		sourceColumn: rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'billing position'
+		dataType: string
+		lineageTag: fe9872e0-a0d2-40e1-96af-6fa31cf6a96e
+		summarizeBy: none
+		sourceColumn: billing position
+
+		annotation SummarizationSetBy = Automatic
+
+	column Branch
+		dataType: string
+		lineageTag: 8c794f6f-7107-4aeb-a54a-3d21a21f8377
+		summarizeBy: none
+		sourceColumn: Branch
+
+		annotation SummarizationSetBy = Automatic
+
+	column aging
+		dataType: int64
+		formatString: 0
+		lineageTag: af5120b4-eda3-4c99-8a01-b5f64b6a16ec
+		summarizeBy: sum
+		sourceColumn: aging
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 0fd3fa2c-c764-4675-a42b-6ab8f0334701
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column industry
+		dataType: string
+		lineageTag: 77d3562b-9cb4-4df7-ba5d-aa7dc93408d1
+		summarizeBy: none
+		sourceColumn: industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_unit
+		dataType: string
+		lineageTag: 9c04e117-7aab-4474-a47e-af9112f94a5e
+		summarizeBy: none
+		sourceColumn: business_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column roster_vs_invoice_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c94dcd6-09af-4d40-98d9-d134882ee828
+		summarizeBy: none
+		sourceColumn: roster_vs_invoice_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 345ff2dd-28e5-4a80-a1a4-7fcd9b0ccb70
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_line =
+			
+			IF (
+			    ROSTER_AND_NNB2[industry] = "Marketing",
+			    "Marketing",
+			    LOOKUPVALUE (
+			        customer_segmentation[Service Line],
+			        customer_segmentation[roster_vs_invoice_ID], ROSTER_AND_NNB2[roster_vs_invoice_ID]
+			    )
+			)
+		lineageTag: 7293a6d2-23da-4e5c-95e8-9f4fb4654fda
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division =
+			
+			SWITCH (
+			    TRUE (),
+			    ROSTER_AND_NNB2[service_line]
+			        IN { "Enterprise", "SMB", "Marketing", "Bench", "Tech" }, ROSTER_AND_NNB2[service_line],
+			    ROSTER_AND_NNB2[industry] IN { "Gf", "Bpo", "Domestic" }, ROSTER_AND_NNB2[industry],
+			    "NA"
+			)
+		lineageTag: edb45ae6-46b3-4976-a378-ef6902447374
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column segmentation_id =
+			LOOKUPVALUE (
+			    customer_segmentation[segmentation_ID],
+			    customer_segmentation[roster_vs_invoice_ID], ROSTER_AND_NNB2[roster_vs_invoice_ID]
+			)
+		formatString: 0
+		lineageTag: 227d6aff-eff0-4319-a576-8f9dd54a24e1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ROSTER_AND_NNB2 = m
+		mode: import
+		queryGroup: Roster
+		source = ```
+				let
+				    source =
+				        Table.Combine(
+				            {
+				                LIVE_ROSTER,
+				                NNB
+				            }
+				        ),
+				 
+				    replaced_business_unit =
+				        Table.ReplaceValue(
+				            source,
+				            "Lean Bpo",
+				            "Lean Operations",
+				            Replacer.ReplaceText,
+				            {"business_unit"}
+				        ),
+				 
+				    changed_type =
+				        Table.TransformColumnTypes(
+				            replaced_business_unit,
+				            {{"customer_id", Int64.Type}}
+				        ),
+				 
+				    replaced_service_line =
+				        Table.ReplaceValue(
+				            changed_type,
+				            "Carrier Sales",
+				            "Domestic",
+				            Replacer.ReplaceText,
+				            {"service_line"}
+				        ),
+				 
+				    merged_roster =
+				        Table.NestedJoin(
+				            replaced_service_line,
+				            {"customer_id"},
+				            roster_account_name,
+				            {"portal_ID"},
+				            "roster_account_name",
+				            JoinKind.LeftOuter
+				        ),
+				 
+				    expanded_roster =
+				        Table.ExpandTableColumn(
+				            merged_roster,
+				            "roster_account_name",
+				            {"roster_vs_invoice_ID"},
+				            {"roster_vs_invoice_ID"}
+				        ),
+				 
+				    removed_duplicates =
+				        Table.Distinct(
+				            expanded_roster,
+				            {"employee"}
+				        ),
+				 
+				    added_country =
+				        Table.AddColumn(
+				            removed_duplicates,
+				            "country",
+				            each
+				                if [branch] = "Bogota" then "Colombia"
+				                else if [branch] = "Medellin" then "Colombia"
+				                else if [branch] = "Bucaramanga" then "Colombia"
+				                else if [branch] = "Cartagena" then "Colombia"
+				                else if [branch] = "Barranquilla" then "Colombia"
+				                else if [branch] = "Cali" then "Colombia"
+				                else if [branch] = "Manila" then "Philippines"
+				                else if [branch] = "Ciudad De Guatemala" then "Guatemala"
+				                else if [branch] = "Ciudad De Mexico" then "Mexico"
+				                else null,
+				            type text
+				        ),
+				 
+				    renamed_industry =
+				        Table.RenameColumns(
+				            added_country,
+				            {{"service_line", "industry"}}
+				        ),
+				 
+				    employee_proper =
+				        Table.TransformColumns(
+				            renamed_industry,
+				            {{"employee", Text.Proper, type text}}
+				        ),
+				 
+				    removed_employee_id =
+				        Table.RemoveColumns(
+				            employee_proper,
+				            {"EMPLOYEE_ID"}
+				        ),
+				 
+				    renamed_personal_columns =
+				        Table.RenameColumns(
+				            removed_employee_id,
+				            {
+				                {"GENDER", "gender"},
+				                {"MOBILE_PHONE", "mobile_phone"},
+				                {"PERSONAL_EMAIL", "personal_email"},
+				                {"CATEGORY", "category"}
+				            }
+				        ),
+				 
+				    reordered_columns =
+				        Table.ReorderColumns(
+				            renamed_personal_columns,
+				            {
+				                "customer_id",
+				                "company",
+				                "position",
+				                "employee",
+				                "gender",
+				                "mobile_phone",
+				                "personal_email",
+				                "category",
+				                "identification",
+				                "DIRECT",
+				                "TEMPORAL_AGENCY",
+				                "ACTIVE_DATE",
+				                "ASSIGNED_DATE",
+				                "DEACTIVATED_DATE",
+				                "BIRTHDAY",
+				                "CONTRACT_DATE",
+				                "END_OF_6_MONTH",
+				                "END_OF_1_YEAR",
+				                "ADDRESS",
+				                "NEIGHBORHOOD",
+				                "SALES",
+				                "OPS_MANAGER_ASSISTANT",
+				                "SENIOR_OPS",
+				                "RATE",
+				                "billing position",
+				                "branch",
+				                "AGING",
+				                "status",
+				                "industry",
+				                "business_unit",
+				                "roster_vs_invoice_ID",
+				                "country"
+				            }
+				        ),
+				 
+				    final_renamed =
+				        Table.RenameColumns(reordered_columns,{{"DIRECT", "direct"}, {"TEMPORAL_AGENCY", "temporal_agency"}, {"ACTIVE_DATE", "active_date"}, {"ASSIGNED_DATE", "assigned_date"}, {"DEACTIVATED_DATE", "deactived_date"}, {"BIRTHDAY", "birthday"}, {"CONTRACT_DATE", "contract_date"}, {"END_OF_6_MONTH", "end_of_6_month"}, {"END_OF_1_YEAR", "end_of_1_year"}, {"ADDRESS", "address"}, {"NEIGHBORHOOD", "neighborhood"}, {"SALES", "sales"}, {"AGING", "aging"}, {"RATE", "rate"}, {"branch", "Branch"}})
+				in
+				    final_renamed
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

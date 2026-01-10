@@ -1,0 +1,98 @@
+table concepts
+	lineageTag: ed7cb7f9-e145-44a5-b259-1befc76dfde7
+
+	measure 'MNR txt' = "Monthly Numbers Review & Historical Trends Since 2024"
+		lineageTag: cef3ed19-439a-4c86-bb06-318ccda33c53
+
+	measure 'Zero Revenue txt' = "Any staffer that is not a FTE or Active Floater in an account  who negatively impact LSG revenue. + Terminated, includes the attrition."
+		lineageTag: 81b08c2f-35a3-41fc-afae-98cdbaa42b3c
+
+	measure 'FTE Txt' = "Full Time Employee (Active employee)"
+		lineageTag: 6d85065b-ba34-41cf-bb4f-4534abcdb3aa
+
+	measure 'Bench HC txt' = "Employees in the bench pool who can be profiled and assigned to an account (placeable), serving as an internal talent pool to fulfill requisitions"
+		lineageTag: d8793ec2-73e8-44ee-a2c4-e1ad56877e1a
+
+	measure 'Unplaceable HC txt' = "Employees who cannot be profiled or assigned to an account due to skill mismatches, lack of availability, or other constraints, making them ineligible for current requisitions"
+		lineageTag: 42019611-d1d0-43db-abd0-6b09cbc166e5
+
+	measure 'Terminated (Attrition) txt' = "The gradual reduction in workforce due to resignations, retirements, terminations, or other forms of employee separation, either voluntary or involuntary"
+		lineageTag: aabc942e-0004-426b-8051-5c8fca171e76
+
+	measure 'Accounts Attrition  txt' = ```
+			"Refers to the deactivation of employees assigned to a client. This includes both voluntary resignations and terminations initiated by the client due to performance issues, or internal and external constraints" 
+			```
+		lineageTag: b4b3bff8-4949-44f7-9284-1c780c05aa7c
+
+	measure 'Resignation txt' = ```
+			"When an employee voluntarily leaves their position in the organization, typically by submitting a formal notice" 
+			```
+		lineageTag: 0fff174c-a71e-45bd-91c6-d7e2d121c185
+
+	measure 'Termination txt' = "When an employee's contract is ended by the organization, either for performance, misconduct, or other reasons, making it an involuntary termination"
+		lineageTag: 7b746ef1-ba20-41a3-8bd7-24fc196a0610
+
+	measure 'Total Activations Txt' = "Number of employees added to an account or client after a hiring process to closed one or various requisitions of new additions/replacement"
+		lineageTag: f25b3404-9a44-4f83-bfe1-1da557b72dca
+
+	measure 'Total Removals Txt' = "Number of employees deactivated from the accounts or clients due to internals reasons, for intance, low performance, resignations, etc."
+		lineageTag: c4ef95d9-6546-4846-b904-01ce12828888
+
+	measure 'Net New Seats (NNS) Txt' = ```
+			"Net increase in the number of FTEs. Refers to the difference between the number of employees active and those removed during a specific period of time." 
+			```
+		lineageTag: 6e2ae04e-b60b-40e7-a696-272fb0799c51
+
+	measure 'Active Condition Txt' = "Type of growth within a client or customer account after activating an FTE. So far, we have identified organic growth, implementation growth, and replacement"
+		lineageTag: be0cf942-93c7-4b38-849e-495599009a37
+
+	measure 'Implementation Txt' = "Active conditions of a FTE activated during the implementation phase of an account"
+		lineageTag: bc50092a-29ea-4580-a386-35a903736db8
+
+	measure 'Organic Txt' = "The active conditions of an FTE that is established during the operational phase of an account"
+		lineageTag: 75bdf542-af87-4d5b-a36c-fde9be1f97ef
+
+	measure 'Replacement Txt' = "Active conditions of a FTE activated to backfill a previously removed FTE or seats that were left open for a position change"
+		lineageTag: ed950879-24e6-4f88-8ecc-7f31e52a7c75
+
+	measure 'Seasonals Txt' = "Seats activated temporarily, with the intention of being removed eventually after a working season"
+		lineageTag: 3561b6e0-800d-45f2-ae02-d1ce160d39a8
+
+	measure 'Reason Txt' = ```
+			"Main reason of removal of the FTE from the account, this one is set in the portal by the OM" 
+			```
+		lineageTag: ca1e6de4-06a7-4383-a833-36d4fe36acd5
+
+	measure 'Backfill txt' = "Refers to replacing an employee who has vacated a position (due to resignation, termination, promotion, etc.) to ensure continuity of work and prevent disruptions in operations"
+		lineageTag: 41ac2b5a-72bd-4ad3-9d1c-0d1b70a11c41
+
+	measure 'No Backfill txt' = "Occurs when a vacated position is not replaced, either due to budget constraints, role redundancy, restructuring, or a strategic decision usually made by the clients"
+		lineageTag: fb648d5f-cbee-4199-b2bc-e1723e0f57b3
+
+	measure 'Industries txt' = "Domestic, Global Forwarding (Gf), Bpo & Marketing"
+		lineageTag: 9c37b82e-621d-4dd3-a21f-9ebec7d47104
+
+	measure 'Service Lines txt' = "Core Accounts, DND, Enterprise, Incubator, SMB"
+		lineageTag: c366ddb1-1337-4ad2-a1ad-dabf4f809829
+
+	column Column1
+		dataType: string
+		lineageTag: 50ff649d-2aae-4e8f-a572-75eca70bd9cc
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition concepts = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

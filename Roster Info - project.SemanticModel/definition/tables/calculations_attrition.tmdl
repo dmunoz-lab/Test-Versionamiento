@@ -1,0 +1,136 @@
+table calculations_attrition
+	lineageTag: ef53b6d9-48d7-4501-95e7-502980dd2fd5
+
+	measure 'Total Attrition' = ```
+			
+			    COALESCE(SUM(Attrition[Attrition]),0)
+			```
+		formatString: 0
+		lineageTag: aa1b1257-d415-4c9d-b1c9-cb55fc202006
+
+	measure 'Previous Month Attrition' = ```
+			
+			    COALESCE(
+			        CALCULATE(
+			        SUM(Attrition[Attrition]),
+			        PREVIOUSMONTH(Dim_Calendar[Date])
+			),0)
+			```
+		formatString: 0
+		lineageTag: 9f0f0eae-b7d0-4c82-b7df-0ff3faacec87
+
+	measure 'Variance (attrition)' = ```
+			
+			    IF([Total Attrition]  = 0 && [Previous Month Attrition] = 0,BLANK(),
+			        IF([Total Attrition]  = 0, -1,
+			            ([Total Attrition] - [Previous Month Attrition]) / [Total Attrition] 
+			                )
+			            )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: faf25058-5a30-4972-922d-ffd7e04782cc
+
+	measure 'Total % Attrition' = ```
+			
+			    COALESCE(SUM(Attrition[Attrition]) / SUM(Attrition[Total HC]),0)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 53fb46f4-c432-48fa-b266-ff0dc0a49223
+
+	measure 'Previous Month % Attrition' = ```
+			
+			VAR PrevAtt = 
+			    CALCULATE(
+			    SUM(Attrition[Attrition]),
+			    PREVIOUSMONTH(Dim_Calendar[Date])
+			    )
+			VAR PrevHC =
+			    CALCULATE(
+			    SUM(Attrition[Total HC]),
+			    PREVIOUSMONTH(Dim_Calendar[Date])
+			    )
+			
+			RETURN
+			
+			 COALESCE(PrevAtt / PrevHC,0)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e3d647cd-3afc-4066-b3b8-3d131f7d6edb
+
+	measure 'Variance (% attrition)' = ```
+			
+			    IF([Total % Attrition] = 0 && [Previous Month % Attrition] = 0,BLANK(),
+			        IF([Total % Attrition] = 0, -1,
+			            ([Total % Attrition]- [Previous Month % Attrition]) / [Total % Attrition] 
+			                )
+			            )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9ffd67d5-e994-4990-9b96-e4e611612b0e
+
+	measure 'Total Attrition 2' = ```
+			
+			    COALESCE(
+			        COUNTROWS(downsells),
+			        0)
+			
+			```
+		formatString: 0
+		lineageTag: 7295439f-0cdd-406d-be07-1d0db80d5455
+
+	measure 'Previous Month Attrition 2' = ```
+			
+			    COALESCE(
+			        CALCULATE(
+			        COUNTROWS(downsells),
+			        PREVIOUSMONTH(Dim_Calendar[Date])
+			),0)
+			```
+		formatString: 0
+		lineageTag: 93ceff69-b472-4925-b9b5-375f3c5d648a
+
+	measure 'Variance 2 (attrition)' = ```
+			
+			    IF([Total Attrition 2]  = 0 && [Previous Month Attrition 2] = 0,BLANK(),
+			        IF([Total Attrition 2]  = 0, -1,
+			            ([Total Attrition 2] - [Previous Month Attrition 2]) / [Total Attrition 2] 
+			                )
+			            )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9c094d5e-34f1-4bde-8d22-8c09301c0265
+
+	measure 'Avg HC per month' = DIVIDE ( SUM(Attrition[HC]) + SUM(Attrition[Total HC]), 2 )
+		formatString: 0
+		lineageTag: c062fd2c-b58a-4c20-9e31-5cba993c8623
+
+	measure 'new % Attrition' =
+			
+			VAR total_attr = [Total Attrition]
+			VAR avg_hc     = [Avg HC per month]
+			VAR raw_attr   = DIVIDE(total_attr, avg_hc, 0)
+			
+			RETURN
+			IF (raw_attr > 1, 1, raw_attr)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 2edfded5-08e1-4349-a994-323487b4df60
+
+	column Column1
+		dataType: string
+		lineageTag: 8f9dc138-92db-425e-8b1a-9ec9157f419a
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calculations_attrition = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

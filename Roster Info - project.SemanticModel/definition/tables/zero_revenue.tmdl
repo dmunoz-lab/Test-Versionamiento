@@ -1,0 +1,315 @@
+table zero_revenue
+	lineageTag: 72dab3d2-bf4c-432c-abd7-841576299b5e
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5dbe1fef-3ede-42ac-88b3-2e231b2ed2bd
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Branch
+		dataType: string
+		lineageTag: c1c23f65-2d3e-47d9-b33f-0d65edae0708
+		summarizeBy: none
+		sourceColumn: Branch
+
+		annotation SummarizationSetBy = Automatic
+
+	column Office
+		dataType: string
+		lineageTag: 7c32910c-a6b3-4c0d-9555-89744c9850dd
+		summarizeBy: none
+		sourceColumn: Office
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: dea5f1a4-b06b-4781-85c2-0a54a47c40c4
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Unit'
+		dataType: string
+		lineageTag: c2b2ff78-4c5a-4d7b-9ecf-92eab9787039
+		summarizeBy: none
+		sourceColumn: Business Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Employee Name'
+		dataType: string
+		lineageTag: 2f7c6eda-ac9f-4b39-a491-db61ad8b09a1
+		summarizeBy: none
+		sourceColumn: Employee Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Number'
+		dataType: string
+		lineageTag: 2595695f-243c-41ba-a368-4a604f973ab3
+		summarizeBy: none
+		sourceColumn: ID Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: acb8e9d3-9879-474a-ab95-22e3f64a8be9
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Downsell
+		dataType: string
+		lineageTag: 6ce62751-c24a-4a03-a3eb-9ada1c6c6e15
+		summarizeBy: none
+		sourceColumn: Downsell
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reason of removal'
+		dataType: string
+		lineageTag: 43f9bb58-b946-4fc3-a781-c119b18afdcb
+		summarizeBy: none
+		sourceColumn: Reason of removal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer
+		dataType: string
+		lineageTag: 00782d56-22cc-47c1-9f1d-8086a6c04342
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Position'
+		dataType: string
+		lineageTag: 4cd41791-cf6c-4782-a682-ef34a98cc9b8
+		summarizeBy: none
+		sourceColumn: Last Position
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age in the bench'
+		dataType: int64
+		formatString: 0
+		lineageTag: 05ce9f8f-7a02-4fce-bdbf-523a1b217545
+		summarizeBy: sum
+		sourceColumn: Age in the bench
+
+		annotation SummarizationSetBy = Automatic
+
+	column roster_vs_invoice_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 352cf9d4-3f00-4dd4-bda7-9fdf751d58fc
+		summarizeBy: none
+		sourceColumn: roster_vs_invoice_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column roster_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: a87aa6b2-8eb2-4610-b1b2-f6de1585955d
+		summarizeBy: none
+		sourceColumn: roster_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Line'
+		dataType: string
+		lineageTag: 5d11f9ca-f34d-42d7-b88f-1f246dd61a03
+		summarizeBy: none
+		sourceColumn: Service Line
+
+		annotation SummarizationSetBy = Automatic
+
+	column segmentation_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: ddd75afb-1b4e-4ae0-b70d-21fae257a1d7
+		summarizeBy: none
+		sourceColumn: segmentation_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Type of termination'
+		dataType: string
+		lineageTag: 7a8310d7-bdcc-401f-9a3a-e78412eeedff
+		summarizeBy: none
+		sourceColumn: Type of termination
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Main reason for withdrawal'
+		dataType: string
+		lineageTag: 6ad915ed-597a-4f2d-af28-f0dddd24b268
+		summarizeBy: none
+		sourceColumn: Main reason for withdrawal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Salary Cost'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a5c0f11e-657d-4730-91f3-6d97d7a918cc
+		summarizeBy: sum
+		sourceColumn: Salary Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Bench
+		dataType: string
+		lineageTag: 05e5b9d8-862d-445d-8d67-3c2a6d4c2e54
+		summarizeBy: none
+		sourceColumn: Bench
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bench Processing?'
+		dataType: string
+		lineageTag: cdbaa731-b03e-4a3c-ba91-7e930f05f17a
+		summarizeBy: none
+		sourceColumn: Bench Processing?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Account'
+		dataType: string
+		lineageTag: d4549944-b3e0-40a1-bdde-ce074c6a0734
+		summarizeBy: none
+		sourceColumn: Sub Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZRH
+		dataType: string
+		lineageTag: 8a95e1d1-4c2f-4054-a35e-994a0acf50d0
+		summarizeBy: none
+		sourceColumn: ZRH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Senior managers'
+		dataType: string
+		lineageTag: a0a56ffe-ee0b-4a14-9fd0-83d6bd8fbbc7
+		summarizeBy: none
+		sourceColumn: Senior managers
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OPS managers'
+		dataType: string
+		lineageTag: 60362e9f-2108-488b-9919-b9f03a9c87d7
+		summarizeBy: none
+		sourceColumn: OPS managers
+
+		annotation SummarizationSetBy = Automatic
+
+	column Direct
+		dataType: string
+		lineageTag: b5536c61-9661-4fc6-ac2b-66e9ff723a14
+		summarizeBy: none
+		sourceColumn: Direct
+
+		annotation SummarizationSetBy = Automatic
+
+	column Billrate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1116bc1d-70a0-4b65-84a6-d0e099237763
+		summarizeBy: sum
+		sourceColumn: Billrate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Day
+		dataType: int64
+		formatString: 0
+		lineageTag: 6734c1e1-8b8d-448d-a0f1-18053a487369
+		summarizeBy: sum
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Main Account Name'
+		dataType: string
+		lineageTag: 0cee45ee-bccf-4f60-a854-536c28a02d99
+		summarizeBy: none
+		sourceColumn: Main Account Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Aging
+		dataType: string
+		lineageTag: 6fd36b12-b424-4eae-aec2-629142eddc83
+		summarizeBy: none
+		sourceColumn: Aging
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: string
+		lineageTag: 1c72a3f9-509b-404f-9736-aa76d10b94f4
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NA Reason'
+		dataType: string
+		lineageTag: 7834560d-297d-49f6-ac54-22f72015595b
+		summarizeBy: none
+		sourceColumn: NA Reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column Substatus
+		dataType: string
+		lineageTag: 0d0cba18-83d8-4430-9286-459c4c5c44e9
+		summarizeBy: none
+		sourceColumn: Substatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status 259'
+		dataType: string
+		lineageTag: 55795a0f-107c-4d60-a8be-1b7c0ad3051c
+		summarizeBy: none
+		sourceColumn: Status 259
+
+		annotation SummarizationSetBy = Automatic
+
+	partition zero_revenue = m
+		mode: import
+		queryGroup: ZRH
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://perfilesysoluciones.sharepoint.com/sites/CROSSFUNCTIONALREPORTINGTEAM/Shared%20Documents/Seat%20Count%20Report/Activations%20vs%20Removals/Zero%20Revenue%20Headcount.xlsx"), null, true),
+				    ZeroRevenue_Table = Source{[Item="ZeroRevenue",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(ZeroRevenue_Table,{{"Date", type date}, {"Branch", type text}, {"Office", type text}, {"Industry", type text}, {"Business Unit", type text}, {"Employee Name", type text}, {"ID Number", type any}, {"Status", type text}, {"Downsell", type text}, {"Reason of removal", type text}, {"Customer", type text}, {"Last Position", type text}, {"Age in the bench", Int64.Type}, {"roster_vs_invoice_ID", Int64.Type}, {"roster_ID", Int64.Type}, {"Service Line", type text}, {"segmentation_ID", Int64.Type}, {"Type of termination", type text}, {"Main reason for withdrawal", type text}, {"Salary Cost", Currency.Type}, {"Bench", type text}, {"Bench Processing?", type text}, {"Sub Account", type any}, {"ZRH", type text}, {"Senior managers", type any}, {"OPS managers", type any}, {"Direct", type text}, {"Billrate", Currency.Type}, {"Day", Int64.Type}, {"Main Account Name", type text}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "Division", each if [Status] = "Available" then "Bench" else if [Service Line] = "Bench" then "Bench" else if [Status] = "Free Floater" then "Bench" else if [Status] = "Offboarding" then "Bench" else if [Status] = "Not Available" then "Bench" else if [Status] = "Profiled" then "Bench" else if [Status] = "Trainee" then "Bench" else if [Status] = "Assigned" then "Bench" else if [Service Line] = "SMB" then "SMB" else if [Service Line] = "Enterprise" then "Enterprise" else if [Service Line] = "Marketing" then "Marketing" else if [Industry] = "Gf" then "Gf" else if [Industry] = "Bpo" then "Bpo" else if [Industry] = "Domestic" then "Domestic" else "NA"),
+				    #"Replaced Value" = Table.ReplaceValue(#"Added Conditional Column","","Bench",Replacer.ReplaceValue,{"Service Line"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",null,"Bench",Replacer.ReplaceValue,{"Service Line"})
+				in
+				    #"Replaced Value1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

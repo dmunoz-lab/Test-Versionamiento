@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "2896321e6b20e92bd403",
+  "position": {
+    "x": 840,
+    "y": 278,
+    "z": 40000,
+    "height": 399,
+    "width": 337,
+    "tabOrder": 43000
+  },
+  "visualGroup": {
+    "displayName": "Total FTE's Group",
+    "groupMode": "ScaleMode"
+  }
+}

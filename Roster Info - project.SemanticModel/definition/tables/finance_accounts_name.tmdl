@@ -1,0 +1,91 @@
+table finance_accounts_name
+	lineageTag: 80e89d96-d69c-4bd1-8643-ed33a6d4fcc2
+
+	column roster_vs_invoice_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c11abda-c7a7-4fc1-a1b7-7ce5dad80e23
+		summarizeBy: none
+		sourceColumn: roster_vs_invoice_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bill Cycle'
+		dataType: string
+		lineageTag: f0704b69-f722-4c12-8441-955955ea5796
+		summarizeBy: none
+		sourceColumn: Bill Cycle
+
+		annotation SummarizationSetBy = Automatic
+
+	column hubspot_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ba7bccd-89fa-405b-90df-44541f622a35
+		summarizeBy: count
+		sourceColumn: hubspot_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_name
+		dataType: string
+		lineageTag: 2139a4e9-6138-4cc9-97a6-cc753956662b
+		summarizeBy: none
+		sourceColumn: account_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_segmentation = LOOKUPVALUE(customer_segmentation[customer_segmentation],customer_segmentation[roster_vs_invoice_ID] ,finance_accounts_name[roster_vs_invoice_ID])
+		lineageTag: 9e6d3866-d54f-4d5c-9006-90f9e31fe741
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_unit
+		dataType: string
+		lineageTag: ed67116b-9598-4f80-aa20-2c5abd547ed4
+		summarizeBy: none
+		sourceColumn: business_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Date'
+		dataType: string
+		lineageTag: b9b3cb6b-83de-40e0-8f85-18059efdfe93
+		summarizeBy: none
+		sourceColumn: Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rep
+		dataType: string
+		lineageTag: 0a71d048-4ce8-452b-9a0c-fa920f88e0b7
+		summarizeBy: none
+		sourceColumn: Rep
+
+		annotation SummarizationSetBy = Automatic
+
+	column Team
+		dataType: string
+		lineageTag: 2cde4130-9248-4ad8-83a1-235189395b18
+		summarizeBy: none
+		sourceColumn: Team
+
+		annotation SummarizationSetBy = Automatic
+
+	partition finance_accounts_name = m
+		mode: import
+		queryGroup: Accounts_name
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://perfilesysoluciones.sharepoint.com/sites/PerformanceManagement83/Shared%20Documents/Corporate%20BI/Accounts/Account%20Names%20and%20Finance%20Distribution.xlsx"), null, true),
+				    roster_vs_invoice_accounts_Table = Source{[Item="roster_vs_invoice_accounts",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(roster_vs_invoice_accounts_Table,{{"roster_vs_invoice_ID", Int64.Type}, {"Bill Cycle", type text}, {"hubspot_ID", Int64.Type}, {"account_name", type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([roster_vs_invoice_ID] = 30199))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

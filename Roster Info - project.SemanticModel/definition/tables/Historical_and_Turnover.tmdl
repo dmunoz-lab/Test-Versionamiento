@@ -1,0 +1,629 @@
+table Historical_and_Turnover
+	lineageTag: 28acd26f-4d61-4852-88c2-d9020f0e0b75
+
+	column 'Roster date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8c498b9b-5b89-423e-a4de-0e2f83f3af8a
+		summarizeBy: none
+		sourceColumn: Roster date
+
+		variation Variation
+			isDefault
+			relationship: 3c326b52-4017-4121-baa8-2064b6c58508
+			defaultHierarchy: LocalDateTable_806f30dd-b2f0-4934-9b8c-a1a8b0eadd5b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Branch
+		dataType: string
+		lineageTag: 92e929f9-c17a-4370-abe7-85c7ee23e690
+		summarizeBy: none
+		sourceColumn: Branch
+
+		annotation SummarizationSetBy = Automatic
+
+	column Office
+		dataType: string
+		lineageTag: d5ddc8b2-4b24-4255-a900-7b4a8ba6891d
+		summarizeBy: none
+		sourceColumn: Office
+
+		annotation SummarizationSetBy = Automatic
+
+	column Residence
+		dataType: string
+		lineageTag: fe29794d-e7b5-40e8-b3b5-1487933e755d
+		summarizeBy: none
+		sourceColumn: Residence
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previous Service Line'
+		dataType: string
+		lineageTag: 26e97b74-7961-4d19-a77d-5b32bfc07d3f
+		summarizeBy: none
+		sourceColumn: Previous Service Line
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Unit'
+		dataType: string
+		lineageTag: 252bf48e-bc40-4f3a-b711-305fa1129ea4
+		summarizeBy: none
+		sourceColumn: Business Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: string
+		lineageTag: 9b9bd849-e5b9-40eb-b865-a6af82a90937
+		summarizeBy: none
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Account
+		dataType: string
+		lineageTag: b3a42e59-dd1a-4b10-9966-f050813869f6
+		summarizeBy: none
+		sourceColumn: Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_legal_name
+		dataType: string
+		lineageTag: 4be59d58-34e5-4be2-8889-673cd5099ffb
+		summarizeBy: none
+		sourceColumn: company_legal_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Account'
+		dataType: string
+		lineageTag: efe773f7-d245-471b-9f89-961c69ee6922
+		summarizeBy: none
+		sourceColumn: Sub Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column roster_vs_invoice_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 09e46027-e334-4254-96eb-6aba2a8e9f52
+		summarizeBy: none
+		sourceColumn: roster_vs_invoice_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Line'
+		dataType: string
+		lineageTag: 194ed077-8e4e-40c2-900a-83f5e748f5b8
+		summarizeBy: none
+		sourceColumn: Service Line
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: 65462390-7899-4c28-a896-8479ffe69586
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center'
+		dataType: string
+		lineageTag: 95610a61-af73-4f9e-9658-3f091def2395
+		summarizeBy: none
+		sourceColumn: Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Employee Name'
+		dataType: string
+		lineageTag: e9ce347c-9883-46d1-a1fc-98059258168b
+		summarizeBy: none
+		sourceColumn: Employee Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Number'
+		dataType: string
+		lineageTag: 7833a456-1690-4032-b250-c63aa5f573d9
+		summarizeBy: none
+		sourceColumn: ID Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Type'
+		dataType: string
+		lineageTag: 59da4a09-023b-4602-b00b-5e601bda39f4
+		summarizeBy: none
+		sourceColumn: ID Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Status Date'
+		dataType: string
+		lineageTag: dba2501b-3cb7-4ac4-95bf-15205b82a486
+		summarizeBy: none
+		sourceColumn: Last Status Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Active Date'
+		dataType: string
+		lineageTag: fef793af-9b65-4fb3-9734-5f12098dee92
+		summarizeBy: none
+		sourceColumn: Active Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Availability
+		dataType: string
+		lineageTag: 131230a6-0753-422d-8e81-511ac36a5e84
+		summarizeBy: none
+		sourceColumn: Availability
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Senior managers'
+		dataType: string
+		lineageTag: 854b8c0d-3909-4f75-8daa-bdacf4e0a50d
+		summarizeBy: none
+		sourceColumn: Senior managers
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OPS managers'
+		dataType: string
+		lineageTag: ee04dda1-5344-4deb-b330-c13717ac6114
+		summarizeBy: none
+		sourceColumn: OPS managers
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Position'
+		dataType: string
+		lineageTag: bd01f8c1-d39a-447a-9a9c-1c2f1e7eda23
+		summarizeBy: none
+		sourceColumn: Account Position
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Internal Position'
+		dataType: string
+		lineageTag: 6a8eda6d-fba5-4519-bcd9-2c050e348955
+		summarizeBy: none
+		sourceColumn: Internal Position
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 4c9e981f-60be-40de-8a4a-f135afc920b9
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Area
+		dataType: string
+		lineageTag: 821bfbae-b4e4-482a-b05e-c1b7ff7974ba
+		summarizeBy: none
+		sourceColumn: Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column assigned_date
+		dataType: string
+		lineageTag: 21833f91-2fb6-473c-a7b4-d86dd1f7c90e
+		summarizeBy: none
+		sourceColumn: assigned_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Status Date2'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 740bf5ff-0314-4220-afc3-5a2dc4dcc81a
+		summarizeBy: none
+		sourceColumn: Last Status Date2
+
+		variation Variation
+			isDefault
+			relationship: 19bcbfa1-3e3e-44eb-9d53-77a3d242d391
+			defaultHierarchy: LocalDateTable_ef7a0403-c8f9-4f7b-baa1-b365bbbd739b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Direct
+		dataType: string
+		lineageTag: 931a89f6-789c-459f-b9ce-00a42a328d08
+		summarizeBy: none
+		sourceColumn: Direct
+
+		annotation SummarizationSetBy = Automatic
+
+	column Birthday
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 430dba50-3433-4735-95e8-88aa50a2a385
+		summarizeBy: none
+		sourceColumn: Birthday
+
+		variation Variation
+			isDefault
+			relationship: ccdb4f1d-d039-4c33-b4f8-867d4fcc3952
+			defaultHierarchy: LocalDateTable_051971ff-f2b1-4dc2-89a7-4397b24d8a47.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Temporal Entry Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 68142779-3d29-4a2f-b41a-48f9d0503152
+		summarizeBy: none
+		sourceColumn: Temporal Entry Date
+
+		variation Variation
+			isDefault
+			relationship: f07a2824-2055-4b72-a8c2-dfdd9f918bda
+			defaultHierarchy: LocalDateTable_4c28aed4-f755-4a45-a123-b39d17777196.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Entry Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6b55c3de-ddbe-4195-ba84-c109b692cf93
+		summarizeBy: none
+		sourceColumn: Entry Date
+
+		variation Variation
+			isDefault
+			relationship: b620ac9a-65af-4ad7-ba6a-25fd66d031b7
+			defaultHierarchy: LocalDateTable_2695f737-8498-47d9-8cad-abc1cc976462.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Requisition
+		dataType: string
+		lineageTag: b5dec69c-ac52-4edc-a0a7-970ef2e57e5c
+		summarizeBy: none
+		sourceColumn: Requisition
+
+		annotation SummarizationSetBy = Automatic
+
+	column Building
+		dataType: string
+		lineageTag: 9d8ffa28-4675-4c84-bfac-689d889040cd
+		summarizeBy: none
+		sourceColumn: Building
+
+		annotation SummarizationSetBy = Automatic
+
+	column Floor
+		dataType: string
+		lineageTag: 49fc0e5b-3843-45d1-84ab-d5bf39242a56
+		summarizeBy: none
+		sourceColumn: Floor
+
+		annotation SummarizationSetBy = Automatic
+
+	column Seat
+		dataType: string
+		lineageTag: d3b4da8c-0b7d-4ec8-961a-631527fb6065
+		summarizeBy: none
+		sourceColumn: Seat
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Salary Cost'
+		dataType: string
+		lineageTag: 8d2c53ba-0568-41da-a019-226700f17b6a
+		summarizeBy: none
+		sourceColumn: Salary Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column Billrate
+		dataType: string
+		lineageTag: ee349efe-98b7-49ba-bdf0-2839bab5155c
+		summarizeBy: none
+		sourceColumn: Billrate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segmentation_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: ff63cf37-6a5f-41a7-a33e-afd2b1f93f06
+		summarizeBy: none
+		sourceColumn: Segmentation_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Main Account Name'
+		dataType: string
+		lineageTag: 9e68f157-6bfe-412a-9e5b-f40a8d961d18
+		summarizeBy: none
+		sourceColumn: Main Account Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reason of removal'
+		dataType: string
+		lineageTag: 0ef54c52-7a7f-4de0-ab5b-e4815586f598
+		summarizeBy: none
+		sourceColumn: Reason of removal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Office2
+		dataType: string
+		lineageTag: 835ac483-8cb6-4f7e-bf98-9fac374d59a5
+		summarizeBy: none
+		sourceColumn: Office2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hierarchy Level'
+		dataType: string
+		lineageTag: d8f4ac19-e18f-423d-a07b-60489dd89385
+		summarizeBy: none
+		sourceColumn: Hierarchy Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Report To'
+		dataType: string
+		lineageTag: 88414df2-8500-4be9-8bb7-49e4abf66108
+		summarizeBy: none
+		sourceColumn: Report To
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Modality'
+		dataType: string
+		lineageTag: f71921cc-e9d8-4846-971a-041dbbb9dca2
+		summarizeBy: none
+		sourceColumn: Work Modality
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status 259'
+		dataType: string
+		lineageTag: 40467842-785b-41a7-b238-3c92c20dd702
+		summarizeBy: none
+		sourceColumn: Status 259
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NA Reason'
+		dataType: string
+		lineageTag: 15673698-b701-4d07-8bfc-61a74fe31697
+		summarizeBy: none
+		sourceColumn: NA Reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column Aging
+		dataType: string
+		lineageTag: 60447b54-2dad-4596-b6ac-3e28251e2994
+		summarizeBy: none
+		sourceColumn: Aging
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cycle
+		dataType: string
+		lineageTag: 5e19cd3c-0092-4f10-a489-f9cb06f8d382
+		summarizeBy: none
+		sourceColumn: Cycle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 395ece84-c0a4-430a-a27c-08135d03adc2
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: ca1ff58e-084e-4fc7-b2e7-d9540c37008f
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: string
+		lineageTag: b23f4d38-c9f1-4ed9-9500-1dedfbf21f71
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Substatus
+		dataType: string
+		lineageTag: 5de12abc-941c-47ef-bd6f-5cca4d240f7f
+		summarizeBy: none
+		sourceColumn: Substatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Final Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b78f211e-0227-4f64-bc05-6095cd8c2bc8
+		summarizeBy: none
+		sourceColumn: Final Date
+
+		variation Variation
+			isDefault
+			relationship: 821b6b05-376c-4f08-8aaf-3efb3b31f562
+			defaultHierarchy: LocalDateTable_856d2beb-fdfb-4279-842c-9483f92bb662.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Text date'
+		dataType: string
+		lineageTag: 1af0f243-606f-45a8-b751-fa323b1fdfd1
+		summarizeBy: none
+		sourceColumn: Text date
+
+		annotation SummarizationSetBy = Automatic
+
+	column downsell_id
+		dataType: string
+		lineageTag: f56131c8-5805-4110-8d9a-e2baea529b07
+		summarizeBy: none
+		sourceColumn: downsell_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Downsell
+		dataType: string
+		lineageTag: ea3ddfd6-8213-47eb-ad97-5b86d52b6bd7
+		summarizeBy: none
+		sourceColumn: Downsell
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reason
+		dataType: string
+		lineageTag: aecef2f2-44bb-4a4d-9b68-893f4da6e72b
+		summarizeBy: none
+		sourceColumn: Reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer
+		dataType: string
+		lineageTag: 7e8edd6d-7b77-4337-93d8-70fac9ac12bc
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Position'
+		dataType: string
+		lineageTag: 46640602-f774-4cb8-8227-47a06b249610
+		summarizeBy: none
+		sourceColumn: Last Position
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age in the bench'
+		dataType: int64
+		formatString: 0
+		lineageTag: d928ecff-3659-4026-a312-5aa3381db5f5
+		summarizeBy: sum
+		sourceColumn: Age in the bench
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'revisar last status'
+		dataType: string
+		lineageTag: 5d9dade7-0824-49ae-b8be-1023108c47f9
+		summarizeBy: none
+		sourceColumn: revisar last status
+
+		annotation SummarizationSetBy = Automatic
+
+	column roster_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a34272f-edc0-48c3-bf5a-944da8f55dd6
+		summarizeBy: none
+		sourceColumn: roster_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Line2'
+		dataType: string
+		lineageTag: 6c0bd779-00f8-49a5-ab6a-865edf77dabf
+		summarizeBy: none
+		sourceColumn: Service Line2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'segmentation_ID 2'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b8ea6cd-7da0-4df0-9328-06d64d88d0d3
+		summarizeBy: sum
+		sourceColumn: segmentation_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Type of termination'
+		dataType: string
+		lineageTag: b4abcdb1-d164-4619-add8-ccc6277d59a3
+		summarizeBy: none
+		sourceColumn: Type of termination
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Main reason for withdrawal'
+		dataType: string
+		lineageTag: 1dd31672-6b35-4e95-bca8-bbb6c390a62d
+		summarizeBy: none
+		sourceColumn: Main reason for withdrawal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: string
+		lineageTag: f9c6d10b-26ac-4dd5-afc3-29df2bad7f41
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bench
+		dataType: string
+		lineageTag: 236b2cf4-501e-4d19-902e-59e3adfaedb8
+		summarizeBy: none
+		sourceColumn: Bench
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bench Processing?'
+		dataType: string
+		lineageTag: bedc6603-2db7-45f5-bb77-0f50d6ab4bbf
+		summarizeBy: none
+		sourceColumn: Bench Processing?
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Historical_and_Turnover = m
+		mode: import
+		queryGroup: Roster
+		source =
+				let
+				    Source = Table.Combine({roster_historical, turnover_data2025})
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

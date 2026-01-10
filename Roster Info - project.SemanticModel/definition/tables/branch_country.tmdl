@@ -1,0 +1,32 @@
+table branch_country
+	lineageTag: 2b3a3c90-4547-44e0-8ee2-ec94cb6dfe89
+
+	column branch
+		dataType: string
+		lineageTag: 6fe61e4c-ea9a-4ab3-8905-da7058c1a5d9
+		summarizeBy: none
+		sourceColumn: branch
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 472543db-49dd-4625-80bf-65d97de5929c
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition branch_country = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("ZY3BCsIwEER/pey5X2EFTwHvJYexWeLCZlNjAn6+bRFEcxvmPWbmmU4oBfZoogoaacqa001AftxYjrn2bVtQkGCxQxNKRWTrgbSAMJx5uDRUTjjOvvnXcfySJW/CJ+zUcWBVsf9lB5Nj7HoXlXUV4yd5/wY=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [branch = _t, country = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"branch", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Roster Info - project"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "820d57bf-ed38-4f25-ae51-7f23f6847bb0"
+  }
+}
