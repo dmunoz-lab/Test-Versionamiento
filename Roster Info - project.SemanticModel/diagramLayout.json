@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 2463.0096278542114,
-        "y": 490.23406634985224
+        "x": 1731.2458978395543,
+        "y": 1135.5145307695914
       },
       "nodes": [
         {
@@ -59,19 +59,6 @@
             "width": 234
           },
           "zIndex": 12
-        },
-        {
-          "location": {
-            "x": 3206.9698973182835,
-            "y": 2515.7461537523677
-          },
-          "nodeIndex": "roster_and_nnb",
-          "nodeLineageTag": "1b45acae-fc8c-4c5d-bc4e-647912376c62",
-          "size": {
-            "height": 272.89913812257691,
-            "width": 230.20077852657096
-          },
-          "zIndex": 17
         },
         {
           "location": {
@@ -487,6 +474,19 @@
             "width": 234
           },
           "zIndex": 37
+        },
+        {
+          "location": {
+            "x": 4874.55460907112,
+            "y": 1250.1078162288316
+          },
+          "nodeIndex": "Historical_and_Turnover",
+          "nodeLineageTag": "28acd26f-4d61-4852-88c2-d9020f0e0b75",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
