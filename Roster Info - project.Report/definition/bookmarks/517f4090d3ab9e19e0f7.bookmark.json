@@ -155,7 +155,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "ce75020a335d61115b30",
+                  "name": "1a75ae7210bd0ab6cc14",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -258,2081 +258,10 @@
                     }
                   ],
                   "root": {
-                    "identityValues": null
+                    "identityValues": []
                   }
                 }
               ]
-            }
-          },
-          "d1109e1ecbd3f88ca0b6": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "09080f320ed517900120",
-                  "type": "Advanced",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "c071b884d5091c594c67",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "general": [
-                    {
-                      "properties": {
-                        "filter": {
-                          "filter": {
-                            "Version": 2,
-                            "From": [
-                              {
-                                "Name": "d",
-                                "Entity": "Dim_Calendar",
-                                "Type": 0
-                              }
-                            ],
-                            "Where": [
-                              {
-                                "Condition": {
-                                  "Not": {
-                                    "Expression": {
-                                      "In": {
-                                        "Expressions": [
-                                          {
-                                            "Column": {
-                                              "Expression": {
-                                                "SourceRef": {
-                                                  "Source": "d"
-                                                }
-                                              },
-                                              "Property": "#Year"
-                                            }
-                                          }
-                                        ],
-                                        "Values": [
-                                          [
-                                            {
-                                              "Literal": {
-                                                "Value": "2024L"
-                                              }
-                                            }
-                                          ]
-                                        ]
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        },
-                        "isInvertedSelectionMode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "true"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "selection": [
-                    {
-                      "properties": {
-                        "strictSingleSelect": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "false"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  }
-                ]
-              },
-              "cachedFilterDisplayItems": [
-                {
-                  "id": {
-                    "scopeId": {
-                      "Comparison": {
-                        "ComparisonKind": 0,
-                        "Left": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Entity": "Dim_Calendar"
-                              }
-                            },
-                            "Property": "#Year"
-                          }
-                        },
-                        "Right": {
-                          "Literal": {
-                            "Value": "2024L"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "displayName": "2024"
-                }
-              ],
-              "expansionStates": [
-                {
-                  "roles": [
-                    "Values"
-                  ],
-                  "levels": [
-                    {
-                      "queryRefs": [
-                        "Dim_Calendar.#Year"
-                      ],
-                      "isCollapsed": true,
-                      "identityKeys": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Entity": "Dim_Calendar"
-                              }
-                            },
-                            "Property": "#Year"
-                          }
-                        }
-                      ],
-                      "isPinned": true
-                    },
-                    {
-                      "queryRefs": [
-                        "Dim_Calendar.ShortMonth"
-                      ],
-                      "isCollapsed": true,
-                      "isPinned": true
-                    }
-                  ],
-                  "root": {
-                    "identityValues": null,
-                    "children": [
-                      {
-                        "identityValues": [
-                          {
-                            "Literal": {
-                              "Value": "2025L"
-                            }
-                          }
-                        ],
-                        "isToggled": true
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          },
-          "de1bd01bdece7914f5b4": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "022913e2206bbe78b0e5",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "service_line"
-                        }
-                      },
-                      "Property": "service_line"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "selection": [
-                    {
-                      "properties": {
-                        "strictSingleSelect": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "false"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "service_line"
-                        }
-                      },
-                      "Property": "service_line"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "c39254f2bbdf7e780c66": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "2a67f9fe083b4e0bc626",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "i",
-                        "Entity": "industry",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "i"
-                                    }
-                                  },
-                                  "Property": "industry"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Bpo'"
-                                  }
-                                }
-                              ],
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Domestic'"
-                                  }
-                                }
-                              ],
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Gf'"
-                                  }
-                                }
-                              ],
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Marketing'"
-                                  }
-                                }
-                              ],
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Tech'"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "industry"
-                        }
-                      },
-                      "Property": "industry"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        },
-                        "isInvertedSelectionMode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "true"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "selection": [
-                    {
-                      "properties": {
-                        "strictSingleSelect": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "false"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "industry"
-                        }
-                      },
-                      "Property": "industry"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "8161c3af2515b723cda3": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "Filtere5605f233006780c2c2e",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "0. Total HC (mnr)"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "d0a0e0468d5045f40de6",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "i",
-                        "Entity": "industry",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "Not": {
-                            "Expression": {
-                              "In": {
-                                "Expressions": [
-                                  {
-                                    "Column": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Source": "i"
-                                        }
-                                      },
-                                      "Property": "industry"
-                                    }
-                                  }
-                                ],
-                                "Values": [
-                                  [
-                                    {
-                                      "Literal": {
-                                        "Value": "null"
-                                      }
-                                    }
-                                  ],
-                                  [
-                                    {
-                                      "Literal": {
-                                        "Value": "'Tech'"
-                                      }
-                                    }
-                                  ],
-                                  [
-                                    {
-                                      "Literal": {
-                                        "Value": "'Marketing'"
-                                      }
-                                    }
-                                  ]
-                                ]
-                              }
-                            }
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "industry"
-                        }
-                      },
-                      "Property": "industry"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "d315aa5a3306e7fbee42",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "r",
-                        "Entity": "roster_historical",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "r"
-                                    }
-                                  },
-                                  "Property": "Cycle"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'30th'"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "roster_historical"
-                        }
-                      },
-                      "Property": "Cycle"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "0c9d97eebeb1ac26bb3c",
-                  "type": "Advanced",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "c",
-                        "Entity": "calculations_mnr",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "Comparison": {
-                            "ComparisonKind": 3,
-                            "Left": {
-                              "Measure": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "c"
-                                  }
-                                },
-                                "Property": "2. % Billable (mnr)"
-                              }
-                            },
-                            "Right": {
-                              "Literal": {
-                                "Value": "1L"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "2. % Billable (mnr)"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "db48bcb636bb94627192",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "m",
-                        "Entity": "main_accounts",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "Not": {
-                            "Expression": {
-                              "In": {
-                                "Expressions": [
-                                  {
-                                    "Column": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Source": "m"
-                                        }
-                                      },
-                                      "Property": "Account Name"
-                                    }
-                                  }
-                                ],
-                                "Values": [
-                                  [
-                                    {
-                                      "Literal": {
-                                        "Value": "null"
-                                      }
-                                    }
-                                  ]
-                                ]
-                              }
-                            }
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "main_accounts"
-                        }
-                      },
-                      "Property": "Account Name"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "4319f3ac2600e04617ee",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "pivotTable",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 1,
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  }
-                }
-              ],
-              "activeProjections": {
-                "Rows": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "industry"
-                        }
-                      },
-                      "Property": "industry"
-                    }
-                  },
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "main_accounts"
-                        }
-                      },
-                      "Property": "Account Name"
-                    }
-                  }
-                ]
-              },
-              "expansionStates": [
-                {
-                  "roles": [
-                    "Rows"
-                  ],
-                  "levels": [
-                    {
-                      "queryRefs": [
-                        "Dim_Calendar.ShortMonth"
-                      ],
-                      "identityKeys": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Entity": "Dim_Calendar"
-                              }
-                            },
-                            "Property": "ShortMonth"
-                          }
-                        }
-                      ],
-                      "isPinned": true
-                    },
-                    {
-                      "queryRefs": [
-                        "industry.industry"
-                      ],
-                      "isPinned": true
-                    },
-                    {
-                      "queryRefs": [
-                        "main_accounts.Account Name"
-                      ],
-                      "isCollapsed": true,
-                      "isPinned": true
-                    }
-                  ],
-                  "root": {
-                    "identityValues": null
-                  }
-                }
-              ],
-              "display": {
-                "mode": "hidden"
-              }
-            }
-          },
-          "86668c90b4db414687ef": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "932345284ddc78552c25",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "r",
-                        "Entity": "roster_historical",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "r"
-                                    }
-                                  },
-                                  "Property": "Status"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Active'"
-                                  }
-                                }
-                              ],
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "''"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "roster_historical"
-                        }
-                      },
-                      "Property": "Status"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "7ce961f3d66e128678c0",
-                  "type": "Advanced",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "581f4103a609d598e5b0",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "r",
-                        "Entity": "roster_historical",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "r"
-                                    }
-                                  },
-                                  "Property": "Cycle"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'30th'"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "roster_historical"
-                        }
-                      },
-                      "Property": "Cycle"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "feaa69fc0c5f9e9b76e8",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "38dfe4798bd22f048df8",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "0. Total HC (mnr)"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "3a01171e6c5a4c0f0e48",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "roster_historical"
-                        }
-                      },
-                      "Property": "New Category"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "lineStackedColumnComboChart",
-              "objects": {},
-              "activeProjections": {
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  }
-                ]
-              },
-              "display": {
-                "mode": "hidden"
-              }
-            }
-          },
-          "5f16fd050c31d3e79594": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "9044393bba2c850e76ce",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "129eb327ad304acafe11",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "s",
-                        "Entity": "SCR_finance_branch_summary",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "s"
-                                    }
-                                  },
-                                  "Property": "Category"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Upsell'"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "SCR_finance_branch_summary"
-                        }
-                      },
-                      "Property": "Category"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "f569616db1f61ca2fed3",
-                  "type": "Advanced",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "6affe58ad0e964393103",
-                  "type": "Advanced",
-                  "expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "SCR_finance_branch_summary"
-                            }
-                          },
-                          "Property": "Difference"
-                        }
-                      },
-                      "Function": 0
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "lineStackedColumnComboChart",
-              "objects": {},
-              "activeProjections": {
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  }
-                ]
-              },
-              "display": {
-                "mode": "hidden"
-              }
-            }
-          },
-          "6a361d700696d6943b47": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "Filterfca5178604913049098e",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "fbaa0f70100477869a11",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "cd34f8de089b9874c08e",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "2. % Terminated vs. Active (mnr)"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "ae0a67e2702390e5008b",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "2. % Terminated vs. Total (mnr)"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "3a8d543c2705bbaa405b",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_turnover"
-                        }
-                      },
-                      "Property": "Total Turnover"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "621cf307b1702e6985c8",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "turnover_data"
-                        }
-                      },
-                      "Property": "Substatus"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "d6e59cf8f6aba0614641",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "r",
-                        "Entity": "roster_historical",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "r"
-                                    }
-                                  },
-                                  "Property": "Cycle"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'30th'"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "roster_historical"
-                        }
-                      },
-                      "Property": "Cycle"
-                    }
-                  },
-                  "howCreated": 1
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "lineClusteredColumnComboChart",
-              "objects": {},
-              "activeProjections": {
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  }
-                ]
-              },
-              "display": {
-                "mode": "hidden"
-              }
-            }
-          },
-          "2285b0289775219d06a3": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "Filterfca5178604913049098e",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "567de4702878d23c1908",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "3daeead5382bca33e650",
-                  "type": "Advanced",
-                  "expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "SCR_finance_branch_summary"
-                            }
-                          },
-                          "Property": "Difference"
-                        }
-                      },
-                      "Function": 0
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "d398b22ace1b4a15e35c",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "s",
-                        "Entity": "SCR_finance_branch_summary",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "s"
-                                    }
-                                  },
-                                  "Property": "Category"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Downsell'"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "SCR_finance_branch_summary"
-                        }
-                      },
-                      "Property": "Category"
-                    }
-                  },
-                  "howCreated": 1
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "lineClusteredColumnComboChart",
-              "objects": {},
-              "activeProjections": {
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  }
-                ]
-              },
-              "display": {
-                "mode": "hidden"
-              }
-            }
-          },
-          "4e91fcad807be0020c00": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "Filterfca5178604913049098e",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "d",
-                        "Entity": "Dim_Calendar",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "d"
-                                    }
-                                  },
-                                  "Property": "#Year"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "2024L"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "Filtere5605f233006780c2c2e",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "0. Total HC (mnr)"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "Filter02f11cd7a5b8901205ba",
-                  "type": "Advanced",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "Date"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "Filterd654200dea9e7286dc37",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "Date"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "Filtere0a2938683aecea8799d",
-                  "type": "Advanced",
-                  "expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "aging"
-                            }
-                          },
-                          "Property": "Aging"
-                        }
-                      },
-                      "Function": 0
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "d2e6acbf2a11a6807a22",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "d0846bd7005311771d10",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "0. Total Unplaceable (mnr)"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "99ab74fc8d4480da6b72",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "2. % Unplaceable vs. Total (mnr)"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "f6636a720996801a4685",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "downsells"
-                        }
-                      },
-                      "Property": "0. Net New Seats"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "lineClusteredColumnComboChart",
-              "objects": {},
-              "activeProjections": {
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  }
-                ]
-              },
-              "display": {
-                "mode": "hidden"
-              }
-            }
-          },
-          "d53c9830c0192c900204": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "Filterfca5178604913049098e",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "Filtere5605f233006780c2c2e",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "0. Total HC (mnr)"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "Filter02f11cd7a5b8901205ba",
-                  "type": "Advanced",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "Date"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "Filterd654200dea9e7286dc37",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "Date"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "Filtere0a2938683aecea8799d",
-                  "type": "Advanced",
-                  "expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "aging"
-                            }
-                          },
-                          "Property": "Aging"
-                        }
-                      },
-                      "Function": 0
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "d2e6acbf2a11a6807a22",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "d0846bd7005311771d10",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "0. Total Unplaceable (mnr)"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "99ab74fc8d4480da6b72",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "2. % Unplaceable vs. Total (mnr)"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "f3777af791ef9a135355",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "r",
-                        "Entity": "roster_historical",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "r"
-                                    }
-                                  },
-                                  "Property": "Status"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Not Available'"
-                                  }
-                                }
-                              ],
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Free Floater'"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "roster_historical"
-                        }
-                      },
-                      "Property": "Status"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "fcf071f3a767e820dd3a",
-                  "type": "Advanced",
-                  "expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "roster_historical"
-                            }
-                          },
-                          "Property": "ID Number"
-                        }
-                      },
-                      "Function": 2
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "53f98733c7880203405e",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "2. % Unplaceable vs. Active (mnr)"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "lineClusteredColumnComboChart",
-              "objects": {},
-              "activeProjections": {
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  }
-                ]
-              },
-              "display": {
-                "mode": "hidden"
-              }
-            }
-          },
-          "eafb00592d2128d8fa2e": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "Filterfca5178604913049098e",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "d",
-                        "Entity": "Dim_Calendar",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "d"
-                                    }
-                                  },
-                                  "Property": "#Year"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "2024L"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "fbaa0f70100477869a11",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "5a868f1329bd464a48b6",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "terminated"
-                        }
-                      },
-                      "Property": "0. Total Terminated"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "cd34f8de089b9874c08e",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "2. % Terminated vs. Active (mnr)"
-                    }
-                  },
-                  "howCreated": 1
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "lineClusteredColumnComboChart",
-              "objects": {},
-              "activeProjections": {
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  }
-                ]
-              },
-              "display": {
-                "mode": "hidden"
-              }
             }
           },
           "0bb50c622841ab556eea": {
@@ -2548,6 +477,507 @@
               }
             }
           },
+          "0e952c1348d0e7a9c5db": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "2285b0289775219d06a3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filterfca5178604913049098e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "567de4702878d23c1908",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3daeead5382bca33e650",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "SCR_finance_branch_summary"
+                            }
+                          },
+                          "Property": "Difference"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d398b22ace1b4a15e35c",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "SCR_finance_branch_summary",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "s"
+                                    }
+                                  },
+                                  "Property": "Category"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Downsell'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCR_finance_branch_summary"
+                        }
+                      },
+                      "Property": "Category"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineClusteredColumnComboChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "32c598c8876f750102a4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b6af261f0c0a0e6951cc",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "SCR_finance_branch_summary",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Aggregation": {
+                                    "Expression": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Source": "s"
+                                          }
+                                        },
+                                        "Property": "Difference"
+                                      }
+                                    },
+                                    "Function": 0
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "SCR_finance_branch_summary"
+                            }
+                          },
+                          "Property": "Difference"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4c5aaf40d651ddd32632",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9fd13e49dbcae07907b5",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8c156a59e791001b655d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCR_finance_branch_summary"
+                        }
+                      },
+                      "Property": "Category"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineClusteredColumnComboChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "4e91fcad807be0020c00": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filterfca5178604913049098e",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "Dim_Calendar",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "#Year"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2024L"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filtere5605f233006780c2c2e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "0. Total HC (mnr)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filter02f11cd7a5b8901205ba",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filterd654200dea9e7286dc37",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filtere0a2938683aecea8799d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "aging"
+                            }
+                          },
+                          "Property": "Aging"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d2e6acbf2a11a6807a22",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d0846bd7005311771d10",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "0. Total Unplaceable (mnr)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "99ab74fc8d4480da6b72",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "2. % Unplaceable vs. Total (mnr)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "4f07fc217b9aa4e7000b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "downsells"
+                        }
+                      },
+                      "Property": "0. Net New Seats"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineClusteredColumnComboChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
           "4f5d9e1cd720202e5316": {
             "filters": {
               "byExpr": [
@@ -2686,22 +1116,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "4cf6b4ff2c77ad203e0e",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "0. Total NNB (mnr)"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "522ac394a9be5840b9ab",
+                  "name": "42642defde010eb9b29c",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -2716,6 +1131,21 @@
                         }
                       },
                       "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dbb81137b894d03ed2ae",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "0. Total NNB (mnr)"
                     }
                   },
                   "howCreated": 0
@@ -2754,191 +1184,33 @@
               }
             }
           },
-          "f6e445d28c17d2d15987": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "Filterfca5178604913049098e",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "Filtere5605f233006780c2c2e",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_mnr"
-                        }
-                      },
-                      "Property": "0. Total HC (mnr)"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "Filter02f11cd7a5b8901205ba",
-                  "type": "Advanced",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "Date"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "Filterd654200dea9e7286dc37",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "Date"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "Filtere0a2938683aecea8799d",
-                  "type": "Advanced",
-                  "expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "aging"
-                            }
-                          },
-                          "Property": "Aging"
-                        }
-                      },
-                      "Function": 0
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "caec1a654b87784564ab",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "084ba4a5a625a1c3a0b4",
-                  "type": "Advanced",
-                  "expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "downsells"
-                            }
-                          },
-                          "Property": "Employee Name"
-                        }
-                      },
-                      "Function": 5
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "67eea3f60e2dc7da1cba",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "downsells"
-                        }
-                      },
-                      "Property": "Substatus"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "8f6154ad66d9b131a5d2",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_attrition"
-                        }
-                      },
-                      "Property": "new % Attrition"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
+          "5b4d5360272c3e78c0d2": {
             "singleVisual": {
-              "visualType": "lineClusteredColumnComboChart",
-              "objects": {},
-              "activeProjections": {
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  }
-                ]
-              }
+              "visualType": "actionButton",
+              "objects": {}
             }
           },
-          "32c598c8876f750102a4": {
+          "5f16fd050c31d3e79594": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "a1e0b71f3a4b04b0eadc",
-                  "type": "Advanced",
+                  "name": "9044393bba2c850e76ce",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "129eb327ad304acafe11",
+                  "type": "Categorical",
                   "filter": {
                     "Version": 2,
                     "From": [
@@ -2951,37 +1223,63 @@
                     "Where": [
                       {
                         "Condition": {
-                          "Not": {
-                            "Expression": {
-                              "Comparison": {
-                                "ComparisonKind": 0,
-                                "Left": {
-                                  "Aggregation": {
-                                    "Expression": {
-                                      "Column": {
-                                        "Expression": {
-                                          "SourceRef": {
-                                            "Source": "s"
-                                          }
-                                        },
-                                        "Property": "Difference"
-                                      }
-                                    },
-                                    "Function": 0
-                                  }
-                                },
-                                "Right": {
-                                  "Literal": {
-                                    "Value": "0L"
-                                  }
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "s"
+                                    }
+                                  },
+                                  "Property": "Category"
                                 }
                               }
-                            }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Upsell'"
+                                  }
+                                }
+                              ]
+                            ]
                           }
                         }
                       }
                     ]
                   },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCR_finance_branch_summary"
+                        }
+                      },
+                      "Property": "Category"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "f569616db1f61ca2fed3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "fa01e34f480048c62460",
+                  "type": "Advanced",
                   "expression": {
                     "Aggregation": {
                       "Expression": {
@@ -2998,56 +1296,11 @@
                     }
                   },
                   "howCreated": 0
-                },
-                {
-                  "name": "130eca0371c550de27c8",
-                  "type": "Advanced",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "#Year"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "afd581bea24501833691",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Calendar"
-                        }
-                      },
-                      "Property": "ShortMonth"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "6b7107507d070b1c4882",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "SCR_finance_branch_summary"
-                        }
-                      },
-                      "Property": "Category"
-                    }
-                  },
-                  "howCreated": 0
                 }
               ]
             },
             "singleVisual": {
-              "visualType": "lineClusteredColumnComboChart",
+              "visualType": "lineStackedColumnComboChart",
               "objects": {},
               "activeProjections": {
                 "Category": [
@@ -3214,51 +1467,12 @@
               }
             }
           },
-          "98c0a523511da3e41b9f": {
+          "6a361d700696d6943b47": {
             "filters": {
               "byExpr": [
                 {
                   "name": "Filterfca5178604913049098e",
                   "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "d",
-                        "Entity": "Dim_Calendar",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "d"
-                                    }
-                                  },
-                                  "Property": "#Year"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "2024L"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
                   "expression": {
                     "Column": {
                       "Expression": {
@@ -3287,21 +1501,6 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "5a868f1329bd464a48b6",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "terminated"
-                        }
-                      },
-                      "Property": "0. Total Terminated"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
                   "name": "cd34f8de089b9874c08e",
                   "type": "Advanced",
                   "expression": {
@@ -3312,6 +1511,105 @@
                         }
                       },
                       "Property": "2. % Terminated vs. Active (mnr)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "ae0a67e2702390e5008b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "2. % Terminated vs. Total (mnr)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3a8d543c2705bbaa405b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_turnover"
+                        }
+                      },
+                      "Property": "Total Turnover"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "621cf307b1702e6985c8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "turnover_data"
+                        }
+                      },
+                      "Property": "Substatus"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d6e59cf8f6aba0614641",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "r",
+                        "Entity": "roster_historical",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "r"
+                                    }
+                                  },
+                                  "Property": "Cycle"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'30th'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "roster_historical"
+                        }
+                      },
+                      "Property": "Cycle"
                     }
                   },
                   "howCreated": 1
@@ -3636,22 +1934,7 @@
                   "howCreated": 1
                 },
                 {
-                  "name": "917e5bd1dc92e970a7c5",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "calculations_zrh"
-                        }
-                      },
-                      "Property": "% ZRH"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "9c8aa35e66960da60cdb",
+                  "name": "9189d29d83c9253c239e",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -3661,6 +1944,21 @@
                         }
                       },
                       "Property": "Total ZRH"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d0dd24f0851b00c04718",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_zrh"
+                        }
+                      },
+                      "Property": "% ZRH"
                     }
                   },
                   "howCreated": 0
@@ -3699,6 +1997,734 @@
               }
             }
           },
+          "78ee024bec611d9c8e58": {
+            "singleVisual": {
+              "visualType": "pageNavigator",
+              "objects": {}
+            }
+          },
+          "8161c3af2515b723cda3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filtere5605f233006780c2c2e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "0. Total HC (mnr)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d0a0e0468d5045f40de6",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "i",
+                        "Entity": "industry",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "i"
+                                        }
+                                      },
+                                      "Property": "industry"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'Tech'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'Marketing'"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "industry"
+                        }
+                      },
+                      "Property": "industry"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d315aa5a3306e7fbee42",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "r",
+                        "Entity": "roster_historical",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "r"
+                                    }
+                                  },
+                                  "Property": "Cycle"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'30th'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "roster_historical"
+                        }
+                      },
+                      "Property": "Cycle"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "0acfa9c23595a4d85490",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "c",
+                        "Entity": "calculations_mnr",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 3,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "c"
+                                  }
+                                },
+                                "Property": "2. % Billable (mnr)"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "1L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "2. % Billable (mnr)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "db48bcb636bb94627192",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "main_accounts",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "m"
+                                        }
+                                      },
+                                      "Property": "Account Name"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "main_accounts"
+                        }
+                      },
+                      "Property": "Account Name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3b37122f81408c8760c9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "industry"
+                        }
+                      },
+                      "Property": "industry"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "main_accounts"
+                        }
+                      },
+                      "Property": "Account Name"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Rows"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "Dim_Calendar.ShortMonth"
+                      ],
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Dim_Calendar"
+                              }
+                            },
+                            "Property": "ShortMonth"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "industry.industry"
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "main_accounts.Account Name"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": []
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "86668c90b4db414687ef": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "932345284ddc78552c25",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "r",
+                        "Entity": "roster_historical",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "r"
+                                    }
+                                  },
+                                  "Property": "Status"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Active'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "''"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "roster_historical"
+                        }
+                      },
+                      "Property": "Status"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "7ce961f3d66e128678c0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "581f4103a609d598e5b0",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "r",
+                        "Entity": "roster_historical",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "r"
+                                    }
+                                  },
+                                  "Property": "Cycle"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'30th'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "roster_historical"
+                        }
+                      },
+                      "Property": "Cycle"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "feaa69fc0c5f9e9b76e8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "38dfe4798bd22f048df8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "0. Total HC (mnr)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3a01171e6c5a4c0f0e48",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "roster_historical"
+                        }
+                      },
+                      "Property": "New Category"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineStackedColumnComboChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "98c0a523511da3e41b9f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filterfca5178604913049098e",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "Dim_Calendar",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "#Year"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2024L"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "fbaa0f70100477869a11",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5a868f1329bd464a48b6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "terminated"
+                        }
+                      },
+                      "Property": "0. Total Terminated"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "cd34f8de089b9874c08e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "2. % Terminated vs. Active (mnr)"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineClusteredColumnComboChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "9f0e21f403438289d30a": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
           "b7d3127eda9962f41eff": {
             "filters": {
               "byExpr": [
@@ -3733,7 +2759,7 @@
                   "howCreated": 1
                 },
                 {
-                  "name": "8b6632b1bd905849a6b1",
+                  "name": "0560563626322c0de249",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
@@ -3748,7 +2774,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "02e41b2675a5a09a20b4",
+                  "name": "b300b4e2d7da89e40108",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -3763,7 +2789,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "3dec9448468cc0d44c0e",
+                  "name": "6ecec1a666dc4537944b",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -3778,7 +2804,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "fde6313ca54d4e500408",
+                  "name": "5aa16de1390c1eda5ca3",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -3793,7 +2819,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "2b735b5559bb229474ad",
+                  "name": "b3ae10d0a850c39563ac",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -3841,34 +2867,832 @@
               }
             }
           },
-          "690f7f32ba25cd042607": {
+          "c39254f2bbdf7e780c66": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2a67f9fe083b4e0bc626",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "i",
+                        "Entity": "industry",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "i"
+                                    }
+                                  },
+                                  "Property": "industry"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Bpo'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Domestic'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Gf'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Marketing'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Tech'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "industry"
+                        }
+                      },
+                      "Property": "industry"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
             "singleVisual": {
-              "visualType": "bookmarkNavigator",
-              "objects": {}
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "industry"
+                        }
+                      },
+                      "Property": "industry"
+                    }
+                  }
+                ]
+              }
             }
           },
-          "196f7b931e0aacaeb37c": {
+          "d1109e1ecbd3f88ca0b6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e720549139b6bba96a65",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0fa1e502127191e91102",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
             "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "d",
+                                "Entity": "Dim_Calendar",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "Not": {
+                                    "Expression": {
+                                      "In": {
+                                        "Expressions": [
+                                          {
+                                            "Column": {
+                                              "Expression": {
+                                                "SourceRef": {
+                                                  "Source": "d"
+                                                }
+                                              },
+                                              "Property": "#Year"
+                                            }
+                                          }
+                                        ],
+                                        "Values": [
+                                          [
+                                            {
+                                              "Literal": {
+                                                "Value": "2024L"
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  }
+                ]
+              },
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Dim_Calendar"
+                              }
+                            },
+                            "Property": "#Year"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "2024L"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "2024"
+                }
+              ],
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "Dim_Calendar.#Year"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Dim_Calendar"
+                              }
+                            },
+                            "Property": "#Year"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Dim_Calendar.ShortMonth"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": [],
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "2025L"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           },
-          "78ee024bec611d9c8e58": {
+          "d53c9830c0192c900204": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filterfca5178604913049098e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filtere5605f233006780c2c2e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "0. Total HC (mnr)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filter02f11cd7a5b8901205ba",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filterd654200dea9e7286dc37",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filtere0a2938683aecea8799d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "aging"
+                            }
+                          },
+                          "Property": "Aging"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d2e6acbf2a11a6807a22",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d0846bd7005311771d10",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "0. Total Unplaceable (mnr)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "99ab74fc8d4480da6b72",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "2. % Unplaceable vs. Total (mnr)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "f3777af791ef9a135355",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "r",
+                        "Entity": "roster_historical",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "r"
+                                    }
+                                  },
+                                  "Property": "Status"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Not Available'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Free Floater'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "roster_historical"
+                        }
+                      },
+                      "Property": "Status"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dc1df8691e2d02b270e6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "roster_historical"
+                            }
+                          },
+                          "Property": "ID Number"
+                        }
+                      },
+                      "Function": 2
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "82928ecd4d7c1827d709",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "2. % Unplaceable vs. Active (mnr)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
             "singleVisual": {
-              "visualType": "pageNavigator",
-              "objects": {}
+              "visualType": "lineClusteredColumnComboChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
             }
           },
-          "9f0e21f403438289d30a": {
+          "de1bd01bdece7914f5b4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "82b56d0d00c012c353ac",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "service_line"
+                        }
+                      },
+                      "Property": "service_line"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
             "singleVisual": {
-              "visualType": "textbox",
-              "objects": {}
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "service_line"
+                        }
+                      },
+                      "Property": "service_line"
+                    }
+                  }
+                ]
+              }
             }
           },
-          "0e952c1348d0e7a9c5db": {
+          "e40acc9647deea3a005b": {
             "singleVisual": {
               "visualType": "actionButton",
               "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "eafb00592d2128d8fa2e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filterfca5178604913049098e",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "Dim_Calendar",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "#Year"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2024L"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "fbaa0f70100477869a11",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5a868f1329bd464a48b6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "terminated"
+                        }
+                      },
+                      "Property": "0. Total Terminated"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "cd34f8de089b9874c08e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "2. % Terminated vs. Active (mnr)"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineClusteredColumnComboChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  }
+                ]
+              },
               "display": {
                 "mode": "hidden"
               }
@@ -3880,13 +3704,195 @@
               "objects": {}
             }
           },
-          "5b4d5360272c3e78c0d2": {
+          "f6e445d28c17d2d15987": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filterfca5178604913049098e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filtere5605f233006780c2c2e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_mnr"
+                        }
+                      },
+                      "Property": "0. Total HC (mnr)"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filter02f11cd7a5b8901205ba",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filterd654200dea9e7286dc37",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filtere0a2938683aecea8799d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "aging"
+                            }
+                          },
+                          "Property": "Aging"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "caec1a654b87784564ab",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "db98d50fa457095b5a0d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "downsells"
+                        }
+                      },
+                      "Property": "Substatus"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "597c8fe33a395a00b091",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "downsells"
+                            }
+                          },
+                          "Property": "Employee Name"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "aaf2c1217573d4d8dca8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "calculations_attrition"
+                        }
+                      },
+                      "Property": "new % Attrition"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
             "singleVisual": {
-              "visualType": "actionButton",
+              "visualType": "lineClusteredColumnComboChart",
               "objects": {},
-              "display": {
-                "mode": "hidden"
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "#Year"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Calendar"
+                        }
+                      },
+                      "Property": "ShortMonth"
+                    }
+                  }
+                ]
               }
+            }
+          },
+          "196f7b931e0aacaeb37c": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "690f7f32ba25cd042607": {
+            "singleVisual": {
+              "visualType": "bookmarkNavigator",
+              "objects": {}
             }
           }
         }
