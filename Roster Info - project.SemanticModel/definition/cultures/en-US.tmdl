@@ -14006,7 +14006,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Total Removals": {
+			          "Total Removed": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14016,7 +14016,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Total Removed": {
+			          "Total Removals": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14324,7 +14324,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Net New Seats": {
+			          "Last Month Net New Seats": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14334,7 +14334,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Last Month Net New Seats": {
+			          "Net New Seats": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -19469,26 +19469,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Active Floater": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Assigned": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
 			          "Available": {
 			            "State": "Suggested",
 			            "Source": {
@@ -19499,7 +19479,27 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Free Floater": {
+			          "Active Floater": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Trainee": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Assigned": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -19529,7 +19529,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Trainee": {
+			          "Offboarding": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -19539,7 +19539,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Offboarding": {
+			          "Free Floater": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -19618,16 +19618,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "Avg aging / Placeable": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -19771,16 +19761,6 @@ cultureInfo en-US
 			            "State": "Generated",
 			            "Weight": 0.75
 			          }
-			        },
-			        {
-			          "% Placeable vs Total": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -19802,16 +19782,6 @@ cultureInfo en-US
 			          "2. % bench vs. active": {
 			            "State": "Generated",
 			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "% Placeable vs. Active": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -19835,16 +19805,6 @@ cultureInfo en-US
 			            "State": "Generated",
 			            "Weight": 0.75
 			          }
-			        },
-			        {
-			          "% Unpla vs. Active": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -19866,16 +19826,6 @@ cultureInfo en-US
 			          "2. % unpla vs. total": {
 			            "State": "Generated",
 			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "% Unpla vs. Total": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -33858,16 +33808,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.5
 			          }
-			        },
-			        {
-			          "Current Attrition": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -33950,16 +33890,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.5
 			          }
-			        },
-			        {
-			          "Previous Attrition": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -33981,16 +33911,6 @@ cultureInfo en-US
 			          "variance": {
 			            "State": "Generated",
 			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "Delta": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -34068,16 +33988,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.508
 			          }
-			        },
-			        {
-			          "Current % Attrition": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -34144,16 +34054,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.514
 			          }
-			        },
-			        {
-			          "Previous % Attrition": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -34195,16 +34095,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "Delta": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -38035,16 +37925,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.591
 			          }
-			        },
-			        {
-			          "Current": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -38093,16 +37973,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.609
 			          }
-			        },
-			        {
-			          "Previous": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -38124,16 +37994,6 @@ cultureInfo en-US
 			          "variance 2": {
 			            "State": "Generated",
 			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "Delta": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -38220,16 +38080,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.461
-			          }
-			        },
-			        {
-			          "Current % TO": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -38337,16 +38187,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.45
 			          }
-			        },
-			        {
-			          "Previous % TO": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -38388,16 +38228,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "Delta": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -39445,6 +39275,153 @@ cultureInfo en-US
 			      "Terms": [
 			        {
 			          "Total:": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "roster_and_nnb.industry": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "roster_and_nnb",
+			          "ConceptualProperty": "industry"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Industry": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "roster_and_nnb.service_line": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "roster_and_nnb",
+			          "ConceptualProperty": "service_line"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Service Line": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "roster_and_nnb.employee": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "roster_and_nnb",
+			          "ConceptualProperty": "employee"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Employee": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "roster_and_nnb.identification": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "roster_and_nnb",
+			          "ConceptualProperty": "identification"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "roster_and_nnb.branch": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "roster_and_nnb",
+			          "ConceptualProperty": "Branch"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Branch": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "roster_and_nnb.customer_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "roster_and_nnb",
+			          "ConceptualProperty": "customer_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "potal id": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "roster_and_nnb.status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "roster_and_nnb",
+			          "ConceptualProperty": "status"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Status": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
