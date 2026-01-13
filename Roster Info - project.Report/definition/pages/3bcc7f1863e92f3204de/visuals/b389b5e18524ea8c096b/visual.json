@@ -4,7 +4,7 @@
   "position": {
     "x": 190.0002152339313,
     "y": 619.022534383019,
-    "z": 13000,
+    "z": 11000,
     "height": 95,
     "width": 280,
     "tabOrder": 8000
@@ -1124,20 +1124,6 @@
               }
             },
             "Property": "Previous Month Headcount"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "54dbab43b290d142c7d2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calculations_live_roster"
-              }
-            },
-            "Property": "Variance HC"
           }
         },
         "type": "Advanced"

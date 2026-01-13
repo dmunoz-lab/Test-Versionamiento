@@ -521,16 +521,6 @@ relationship ccdb4f1d-d039-4c33-b4f8-867d4fcc3952
 	fromColumn: Historical_and_Turnover.Birthday
 	toColumn: LocalDateTable_051971ff-f2b1-4dc2-89a7-4397b24d8a47.Date
 
-relationship f07a2824-2055-4b72-a8c2-dfdd9f918bda
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Historical_and_Turnover.'Temporal Entry Date'
-	toColumn: LocalDateTable_4c28aed4-f755-4a45-a123-b39d17777196.Date
-
-relationship b620ac9a-65af-4ad7-ba6a-25fd66d031b7
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Historical_and_Turnover.'Entry Date'
-	toColumn: LocalDateTable_2695f737-8498-47d9-8cad-abc1cc976462.Date
-
 relationship 821b6b05-376c-4f08-8aaf-3efb3b31f562
 	joinOnDateBehavior: datePartOnly
 	fromColumn: Historical_and_Turnover.'Final Date'
@@ -565,4 +555,25 @@ relationship AutoDetected_d5c9bfd8-fa63-435f-a0f8-d7dea6f33695
 	isActive: false
 	fromColumn: Historical_and_Turnover.'Employee Name'
 	toColumn: ROSTER_AND_NNB2.employee
+
+relationship f77b3991-f097-608b-c238-dc0f8e71c9b0
+	fromColumn: Historical_and_Turnover.Master_date
+	toColumn: Dim_Calendar.Date
+
+relationship AutoDetected_759345b7-b74d-4914-a8d7-80cd4dac0a0d
+	fromColumn: roster_historical.Cycle
+	toColumn: Dim_cycle.Cycle
+
+relationship AutoDetected_ec465aa7-c04c-45bd-8935-3c3d5e4b7eaf
+	fromColumn: Historical_and_Turnover.Cycle
+	toColumn: Dim_cycle.Cycle
+
+relationship AutoDetected_58f2eb78-08d7-49ac-97ba-61a1d4a4b6b0
+	fromColumn: turnover_data.Cycle
+	toColumn: Dim_cycle.Cycle
+
+relationship 89ea0f1a-a55b-4ca7-8027-63ad34eafcd7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Historical_and_Turnover.'Active Date'
+	toColumn: LocalDateTable_6725f001-b9bf-43a7-928e-ecbd51254371.Date
 

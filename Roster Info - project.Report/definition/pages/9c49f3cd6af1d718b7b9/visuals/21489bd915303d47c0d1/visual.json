@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "3ccbbd32cf35720ce5cc",
+  "name": "21489bd915303d47c0d1",
   "position": {
-    "x": 195.14568708141672,
-    "y": 256.65072979247839,
-    "z": 12000,
-    "height": 36.470588235294116,
-    "width": 139.41176470588235,
-    "tabOrder": 9000
+    "x": 557.098445595855,
+    "y": 111,
+    "z": 24000,
+    "height": 65.215889464594127,
+    "width": 165.80310880829015,
+    "tabOrder": 24000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,14 +19,15 @@
               {
                 "textRuns": [
                   {
-                    "value": "Placeables",
+                    "value": "Glossary",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontFamily": "DIN",
-                      "fontSize": "14pt",
-                      "color": "#000000"
+                      "fontSize": "28pt"
                     }
                   }
-                ]
+                ],
+                "horizontalTextAlignment": "center"
               }
             ]
           }

@@ -4,7 +4,7 @@
   "position": {
     "x": 163,
     "y": 89,
-    "z": 9000,
+    "z": 7000,
     "height": 82,
     "width": 1021,
     "tabOrder": 4000
@@ -543,121 +543,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b9225d078795dbc941a6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calculations_live_roster"
-              }
-            },
-            "Property": "1. Avg aging (live)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9af505885bb8630a576a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calculations_live_roster"
-              }
-            },
-            "Property": "0. Total NNB (live)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9f6bd10a1e690a3dee40",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calculations_live_roster"
-              }
-            },
-            "Property": "2. % NNB vs Active (live)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a22aba8a073ebd04dbb9",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calculations_live_roster"
-              }
-            },
-            "Property": "0. Total Number of Clients (Live)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "55d708d00b0a6604e6e0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "downsells"
-              }
-            },
-            "Property": "0. Net New Seats"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "979100f8223905879286",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calculations_live_roster"
-              }
-            },
-            "Property": "0. Total HC (live)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "35f57c1dc3096a3aa15e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calculations_live_roster"
-              }
-            },
-            "Property": "0. Total Active (live)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "66a220cedd724640b02e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calculations_live_roster"
-              }
-            },
-            "Property": "2. % Billable (live)"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "1453f11be039ab9ed519",
+  "name": "1c81eaf389472c502875",
   "position": {
-    "x": 325.929993136582,
-    "y": 17.570350034317091,
-    "z": 26000,
-    "height": 42.168840082361022,
-    "width": 954.070006863418,
-    "tabOrder": 26000
+    "x": 403.45423143350604,
+    "y": 16.580310880829018,
+    "z": 25000,
+    "height": 42.003454231433508,
+    "width": 851.12262521588946,
+    "tabOrder": 25000
   },
   "visual": {
     "visualType": "pageNavigator",
@@ -254,6 +254,20 @@
                   }
                 }
               }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           },
           "selector": {
@@ -284,9 +298,40 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#0099FF'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "selected"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0099FF'"
                     }
                   }
                 }
@@ -294,7 +339,7 @@
             }
           },
           "selector": {
-            "id": "selected"
+            "id": "press"
           }
         }
       ],
@@ -331,7 +376,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },

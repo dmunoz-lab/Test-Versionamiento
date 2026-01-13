@@ -1,6 +1,26 @@
 table Historical_and_Turnover
 	lineageTag: 28acd26f-4d61-4852-88c2-d9020f0e0b75
 
+	measure 'Total Active h&t' = CALCULATE(COUNTA(Historical_and_Turnover[Status]), Historical_and_Turnover[Status] = "Active")
+		formatString: 0
+		lineageTag: 418febb2-9e4a-4673-a0d3-74e48fef17d1
+
+	measure 'Total Turnover h&t' = CALCULATE(COUNTA(Historical_and_Turnover[Status]),Historical_and_Turnover[Status] = "Terminated")
+		formatString: 0
+		lineageTag: cea14f31-73de-4bd3-8772-7b02b9a52d54
+
+	measure 'TO vs Actives h&t' = DIVIDE([Total Turnover h&t],[Total Active h&t])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 181d27c8-64a8-4c90-8924-b7e1b9485fe1
+
+	measure 'Total HC h&t' = CALCULATE(COUNTA(Historical_and_Turnover[Status]),Historical_and_Turnover[Status] <> "Terminated")
+		formatString: 0
+		lineageTag: 80179718-7815-4003-b081-dea6cc85774f
+
+	measure 'Total HC vs Actives h&t' = DIVIDE([Total Turnover h&t],[Total HC h&t])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c94429f5-e50a-4cfa-ac72-4ee98a7c267a
+
 	column 'Roster date'
 		dataType: dateTime
 		formatString: Long Date
@@ -58,9 +78,10 @@ table Historical_and_Turnover
 		annotation SummarizationSetBy = Automatic
 
 	column company_id
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: 9b9bd849-e5b9-40eb-b865-a6af82a90937
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: company_id
 
 		annotation SummarizationSetBy = Automatic
@@ -155,12 +176,20 @@ table Historical_and_Turnover
 		annotation SummarizationSetBy = Automatic
 
 	column 'Active Date'
-		dataType: string
+		dataType: dateTime
+		formatString: Long Date
 		lineageTag: fef793af-9b65-4fb3-9734-5f12098dee92
 		summarizeBy: none
 		sourceColumn: Active Date
 
+		variation Variation
+			isDefault
+			relationship: 89ea0f1a-a55b-4ca7-8027-63ad34eafcd7
+			defaultHierarchy: LocalDateTable_6725f001-b9bf-43a7-928e-ecbd51254371.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column Availability
 		dataType: string
@@ -267,36 +296,20 @@ table Historical_and_Turnover
 		annotation UnderlyingDateTimeDataType = Date
 
 	column 'Temporal Entry Date'
-		dataType: dateTime
-		formatString: Long Date
+		dataType: string
 		lineageTag: 68142779-3d29-4a2f-b41a-48f9d0503152
 		summarizeBy: none
 		sourceColumn: Temporal Entry Date
 
-		variation Variation
-			isDefault
-			relationship: f07a2824-2055-4b72-a8c2-dfdd9f918bda
-			defaultHierarchy: LocalDateTable_4c28aed4-f755-4a45-a123-b39d17777196.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
 
-		annotation UnderlyingDateTimeDataType = Date
-
 	column 'Entry Date'
-		dataType: dateTime
-		formatString: Long Date
+		dataType: string
 		lineageTag: 6b55c3de-ddbe-4195-ba84-c109b692cf93
 		summarizeBy: none
 		sourceColumn: Entry Date
 
-		variation Variation
-			isDefault
-			relationship: b620ac9a-65af-4ad7-ba6a-25fd66d031b7
-			defaultHierarchy: LocalDateTable_2695f737-8498-47d9-8cad-abc1cc976462.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
 
 	column Requisition
 		dataType: string
@@ -614,12 +627,35 @@ table Historical_and_Turnover
 
 		annotation SummarizationSetBy = Automatic
 
+	column Master_date = IF(ISBLANK(Historical_and_Turnover[Roster date]), Historical_and_Turnover[Final Date], Historical_and_Turnover[Roster date])
+		formatString: General Date
+		lineageTag: c070ab39-02c2-4bc6-ae05-caac3493ca3e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Text Date 2'
+		dataType: string
+		lineageTag: e51982fb-e56a-4a81-a01d-ffaf04e43d89
+		summarizeBy: none
+		sourceColumn: Text Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Worked days'
+		dataType: string
+		lineageTag: 09aa6259-9cf7-4121-b078-9d84e84bcaf0
+		summarizeBy: none
+		sourceColumn: Worked days
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Historical_and_Turnover = m
 		mode: import
 		queryGroup: Roster
 		source =
 				let
-				    Source = Table.Combine({roster_historical, turnover_data2025})
+				    Source = Table.Combine({roster_historical, turnover_data})
 				in
 				    Source
 

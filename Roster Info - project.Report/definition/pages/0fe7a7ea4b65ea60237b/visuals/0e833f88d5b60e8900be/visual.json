@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "3e83d16ad0845c57730a",
+  "name": "0e833f88d5b60e8900be",
   "position": {
-    "x": 25.423143350604494,
-    "y": 359.1588946459413,
-    "z": 2000,
-    "height": 144,
-    "width": 189,
-    "tabOrder": 2000
+    "x": 181,
+    "y": 533,
+    "z": 46001,
+    "height": 64,
+    "width": 107,
+    "tabOrder": 45001
   },
   "visual": {
     "visualType": "cardVisual",
@@ -20,20 +20,34 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "concepts"
+                      "Entity": "Historical_and_Turnover"
                     }
                   },
-                  "Property": "MNR txt"
+                  "Property": "Total HC vs Actives h&t"
                 }
               },
-              "queryRef": "concepts.MNR txt",
-              "nativeQueryRef": "MNR",
-              "displayName": "MNR"
+              "queryRef": "Historical_and_Turnover.Total HC vs Actives h&t",
+              "nativeQueryRef": "Total HC vs Actives h&t"
             }
           ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Historical_and_Turnover"
+                  }
+                },
+                "Property": "Total HC vs Actives h&t"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
@@ -54,96 +68,74 @@
           }
         }
       ],
+      "fillCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "label": [
         {
           "properties": {
-            "fontFamily": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
+                  "Value": "false"
                 }
               }
-            },
-            "fontSize": {
+            }
+          },
+          "selector": {
+            "metadata": "calculations_live_roster.2. % Bench vs Total (live)"
+          }
+        },
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "calculations_live_roster.2. % Bench vs. Active (live)"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "calculations_live_roster.2. % Unpla vs. Active (live)"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "concepts.Active Condition Txt"
-          }
-        },
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "textWrap": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "concepts.Accounts Attrition  txt"
-          }
-        },
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "concepts.MNR txt"
           }
         }
       ],
@@ -169,11 +161,11 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "25D"
                 }
               }
             },
-            "textWrap": {
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -182,7 +174,7 @@
             }
           },
           "selector": {
-            "metadata": "concepts.Active Condition Txt"
+            "metadata": "calculations_live_roster.2. % Bench vs Total (live)"
           }
         },
         {
@@ -190,11 +182,11 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "25D"
                 }
               }
             },
-            "textWrap": {
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -203,7 +195,7 @@
             }
           },
           "selector": {
-            "metadata": "concepts.Accounts Attrition  txt"
+            "metadata": "calculations_live_roster.2. % Bench vs. Active (live)"
           }
         },
         {
@@ -211,11 +203,11 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "18D"
                 }
               }
             },
-            "textWrap": {
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -224,7 +216,28 @@
             }
           },
           "selector": {
-            "metadata": "concepts.MNR txt"
+            "metadata": "calculations_live_roster.2. % Unpla vs. Active (live)"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ]
@@ -246,51 +259,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "background": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "14D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
-                }
-              }
             }
           }
         }
@@ -301,7 +269,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -318,61 +286,10 @@
       "border": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#E3E8EB'"
-                    }
-                  }
-                }
-              }
-            },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "5D"
-                }
-              }
-            },
             "width": {
               "expr": {
                 "Literal": {
                   "Value": "1D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "dropShadow": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "visualTooltip": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
                 }
               }
             }

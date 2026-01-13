@@ -158,3 +158,26 @@ expression COL_invoice2025 =
 
 	annotation PBI_ResultType = Table
 
+expression 'Errors in turnover_data' =
+		let
+		Source = turnover_data,
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Branch", "Office", "Industry", "Business Unit", "Employee Name", "ID Number", "ID Type", "Status", "Substatus", "Last Status Date", "Availability", "Final Date", "Text Date", "Direct", "Temporal Entry Date", "Entry Date", "downsell_id", "Downsell", "Reason", "Customer", "Last Position", "Age in the bench", "revisar last status", "roster_vs_invoice_ID", "roster_ID", "Service Line", "segmentation_ID", "Main Account Name", "Type of termination", "Main reason for withdrawal", "Date", "Salary Cost", "Billrate", "Bench", "Bench Processing?", "Text date", "Service Line2", "Status 259", "Worked days", "Country", "Division", "Cycle"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Branch", "Office", "Industry", "Business Unit", "Employee Name", "ID Number", "ID Type", "Status", "Substatus", "Last Status Date", "Availability", "Final Date", "Text Date", "Direct", "Temporal Entry Date", "Entry Date", "downsell_id", "Downsell", "Reason", "Customer", "Last Position", "Age in the bench", "revisar last status", "roster_vs_invoice_ID", "roster_ID", "Service Line", "segmentation_ID", "Main Account Name", "Type of termination", "Main reason for withdrawal", "Date", "Salary Cost", "Billrate", "Bench", "Bench Processing?", "Text date", "Service Line2", "Status 259", "Worked days", "Country", "Division", "Cycle"})
+		in
+		  #"Reordered Columns"
+	lineageTag: eb0d857e-60bc-44e1-80f1-f9f764995145
+	queryGroup: 'Query Errors - 1/13/2026 2:23:30 PM'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

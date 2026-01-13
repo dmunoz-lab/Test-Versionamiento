@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "4b351aea10b0243b07c1",
+  "name": "42aef016317c01acaa08",
   "position": {
-    "x": 274.352163611423,
-    "y": 532.902660867939,
-    "z": 39000,
-    "height": 64.545454545454547,
-    "width": 107.27272727272727,
-    "tabOrder": 35000
+    "x": 275,
+    "y": 533,
+    "z": 46000,
+    "height": 64,
+    "width": 107,
+    "tabOrder": 45000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "calculations_live_roster"
+                      "Entity": "Historical_and_Turnover"
                     }
                   },
-                  "Property": "2. % Unpla vs. Active (live)"
+                  "Property": "TO vs Actives h&t"
                 }
               },
-              "queryRef": "calculations_live_roster.2. % Unpla vs. Active (live)",
-              "nativeQueryRef": "2. % Unpla vs. Active (live)"
+              "queryRef": "Historical_and_Turnover.TO vs Actives h&t",
+              "nativeQueryRef": "TO vs Actives h&t"
             }
           ]
         }
@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "calculations_live_roster"
+                    "Entity": "Historical_and_Turnover"
                   }
                 },
-                "Property": "2. % Unpla vs. Active (live)"
+                "Property": "TO vs Actives h&t"
               }
             },
             "direction": "Descending"
@@ -52,68 +52,32 @@
       }
     },
     "objects": {
-      "value": [
+      "divider": [
         {
           "properties": {
-            "fontSize": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "25D"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "calculations_live_roster.2. % Bench vs Total (live)"
+            "id": "default"
           }
-        },
+        }
+      ],
+      "fillCustom": [
         {
           "properties": {
-            "fontSize": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "25D"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
-          },
-          "selector": {
-            "metadata": "calculations_live_roster.2. % Bench vs. Active (live)"
-          }
-        },
-        {
-          "properties": {
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "18D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "calculations_live_roster.2. % Unpla vs. Active (live)"
           }
         }
       ],
@@ -159,22 +123,7 @@
           "selector": {
             "metadata": "calculations_live_roster.2. % Unpla vs. Active (live)"
           }
-        }
-      ],
-      "fillCustom": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "divider": [
+        },
         {
           "properties": {
             "show": {
@@ -205,29 +154,95 @@
             "id": "default"
           }
         }
-      ]
-    },
-    "visualContainerObjects": {
-      "background": [
+      ],
+      "value": [
         {
           "properties": {
-            "show": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "25D"
                 }
               }
             },
-            "transparency": {
+            "bold": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "true"
                 }
               }
             }
+          },
+          "selector": {
+            "metadata": "calculations_live_roster.2. % Bench vs Total (live)"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "25D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "calculations_live_roster.2. % Bench vs. Active (live)"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "calculations_live_roster.2. % Unpla vs. Active (live)"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
           }
         }
-      ],
+      ]
+    },
+    "visualContainerObjects": {
       "title": [
         {
           "properties": {
@@ -242,6 +257,26 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }

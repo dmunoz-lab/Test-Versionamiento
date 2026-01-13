@@ -72,11 +72,6 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Background_New_Brand_(No_left_03739824994425278.png",
-          "path": "Background_New_Brand_(No_left_03739824994425278.png",
-          "type": "Image"
-        },
-        {
           "name": "Background_New_Brand_(No_left_14896877886983861.png",
           "path": "Background_New_Brand_(No_left_14896877886983861.png",
           "type": "Image"
@@ -159,6 +154,11 @@
         {
           "name": "angle-double-small-right48860689265995516.png",
           "path": "angle-double-small-right48860689265995516.png",
+          "type": "Image"
+        },
+        {
+          "name": "Frame_2_(28)13484173908376407.png",
+          "path": "Frame_2_(28)13484173908376407.png",
           "type": "Image"
         }
       ]

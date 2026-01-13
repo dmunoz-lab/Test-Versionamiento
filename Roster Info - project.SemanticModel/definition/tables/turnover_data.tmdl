@@ -358,6 +358,14 @@ table turnover_data
 
 		annotation SummarizationSetBy = Automatic
 
+	column Cycle
+		dataType: string
+		lineageTag: d28fc859-e945-4723-909c-65389449f560
+		summarizeBy: none
+		sourceColumn: Cycle
+
+		annotation SummarizationSetBy = Automatic
+
 	partition turnover_data = m
 		mode: import
 		queryGroup: Attrition
@@ -383,9 +391,10 @@ table turnover_data
 				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","Carrier Sales","Domestic",Replacer.ReplaceText,{"Industry"}),
 				    #"Added Conditional Column1" = Table.AddColumn(#"Replaced Value1", "Country", each if [Branch] = "Bogota" then "Colombia" else if [Branch] = "Medellin" then "Colombia" else if [Branch] = "Bucaramanga" then "Colombia" else if [Branch] = "Cartagena" then "Colombia" else if [Branch] = "Barranquilla" then "Colombia" else if [Branch] = "Cali" then "Colombia" else if [Branch] = "Manila" then "Philippines" else if [Branch] = "Ciudad De Guatemala" then "Guatemala" else if [Branch] = "Ciudad De Mexico" then "Mexico" else null),
 				    #"Removed Columns" = Table.RemoveColumns(#"Added Conditional Column1",{"Residence", "company_id", "Account", "company_legal_name", "Sub Account", "Cost Center", "Active Date", "Senior managers", "OPS managers", "Account Position", "Internal Position", "Department", "Area", "assigned_date", "Birthday", "Requisition", "Real Entry Date"}),
-				    #"Added Conditional Column2" = Table.AddColumn(#"Removed Columns", "Division", each if [Service Line] = "SMB" then "SMB" else if [Service Line] = "Enterprise" then "Enterprise" else if [Service Line] = "Marketing" then "Marketing" else if [Service Line] = "Bench" then "Bench" else if [Industry] = "Gf" then "Gf" else if [Industry] = "Domestic" then "Domestic" else if [Industry] = "Bpo" then "Bpo" else "NA")
+				    #"Added Conditional Column2" = Table.AddColumn(#"Removed Columns", "Division", each if [Service Line] = "SMB" then "SMB" else if [Service Line] = "Enterprise" then "Enterprise" else if [Service Line] = "Marketing" then "Marketing" else if [Service Line] = "Bench" then "Bench" else if [Industry] = "Gf" then "Gf" else if [Industry] = "Domestic" then "Domestic" else if [Industry] = "Bpo" then "Bpo" else "NA"),
+				    #"Added Custom1" = Table.AddColumn(#"Added Conditional Column2", "Cycle", each if Date.Day([Final Date]) <= 15 then "15th" else "30th")
 				in
-				    #"Added Conditional Column2"
+				    #"Added Custom1"
 				```
 
 	annotation PBI_ResultType = Table

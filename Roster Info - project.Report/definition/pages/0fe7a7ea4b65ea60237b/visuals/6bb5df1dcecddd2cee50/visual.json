@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "roster_historical"
+                      "Entity": "Dim_cycle"
                     }
                   },
                   "Property": "Cycle"
                 }
               },
-              "queryRef": "roster_historical.Cycle",
+              "queryRef": "Dim_cycle.Cycle",
               "nativeQueryRef": "Cycle",
               "active": true
             }
@@ -43,8 +43,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "r",
-                    "Entity": "roster_historical",
+                    "Name": "d",
+                    "Entity": "Dim_cycle",
                     "Type": 0
                   }
                 ],
@@ -57,7 +57,7 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "r"
+                                  "Source": "d"
                                 }
                               },
                               "Property": "Cycle"
@@ -361,5 +361,61 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0fb1864680a224ae0008",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_cycle"
+              }
+            },
+            "Property": "Cycle"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "Dim_cycle",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "d"
+                            }
+                          },
+                          "Property": "Cycle"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }

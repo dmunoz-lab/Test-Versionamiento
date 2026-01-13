@@ -30,11 +30,16 @@ queryGroup SCR
 
 	annotation PBI_QueryGroupOrder = 5
 
-annotation PBI_QueryOrder = ["business_unit","country","branch","branch_country","industry","service_line","calculations_turnover","calculations_mnr","calculations_live_roster","turnover_data","downsells","upsells","roster_historical","roster_account_name","customer_segmentation","finance_accounts_name","aging","billing_cycle","workplace","support_staff","removals2025","activations2025","roster_historical2025","LIVE_ROSTER","NNB","concepts","turnover_data2025","main_accounts","service_line_historical","zero_revenue","calculations_zrh","divisions","calculations_roster_historical","calculations_attrition","PHL_invoice","COL_invoice","GUA_invoice","MEX_invoice","PHL_invoice2025","MEX_invoice2025","GUA_invoice2025","COL_invoice2025","SCR_finance","status","ROSTER_AND_NNB2","Historical_and_Turnover"]
+/// Errors in queries that were loaded on 1/13/2026 2:23:30 PM.
+queryGroup 'Query Errors - 1/13/2026 2:23:30 PM'
+
+	annotation PBI_QueryGroupOrder = 6
+
+annotation PBI_QueryOrder = ["business_unit","country","branch","branch_country","industry","service_line","calculations_turnover","calculations_mnr","calculations_live_roster","turnover_data","downsells","upsells","roster_historical","roster_account_name","customer_segmentation","finance_accounts_name","aging","billing_cycle","workplace","support_staff","removals2025","activations2025","roster_historical2025","LIVE_ROSTER","NNB","concepts","turnover_data2025","main_accounts","service_line_historical","zero_revenue","calculations_zrh","divisions","calculations_roster_historical","calculations_attrition","PHL_invoice","COL_invoice","GUA_invoice","MEX_invoice","PHL_invoice2025","MEX_invoice2025","GUA_invoice2025","COL_invoice2025","SCR_finance","status","ROSTER_AND_NNB2","Historical_and_Turnover","Dim_cycle","Errors in turnover_data"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop"]
 
 ref table DateTableTemplate_cb83172e-3d57-41bc-8e44-576ba43ab754
 ref table branch
@@ -100,9 +105,9 @@ ref table Historical_and_Turnover
 ref table LocalDateTable_806f30dd-b2f0-4934-9b8c-a1a8b0eadd5b
 ref table LocalDateTable_ef7a0403-c8f9-4f7b-baa1-b365bbbd739b
 ref table LocalDateTable_051971ff-f2b1-4dc2-89a7-4397b24d8a47
-ref table LocalDateTable_4c28aed4-f755-4a45-a123-b39d17777196
-ref table LocalDateTable_2695f737-8498-47d9-8cad-abc1cc976462
 ref table LocalDateTable_856d2beb-fdfb-4279-842c-9483f92bb662
+ref table Dim_cycle
+ref table LocalDateTable_6725f001-b9bf-43a7-928e-ecbd51254371
 
 ref cultureInfo en-US
 

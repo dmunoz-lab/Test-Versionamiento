@@ -167,23 +167,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "0de220f54e52de99dd89",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "a5e56df354658d0b51ae",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calculations_live_roster"
-              }
-            },
-            "Property": "2. % Bench vs Total (live)"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "0de220f54e52de99dd89"
 }

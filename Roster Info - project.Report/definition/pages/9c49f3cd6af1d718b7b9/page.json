@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
   "name": "9c49f3cd6af1d718b7b9",
   "displayName": "Introduction",
-  "displayOption": "FitToWidth",
-  "height": 720,
+  "displayOption": "ActualSize",
+  "height": 864,
   "width": 1280,
   "filterConfig": {
     "filters": [
@@ -117,11 +117,6 @@
       }
     ]
   },
-  "pageBinding": {
-    "name": "0750aef7ed59f5f8f845",
-    "type": "Default",
-    "parameters": []
-  },
   "objects": {
     "outspace": [
       {
@@ -155,7 +150,7 @@
               "name": {
                 "expr": {
                   "Literal": {
-                    "Value": "'Background_New Brand (No left bar).png'"
+                    "Value": "'Frame 2 (28).png'"
                   }
                 }
               },
@@ -164,14 +159,14 @@
                   "ResourcePackageItem": {
                     "PackageName": "RegisteredResources",
                     "PackageType": 1,
-                    "ItemName": "Background_New_Brand_(No_left_03739824994425278.png"
+                    "ItemName": "Frame_2_(28)13484173908376407.png"
                   }
                 }
               },
               "scaling": {
                 "expr": {
                   "Literal": {
-                    "Value": "'Fit'"
+                    "Value": "'Normal'"
                   }
                 }
               }

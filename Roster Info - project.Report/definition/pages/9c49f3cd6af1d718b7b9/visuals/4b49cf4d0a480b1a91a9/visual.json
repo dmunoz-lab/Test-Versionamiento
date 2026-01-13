@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "4b49cf4d0a480b1a91a9",
   "position": {
-    "x": 435.3694581280788,
-    "y": 75.369458128078819,
-    "z": 5000,
-    "height": 100.19704433497537,
-    "width": 189.7536945812808,
-    "tabOrder": 5000
+    "x": 649,
+    "y": 688,
+    "z": 4000,
+    "height": 144,
+    "width": 189,
+    "tabOrder": 4000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Values": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -26,9 +26,8 @@
                   "Property": "Zero Revenue txt"
                 }
               },
-              "queryRef": "concepts.Zero Revenue",
-              "nativeQueryRef": "Zero Revenue",
-              "displayName": "Zero Revenue"
+              "queryRef": "concepts.Zero Revenue txt",
+              "nativeQueryRef": "Zero Revenue"
             }
           ]
         }
@@ -38,24 +37,50 @@
       }
     },
     "objects": {
-      "categoryLabels": [
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
         {
           "properties": {
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0099FF'"
-                    }
-                  }
+                  "Value": "12D"
                 }
               }
             },
@@ -66,10 +91,50 @@
                 }
               }
             }
+          },
+          "selector": {
+            "metadata": "concepts.Active Condition Txt"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "concepts.Zero Revenue txt"
           }
         }
       ],
-      "labels": [
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "value": [
         {
           "properties": {
             "fontSize": {
@@ -78,7 +143,38 @@
                   "Value": "8D"
                 }
               }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
+          },
+          "selector": {
+            "metadata": "concepts.Active Condition Txt"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "concepts.Zero Revenue txt"
           }
         }
       ]
@@ -90,7 +186,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -155,7 +251,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -184,7 +280,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#100050'"
+                      "Value": "'#E3E8EB'"
                     }
                   }
                 }
@@ -193,7 +289,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "5D"
                 }
               }
             },

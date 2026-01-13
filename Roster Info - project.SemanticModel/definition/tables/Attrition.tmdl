@@ -5,10 +5,6 @@ table Attrition
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: d0029678-a368-4a65-8889-154e9979e548
 
-	measure 'Version control measure test' = COUNTA(Attrition[Account Name])
-		formatString: 0
-		lineageTag: 58c34006-8e2a-4bef-8cbb-b1f8bf8dbcff
-
 	column Segmentation_ID
 		formatString: 0
 		lineageTag: 42dbcf06-10d6-493d-b557-8346b9b82655

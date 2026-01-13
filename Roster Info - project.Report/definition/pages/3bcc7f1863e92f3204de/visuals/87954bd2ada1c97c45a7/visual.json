@@ -1186,62 +1186,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "cc7e14aac4aa0e017b68",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calculations_live_roster"
-              }
-            },
-            "Property": "0. Total HC (live)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "acd4bb7c0652e031bba7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calculations_roster_historical"
-              }
-            },
-            "Property": "Previous Month Headcount"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5f1ca4e436416e4a7b2d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "branch_country"
-              }
-            },
-            "Property": "country"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5a09720004c2380452ec",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "divisions"
-              }
-            },
-            "Property": "Divisions"
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"
